@@ -14,26 +14,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Header -->
+    <!-- Modern Navigation Header -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
         <div class="container">
-            <a class="navbar-brand" href="#">QEG</a>
+            <a class="navbar-brand" href="#">
+                <span class="brand-text">QEG</span>
+                <span class="brand-year">2025</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span>About</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#speakers">Speakers</a>
+                        <a class="nav-link" href="#speakers">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span>Speakers</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#details">Details</a>
+                        <a class="nav-link" href="#details">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span>Details</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-light btn-sm px-3 ms-lg-2" href="#registration">Register Now</a>
+                        <a class="nav-link btn btn-accent btn-sm px-3 ms-lg-2" href="#registration">
+                            <i class="fas fa-user-plus me-1"></i> Register Now
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -47,8 +61,9 @@
         </div>
     </header>
 
-    <!-- Event Details Section -->
-    <section class="py-5 bg-primary text-white" id="details">
+    <!-- Modern Event Details Section -->
+    <section class="details-section" id="details">
+        <div class="details-bg-shape"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -62,7 +77,7 @@
                             <div class="event-theme-text">BUILDING WEALTH, BUILDING FUTURES</div>
                         </div>
                         <div class="mt-4">
-                            <a href="#registration" class="btn btn-light btn-lg px-5">
+                            <a href="#registration" class="btn btn-accent btn-lg px-5">
                                 <i class="fas fa-user-plus me-2"></i> REGISTER NOW
                             </a>
                         </div>
@@ -70,70 +85,98 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <div class="details-card">
-                                <h3 class="details-card-title"><i class="fas fa-info-circle me-2"></i>Event Details</h3>
-                                <ul class="details-card-list">
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <div>
-                                            <strong>Venue:</strong>
-                                            <span>Emara Ole Sereni Hotel</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        <div>
-                                            <strong>Cost:</strong>
-                                            <span>7,000/= per person</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-credit-card"></i>
-                                        <div>
-                                            <strong>Payment:</strong>
-                                            <span>Send Money to 0721 599 013</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-user"></i>
-                                        <div>
-                                            <strong>Recipient:</strong>
-                                            <span>Esther Obasi-ike</span>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="modern-card">
+                                <div class="modern-card-header">
+                                    <div class="modern-card-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <h3 class="modern-card-title">Event Details</h3>
+                                </div>
+                                <div class="modern-card-body">
+                                    <ul class="modern-card-list">
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Venue</strong>
+                                                <span>Emara Ole Sereni Hotel</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Cost</strong>
+                                                <span>7,000/= per person</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-credit-card"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Payment</strong>
+                                                <span>Send Money to 0721 599 013</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Recipient</strong>
+                                                <span>Esther Obasi-ike</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="details-card">
-                                <h3 class="details-card-title"><i class="fas fa-address-book me-2"></i>Contact Information</h3>
-                                <ul class="details-card-list">
-                                    <li>
-                                        <i class="fas fa-phone"></i>
-                                        <div>
-                                            <strong>Phone:</strong>
-                                            <span>0721599013</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-envelope"></i>
-                                        <div>
-                                            <strong>Email:</strong>
-                                            <span>queenesthers2012@gmail.com</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-globe"></i>
-                                        <div>
-                                            <strong>Website:</strong>
-                                            <span>www.queenesthersgeneration.org</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="text-center mt-4">
-                                    <a href="#registration" class="btn btn-light btn-lg">
-                                        Register Now
-                                    </a>
+                            <div class="modern-card">
+                                <div class="modern-card-header">
+                                    <div class="modern-card-icon">
+                                        <i class="fas fa-address-book"></i>
+                                    </div>
+                                    <h3 class="modern-card-title">Contact Information</h3>
+                                </div>
+                                <div class="modern-card-body">
+                                    <ul class="modern-card-list">
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Phone</strong>
+                                                <span>0721599013</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Email</strong>
+                                                <span>queenesthers2012@gmail.com</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <div class="list-content">
+                                                <strong>Website</strong>
+                                                <span>www.queenesthersgeneration.org</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="#registration" class="btn btn-accent btn-lg">
+                                            Register Now
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -187,51 +230,75 @@
         </div>
     </section>
 
-    <!-- Distinguished Speakers Section -->
-    <section class="py-5 speakers-section" id="speakers">
+    <!-- Modern Distinguished Speakers Section -->
+    <section class="speakers-section" id="speakers">
         <div class="container">
             <div class="section-header text-center mb-5">
-                <h3 class="display-5 fw-bold">Our Distinguished Speakers</h3>
-                <div class="divider my-4 mx-auto"></div>
+                <h3>Our Distinguished Speakers</h3>
+                <div class="divider mx-auto"></div>
                 <p class="lead">Learn from industry leaders and experts</p>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="speakers-container">
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
+                        <div class="speaker-card">
+                            <div class="speaker-photo">
                                 <div class="speaker-initials">EOI</div>
-                                <h4 class="speaker-name-hex">Pastor Esther Obasi-ike, Ph.D</h4>
-                                <p class="speaker-title-hex">Founder & President</p>
-                                <p class="speaker-company-hex">Queen Esthers' Generation</p>
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Pastor Esther Obasi-ike, Ph.D</h4>
+                                <p class="speaker-title">Founder & President</p>
+                                <p class="speaker-company">Queen Esthers' Generation</p>
+                                <div class="speaker-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
+                        <div class="speaker-card">
+                            <div class="speaker-photo">
                                 <div class="speaker-initials">GW</div>
-                                <h4 class="speaker-name-hex">Dr. George Wachiuri</h4>
-                                <p class="speaker-title-hex">CEO</p>
-                                <p class="speaker-company-hex">Optiven Group Limited</p>
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. George Wachiuri</h4>
+                                <p class="speaker-title">CEO</p>
+                                <p class="speaker-company">Optiven Group Limited</p>
+                                <div class="speaker-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
+                        <div class="speaker-card">
+                            <div class="speaker-photo">
                                 <div class="speaker-initials">FM</div>
-                                <h4 class="speaker-name-hex">Flora Mutahi</h4>
-                                <p class="speaker-title-hex">CEO</p>
-                                <p class="speaker-company-hex">Melvin March International Limited</p>
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Flora Mutahi</h4>
+                                <p class="speaker-title">CEO</p>
+                                <p class="speaker-company">Melvin March International Limited</p>
+                                <div class="speaker-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
+                        <div class="speaker-card">
+                            <div class="speaker-photo">
                                 <div class="speaker-initials">TOA</div>
-                                <h4 class="speaker-name-hex">Pastor Tosin Olayinka Ajibs</h4>
-                                <p class="speaker-title-hex">Founder & Proprietress</p>
-                                <p class="speaker-company-hex">Paradise of God Schools, Nigeria</p>
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Pastor Tosin Olayinka Ajibs</h4>
+                                <p class="speaker-title">Founder & Proprietress</p>
+                                <p class="speaker-company">Paradise of God Schools, Nigeria</p>
+                                <div class="speaker-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -451,19 +518,45 @@
 
 
 
-    <!-- Enhanced Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
+    <!-- Modern Corporate Footer -->
+    <footer class="modern-footer">
+        <div class="footer-shape"></div>
+        <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p class="mb-2">© 2025 Queen Esthers' Generation. All Rights Reserved.</p>
-                    <div class="social-links mt-3 mb-3">
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="footer-brand">
+                        <h4>Queen Esthers' Generation</h4>
+                        <p>Building Wealth, Building Futures</p>
                     </div>
-                    <p class="small">Contact: queenesthers2012@gmail.com | 0721599013</p>
+                    <p class="footer-text">Join us for this transformative economic empowerment breakfast meeting and take the first step towards building sustainable wealth.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about"><i class="fas fa-angle-right"></i> About the Event</a></li>
+                        <li><a href="#speakers"><i class="fas fa-angle-right"></i> Our Speakers</a></li>
+                        <li><a href="#details"><i class="fas fa-angle-right"></i> Event Details</a></li>
+                        <li><a href="#registration"><i class="fas fa-angle-right"></i> Registration</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> 0721599013</li>
+                        <li><i class="fas fa-envelope"></i> queenesthers2012@gmail.com</li>
+                        <li><i class="fas fa-globe"></i> www.queenesthersgeneration.org</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>© 2025 Queen Esthers' Generation. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

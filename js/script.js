@@ -180,19 +180,20 @@ function showAlert(message, type) {
     }, 5000);
 }
 
-// Function to handle navigation bar transparency
+// Modern navigation handling
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle navbar transparency on scroll
+    // Enhanced navbar transparency and scrolling effects
     const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     function handleNavbarTransparency() {
         if (window.scrollY > 100) {
             navbar.classList.remove('nav-transparent');
-            navbar.classList.add('bg-primary');
+            navbar.classList.add('scrolled');
             navbar.style.padding = '0.5rem 0';
         } else {
             navbar.classList.add('nav-transparent');
-            navbar.classList.remove('bg-primary');
+            navbar.classList.remove('scrolled');
             navbar.style.padding = '1rem 0';
         }
     }
@@ -203,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scroll event listener
     window.addEventListener('scroll', handleNavbarTransparency);
 
-    // Smooth scrolling for anchor links
+    // Enhanced smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -211,11 +212,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
+            // Highlight active nav item
+            navLinks.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20; // Extra padding
 
                 window.scrollTo({
                     top: targetPosition,
@@ -228,6 +233,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
                 }
+            }
+        });
+    });
+
+    // Add scroll spy functionality to highlight current section in nav
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const sections = document.querySelectorAll('section');
+        const navHeight = navbar.offsetHeight;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navHeight - 100; // Offset for earlier highlighting
+            const sectionHeight = section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = '#' + section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === current) {
+                link.classList.add('active');
             }
         });
     });
@@ -512,51 +540,120 @@ document.addEventListener('DOMContentLoaded', function() {
         // Trigger once on page load
         setTimeout(animateOnScroll, 300);
 
-        // Add direct event listeners to buttons as a fallback
-        document.querySelector('.btn-next[data-next="2"]').onclick = function(e) {
-            e.preventDefault();
-            console.log('Direct click on first next button');
-            document.querySelector('.form-step[data-step="1"]').classList.remove('active');
-            document.querySelector('.form-step[data-step="2"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="1"]').classList.add('completed');
-            document.querySelector('.progress-step[data-step="2"]').classList.add('active');
-        };
+        // Replace all event listeners with direct onclick handlers
+        // First Continue button (Personal → Details)
+        const btnNextToDetails = document.querySelector('.btn-next[data-next="2"]');
+        if (btnNextToDetails) {
+            // Remove any existing event listeners
+            btnNextToDetails.replaceWith(btnNextToDetails.cloneNode(true));
+            // Get the fresh element
+            const newBtnNextToDetails = document.querySelector('.btn-next[data-next="2"]');
+            // Add the click handler
+            newBtnNextToDetails.onclick = function(e) {
+                e.preventDefault();
+                console.log('Direct click on first next button (to Details)');
 
-        document.querySelector('.btn-next[data-next="3"]').onclick = function(e) {
-            e.preventDefault();
-            console.log('Direct click on second next button');
-            document.querySelector('.form-step[data-step="2"]').classList.remove('active');
-            document.querySelector('.form-step[data-step="3"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="2"]').classList.add('completed');
-            document.querySelector('.progress-step[data-step="3"]').classList.add('active');
-        };
+                // Hide current step (Personal)
+                document.querySelector('.form-step[data-step="1"]').classList.remove('active');
+                // Show next step (Details)
+                document.querySelector('.form-step[data-step="2"]').classList.add('active');
 
-        document.querySelector('.btn-prev[data-prev="1"]').onclick = function(e) {
-            e.preventDefault();
-            console.log('Direct click on first prev button');
-            document.querySelector('.form-step[data-step="2"]').classList.remove('active');
-            document.querySelector('.form-step[data-step="1"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="2"]').classList.remove('active');
-            document.querySelector('.progress-step[data-step="1"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="1"]').classList.remove('completed');
-        };
+                // Update progress indicator
+                document.querySelector('.progress-step[data-step="1"]').classList.add('completed');
+                document.querySelector('.progress-step[data-step="2"]').classList.add('active');
 
-        document.querySelector('.btn-prev[data-prev="2"]').onclick = function(e) {
-            e.preventDefault();
-            console.log('Direct click on second prev button');
-            document.querySelector('.form-step[data-step="3"]').classList.remove('active');
-            document.querySelector('.form-step[data-step="2"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="3"]').classList.remove('active');
-            document.querySelector('.progress-step[data-step="2"]').classList.add('active');
-            document.querySelector('.progress-step[data-step="2"]').classList.remove('completed');
-        };
+                // Scroll to top of form
+                document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        // Second Continue button (Details → Payment)
+        const btnNextToPayment = document.querySelector('.btn-next[data-next="3"]');
+        if (btnNextToPayment) {
+            // Remove any existing event listeners
+            btnNextToPayment.replaceWith(btnNextToPayment.cloneNode(true));
+            // Get the fresh element
+            const newBtnNextToPayment = document.querySelector('.btn-next[data-next="3"]');
+            // Add the click handler
+            newBtnNextToPayment.onclick = function(e) {
+                e.preventDefault();
+                console.log('Direct click on second next button (to Payment)');
+
+                // Hide current step (Details)
+                document.querySelector('.form-step[data-step="2"]').classList.remove('active');
+                // Show next step (Payment)
+                document.querySelector('.form-step[data-step="3"]').classList.add('active');
+
+                // Update progress indicator
+                document.querySelector('.progress-step[data-step="2"]').classList.add('completed');
+                document.querySelector('.progress-step[data-step="3"]').classList.add('active');
+
+                // Scroll to top of form
+                document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        // First Back button (Details → Personal)
+        const btnPrevToPersonal = document.querySelector('.btn-prev[data-prev="1"]');
+        if (btnPrevToPersonal) {
+            // Remove any existing event listeners
+            btnPrevToPersonal.replaceWith(btnPrevToPersonal.cloneNode(true));
+            // Get the fresh element
+            const newBtnPrevToPersonal = document.querySelector('.btn-prev[data-prev="1"]');
+            // Add the click handler
+            newBtnPrevToPersonal.onclick = function(e) {
+                e.preventDefault();
+                console.log('Direct click on first prev button (to Personal)');
+
+                // Hide current step (Details)
+                document.querySelector('.form-step[data-step="2"]').classList.remove('active');
+                // Show previous step (Personal)
+                document.querySelector('.form-step[data-step="1"]').classList.add('active');
+
+                // Update progress indicator
+                document.querySelector('.progress-step[data-step="2"]').classList.remove('active');
+                document.querySelector('.progress-step[data-step="1"]').classList.add('active');
+                document.querySelector('.progress-step[data-step="1"]').classList.remove('completed');
+
+                // Scroll to top of form
+                document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        // Second Back button (Payment → Details)
+        const btnPrevToDetails = document.querySelector('.btn-prev[data-prev="2"]');
+        if (btnPrevToDetails) {
+            // Remove any existing event listeners
+            btnPrevToDetails.replaceWith(btnPrevToDetails.cloneNode(true));
+            // Get the fresh element
+            const newBtnPrevToDetails = document.querySelector('.btn-prev[data-prev="2"]');
+            // Add the click handler
+            newBtnPrevToDetails.onclick = function(e) {
+                e.preventDefault();
+                console.log('Direct click on second prev button (to Details)');
+
+                // Hide current step (Payment)
+                document.querySelector('.form-step[data-step="3"]').classList.remove('active');
+                // Show previous step (Details)
+                document.querySelector('.form-step[data-step="2"]').classList.add('active');
+
+                // Update progress indicator
+                document.querySelector('.progress-step[data-step="3"]').classList.remove('active');
+                document.querySelector('.progress-step[data-step="2"]').classList.add('active');
+                document.querySelector('.progress-step[data-step="2"]').classList.remove('completed');
+
+                // Scroll to top of form
+                document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+            };
+        }
     }
 });
 
-// Function to add animation effects
+// Function to add animation effects for the entire page
+document.addEventListener('DOMContentLoaded', function() {
     // Add animation to elements when they come into view
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.card, .section-header, .btn-register');
+    const pageAnimateOnScroll = function() {
+        const elements = document.querySelectorAll('.card, .section-header, .btn-register, .modern-card, .speaker-card');
 
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -570,7 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Set initial state for animation
-    const elementsToAnimate = document.querySelectorAll('.card, .section-header, .btn-register');
+    const elementsToAnimate = document.querySelectorAll('.card, .section-header, .btn-register, .modern-card, .speaker-card');
     elementsToAnimate.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
@@ -578,9 +675,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Run animation on load and scroll
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', pageAnimateOnScroll);
+    window.addEventListener('load', pageAnimateOnScroll);
 
     // Trigger once on page load
-    setTimeout(animateOnScroll, 100);
+    setTimeout(pageAnimateOnScroll, 100);
 });
