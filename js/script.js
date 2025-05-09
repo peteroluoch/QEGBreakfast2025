@@ -232,6 +232,254 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+// Registration Form Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Multi-step form handling
+    const registrationForm = document.getElementById('registrationForm');
+    if (registrationForm) {
+        const formSteps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const nextButtons = document.querySelectorAll('.btn-next');
+        const prevButtons = document.querySelectorAll('.btn-prev');
+
+        // Next button click handler
+        nextButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const currentStep = parseInt(this.getAttribute('data-next')) - 1;
+                const nextStep = parseInt(this.getAttribute('data-next'));
+
+                // Validate current step before proceeding
+                if (validateStep(currentStep)) {
+                    // Hide current step
+                    formSteps[currentStep].classList.remove('active');
+                    // Show next step
+                    formSteps[nextStep].classList.add('active');
+
+                    // Update progress indicator
+                    progressSteps[currentStep].classList.add('completed');
+                    progressSteps[nextStep].classList.add('active');
+
+                    // Scroll to top of form
+                    registrationForm.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Previous button click handler
+        prevButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const currentStep = parseInt(this.getAttribute('data-prev')) + 1;
+                const prevStep = parseInt(this.getAttribute('data-prev'));
+
+                // Hide current step
+                formSteps[currentStep].classList.remove('active');
+                // Show previous step
+                formSteps[prevStep].classList.add('active');
+
+                // Update progress indicator
+                progressSteps[currentStep].classList.remove('active');
+                progressSteps[prevStep].classList.add('active');
+                progressSteps[prevStep].classList.remove('completed');
+
+                // Scroll to top of form
+                registrationForm.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Form submission handler
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Validate final step
+            if (validateStep(2)) {
+                // Show success message with animation
+                const formWrapper = document.querySelector('.registration-form-wrapper');
+                formWrapper.innerHTML = `
+                    <div class="success-message">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Registration Successful!</h3>
+                        <p>Thank you for registering for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting.</p>
+                        <p>We have sent a confirmation email with all the details.</p>
+                        <div class="payment-reminder">
+                            <h4>Payment Information</h4>
+                            <p>Please complete your payment to confirm your attendance:</p>
+                            <ul>
+                                <li><strong>Amount:</strong> KSh 7,000 per person</li>
+                                <li><strong>Send to:</strong> Esther Obasi-ike (0721 599 013)</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                // Add success styles
+                const successStyles = document.createElement('style');
+                successStyles.textContent = `
+                    .success-message {
+                        text-align: center;
+                        padding: 40px 20px;
+                        animation: fadeIn 0.5s ease forwards;
+                    }
+                    .success-icon {
+                        font-size: 5rem;
+                        color: #4CAF50;
+                        margin-bottom: 20px;
+                        animation: scaleIn 0.5s ease forwards 0.3s;
+                        opacity: 0;
+                        transform: scale(0.5);
+                    }
+                    .success-message h3 {
+                        font-size: 2rem;
+                        color: var(--primary-dark);
+                        margin-bottom: 20px;
+                    }
+                    .payment-reminder {
+                        background-color: #f8f9fa;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-top: 30px;
+                        text-align: left;
+                    }
+                    .payment-reminder h4 {
+                        color: var(--primary-color);
+                        margin-bottom: 15px;
+                    }
+                    .payment-reminder ul {
+                        list-style: none;
+                        padding-left: 0;
+                    }
+                    .payment-reminder ul li {
+                        margin-bottom: 10px;
+                    }
+                    @keyframes scaleIn {
+                        to {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+                `;
+                document.head.appendChild(successStyles);
+
+                // Scroll to top of success message
+                formWrapper.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Function to validate each step
+        function validateStep(stepIndex) {
+            const currentStep = formSteps[stepIndex];
+            const requiredFields = currentStep.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                // Reset previous validation
+                field.classList.remove('is-invalid');
+                const errorMessage = field.parentElement.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+
+                // Check if field is empty
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+
+                    // Add error message
+                    const error = document.createElement('div');
+                    error.className = 'error-message';
+                    error.textContent = 'This field is required';
+                    field.parentElement.appendChild(error);
+
+                    // Add error styles
+                    const errorStyles = document.createElement('style');
+                    errorStyles.textContent = `
+                        .is-invalid {
+                            border: 1px solid #dc3545 !important;
+                            background-color: rgba(220, 53, 69, 0.05) !important;
+                        }
+                        .error-message {
+                            color: #dc3545;
+                            font-size: 0.8rem;
+                            margin-top: 5px;
+                            margin-left: 50px;
+                        }
+                    `;
+                    document.head.appendChild(errorStyles);
+                }
+
+                // Validate email format if it's an email field
+                if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value.trim())) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+
+                        // Add error message
+                        const error = document.createElement('div');
+                        error.className = 'error-message';
+                        error.textContent = 'Please enter a valid email address';
+                        field.parentElement.appendChild(error);
+                    }
+                }
+
+                // Validate phone number format
+                if (field.id === 'phoneNumber' && field.value.trim()) {
+                    const phoneRegex = /^\d{10,12}$/;
+                    if (!phoneRegex.test(field.value.replace(/[\s-]/g, ''))) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+
+                        // Add error message
+                        const error = document.createElement('div');
+                        error.className = 'error-message';
+                        error.textContent = 'Please enter a valid phone number';
+                        field.parentElement.appendChild(error);
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        // Add placeholder attribute to all input fields for better UX
+        document.querySelectorAll('.floating-input-field').forEach(input => {
+            input.setAttribute('placeholder', ' ');
+        });
+
+        // Add animation to form elements when they come into view
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.floating-input, .floating-select, .form-navigation button');
+
+            elements.forEach((element, index) => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        };
+
+        // Set initial state for animation
+        document.querySelectorAll('.floating-input, .floating-select, .form-navigation button').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Run animation on load and scroll
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Trigger once on page load
+        setTimeout(animateOnScroll, 300);
+    }
+});
+
 // Function to add animation effects
     // Add animation to elements when they come into view
     const animateOnScroll = function() {

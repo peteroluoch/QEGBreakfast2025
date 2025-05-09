@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/registration.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -230,94 +231,206 @@
         </div>
     </section>
 
-    <!-- Enhanced Registration Form Section -->
-    <section class="py-5 bg-light" id="registration">
+    <!-- Ultra-Modern Registration Form Section -->
+    <section class="registration-section" id="registration">
+        <div class="registration-bg-shape"></div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-header text-center mb-5">
-                        <h3 class="display-5 fw-bold">Registration Form</h3>
-                        <div class="divider my-4 mx-auto"></div>
-                        <p class="lead">Secure your spot at this transformative event</p>
+                <div class="col-lg-10">
+                    <div class="registration-header text-center">
+                        <h2 class="registration-title">Join Us</h2>
+                        <div class="registration-divider"></div>
+                        <p class="registration-subtitle">Secure your place at this exclusive event</p>
                     </div>
-                    <div class="card registration-card">
-                        <div class="card-header bg-primary text-white py-3">
-                            <h4 class="mb-0 text-center">Personal Information</h4>
+
+                    <div class="registration-container">
+                        <div class="registration-progress">
+                            <div class="progress-step active" data-step="1">
+                                <div class="step-icon"><i class="fas fa-user"></i></div>
+                                <div class="step-label">Personal</div>
+                            </div>
+                            <div class="progress-connector"></div>
+                            <div class="progress-step" data-step="2">
+                                <div class="step-icon"><i class="fas fa-building"></i></div>
+                                <div class="step-label">Details</div>
+                            </div>
+                            <div class="progress-connector"></div>
+                            <div class="progress-step" data-step="3">
+                                <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                                <div class="step-label">Payment</div>
+                            </div>
                         </div>
-                        <div class="card-body p-4">
+
+                        <div class="registration-form-wrapper">
                             <form id="registrationForm">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="firstName" class="form-label fw-bold">First Name <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                                <!-- Step 1: Personal Information -->
+                                <div class="form-step active" data-step="1">
+                                    <h3 class="form-step-title">Personal Information</h3>
+
+                                    <div class="floating-input-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="floating-input">
+                                                    <input type="text" id="firstName" class="floating-input-field" required>
+                                                    <label for="firstName" class="floating-label">First Name</label>
+                                                    <div class="input-icon">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="floating-input">
+                                                    <input type="text" id="lastName" class="floating-input-field" required>
+                                                    <label for="lastName" class="floating-label">Last Name</label>
+                                                    <div class="input-icon">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="email" id="email" class="floating-input-field">
+                                            <label for="email" class="floating-label">Email Address</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <small class="input-hint">We'll send confirmation details to this email</small>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="tel" id="phoneNumber" class="floating-input-field" required>
+                                            <label for="phoneNumber" class="floating-label">Phone Number</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="lastName" class="form-label fw-bold">Last Name <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-next" data-next="2">
+                                            Continue <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Additional Details -->
+                                <div class="form-step" data-step="2">
+                                    <h3 class="form-step-title">Additional Details</h3>
+
+                                    <div class="floating-input-group">
+                                        <div class="floating-input">
+                                            <input type="text" id="organization" class="floating-input-field">
+                                            <label for="organization" class="floating-label">Organization/Company</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="text" id="position" class="floating-input-field">
+                                            <label for="position" class="floating-label">Position/Title</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-select">
+                                            <select id="hearAbout" class="floating-select-field">
+                                                <option value="" selected disabled></option>
+                                                <option value="social">Social Media</option>
+                                                <option value="friend">Friend/Colleague</option>
+                                                <option value="email">Email</option>
+                                                <option value="website">Website</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <label for="hearAbout" class="floating-label">How did you hear about us?</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-bold">Email Address</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
-                                    </div>
-                                    <small class="text-muted">We'll send confirmation details to this email</small>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phoneNumber" class="form-label fw-bold">Phone Number <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="e.g., 0721XXXXXX" required>
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-prev" data-prev="1">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <button type="button" class="btn-next" data-next="3">
+                                            Continue <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="organization" class="form-label fw-bold">Organization/Company</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                        <input type="text" class="form-control" id="organization" placeholder="Where do you work?">
+                                <!-- Step 3: Payment Information -->
+                                <div class="form-step" data-step="3">
+                                    <h3 class="form-step-title">Payment Information</h3>
+
+                                    <div class="payment-card">
+                                        <div class="payment-card-header">
+                                            <div class="payment-amount">
+                                                <span class="currency">KSh</span>
+                                                <span class="amount">7,000</span>
+                                                <span class="period">per person</span>
+                                            </div>
+                                        </div>
+                                        <div class="payment-card-body">
+                                            <div class="payment-method-selector">
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="mpesa" value="mpesa" checked>
+                                                    <label for="mpesa">
+                                                        <span class="payment-icon"><i class="fas fa-mobile-alt"></i></span>
+                                                        <span class="payment-label">M-Pesa</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="bank" value="bank">
+                                                    <label for="bank">
+                                                        <span class="payment-icon"><i class="fas fa-university"></i></span>
+                                                        <span class="payment-label">Bank Transfer</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="cash" value="cash">
+                                                    <label for="cash">
+                                                        <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                                        <span class="payment-label">Cash</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="payment-details">
+                                                <div class="payment-detail-item">
+                                                    <span class="detail-icon"><i class="fas fa-user"></i></span>
+                                                    <span class="detail-label">Send Money to:</span>
+                                                    <span class="detail-value">Esther Obasi-ike</span>
+                                                </div>
+                                                <div class="payment-detail-item">
+                                                    <span class="detail-icon"><i class="fas fa-phone"></i></span>
+                                                    <span class="detail-label">Phone Number:</span>
+                                                    <span class="detail-value">0721 599 013</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="terms-agreement">
+                                                <div class="custom-checkbox">
+                                                    <input type="checkbox" id="termsCheck" required>
+                                                    <label for="termsCheck">
+                                                        <span class="checkbox-icon"></span>
+                                                        <span>I agree to the <a href="#" class="terms-link">terms and conditions</a></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label for="paymentOption" class="form-label fw-bold">Payment Option <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-money-bill"></i></span>
-                                        <select class="form-select" id="paymentOption" required>
-                                            <option value="" selected disabled>Select your preferred payment method</option>
-                                            <option value="mpesa">M-Pesa</option>
-                                            <option value="bank">Bank Transfer</option>
-                                            <option value="cash">Cash</option>
-                                        </select>
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-prev" data-prev="2">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <button type="submit" class="btn-submit">
+                                            Complete Registration <i class="fas fa-check"></i>
+                                        </button>
                                     </div>
-                                </div>
-
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                                    <label class="form-check-label" for="termsCheck">
-                                        I agree to the terms and conditions
-                                    </label>
-                                </div>
-
-                                <div class="payment-info alert alert-info mb-4">
-                                    <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Payment Information</h5>
-                                    <p class="mb-0">Conference Cost: <strong>7,000/= per person</strong></p>
-                                    <p>Send Money to <strong>0721 599 013</strong> registered to <strong>Esther Obasi-ike</strong></p>
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg px-5">
-                                        <i class="fas fa-paper-plane me-2"></i>Submit Registration
-                                    </button>
                                 </div>
                             </form>
                         </div>
