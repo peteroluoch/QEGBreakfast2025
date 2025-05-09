@@ -12,6 +12,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="#">QEG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#speakers">Speakers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#details">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light btn-sm px-3 ms-lg-2" href="#registration">Register Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Flyer-Style Hero Section -->
     <header class="flyer-hero-section">
         <div class="flyer-overlay"></div>
@@ -33,52 +59,10 @@
                             <div class="theme-text">BUILDING WEALTH, BUILDING FUTURES</div>
                         </div>
 
-                        <div class="flyer-details-container mt-5">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="flyer-details-box">
-                                        <h3 class="details-title">EVENT DETAILS</h3>
-                                        <ul class="flyer-details-list">
-                                            <li>
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>Emara Ole Sereni Hotel</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-money-bill-wave"></i>
-                                                <span>Cost: 7,000/= per person</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-credit-card"></i>
-                                                <span>Send Money to 0721 599 013</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-user"></i>
-                                                <span>Registered to Esther Obasi-ike</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="flyer-details-box">
-                                        <h3 class="details-title">CONTACT US</h3>
-                                        <ul class="flyer-details-list">
-                                            <li>
-                                                <i class="fas fa-phone"></i>
-                                                <span>0721599013</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-envelope"></i>
-                                                <span>queenesthers2012@gmail.com</span>
-                                            </li>
-                                        </ul>
-                                        <div class="register-button-container mt-4">
-                                            <a href="#registration" class="btn btn-register-flyer">
-                                                REGISTER NOW
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="mt-5">
+                            <a href="#registration" class="btn btn-register-flyer btn-lg">
+                                REGISTER NOW
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -86,8 +70,88 @@
         </div>
     </header>
 
+    <!-- Event Details Section -->
+    <section class="py-5 bg-primary text-white" id="details">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="details-card">
+                                <h3 class="details-card-title"><i class="fas fa-info-circle me-2"></i>Event Details</h3>
+                                <ul class="details-card-list">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div>
+                                            <strong>Venue:</strong>
+                                            <span>Emara Ole Sereni Hotel</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <div>
+                                            <strong>Cost:</strong>
+                                            <span>7,000/= per person</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-credit-card"></i>
+                                        <div>
+                                            <strong>Payment:</strong>
+                                            <span>Send Money to 0721 599 013</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-user"></i>
+                                        <div>
+                                            <strong>Recipient:</strong>
+                                            <span>Esther Obasi-ike</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="details-card">
+                                <h3 class="details-card-title"><i class="fas fa-address-book me-2"></i>Contact Information</h3>
+                                <ul class="details-card-list">
+                                    <li>
+                                        <i class="fas fa-phone"></i>
+                                        <div>
+                                            <strong>Phone:</strong>
+                                            <span>0721599013</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-envelope"></i>
+                                        <div>
+                                            <strong>Email:</strong>
+                                            <span>queenesthers2012@gmail.com</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-globe"></i>
+                                        <div>
+                                            <strong>Website:</strong>
+                                            <span>www.queenesthersgeneration.org</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="text-center mt-4">
+                                    <a href="#registration" class="btn btn-light btn-lg">
+                                        Register Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About the Event Section -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light" id="about">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -123,7 +187,7 @@
     </section>
 
     <!-- Distinguished Speakers Section -->
-    <section class="py-5 speakers-section">
+    <section class="py-5 speakers-section" id="speakers">
         <div class="container">
             <div class="section-header text-center mb-5">
                 <h3 class="display-5 fw-bold">Our Distinguished Speakers</h3>

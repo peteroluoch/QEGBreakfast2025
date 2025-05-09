@@ -16,6 +16,46 @@ body {
     --text-dark: #333333;
 }
 
+/* Navigation Header */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.nav-transparent {
+    background-color: rgba(74, 20, 140, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.navbar-dark .navbar-nav .nav-link.btn {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    margin-left: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+}
+
 /* Flyer-Style Hero Section */
 .flyer-hero-section {
     position: relative;
@@ -26,7 +66,8 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--text-light);
-    padding: 3rem 0;
+    padding: 5rem 0 3rem;
+    margin-top: 0;
 }
 
 .flyer-overlay {
@@ -399,6 +440,72 @@ section {
     .speaker-name-hex {
         font-size: 1rem;
     }
+}
+
+/* Event Details Section */
+.details-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.details-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.details-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.details-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-card-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+}
+
+.details-card-list li i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: #000;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.details-card-list li div {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-card-list li strong {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.2rem;
+}
+
+.details-card-list li span {
+    font-size: 1.1rem;
 }
 
 /* About the Event Section */

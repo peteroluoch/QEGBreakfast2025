@@ -180,8 +180,59 @@ function showAlert(message, type) {
     }, 5000);
 }
 
-// Function to add animation effects
+// Function to handle navigation bar transparency
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle navbar transparency on scroll
+    const navbar = document.querySelector('.navbar');
+
+    function handleNavbarTransparency() {
+        if (window.scrollY > 100) {
+            navbar.classList.remove('nav-transparent');
+            navbar.classList.add('bg-primary');
+            navbar.style.padding = '0.5rem 0';
+        } else {
+            navbar.classList.add('nav-transparent');
+            navbar.classList.remove('bg-primary');
+            navbar.style.padding = '1rem 0';
+        }
+    }
+
+    // Initial check
+    handleNavbarTransparency();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleNavbarTransparency);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarToggler.click();
+                }
+            }
+        });
+    });
+
+// Function to add animation effects
     // Add animation to elements when they come into view
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.card, .section-header, .btn-register');
