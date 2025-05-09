@@ -1,0 +1,463 @@
+/* Custom Styles for QEG Economic Empowerment */
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+:root {
+    --primary-color: #7b1fa2;
+    --primary-dark: #4a148c;
+    --primary-light: #ae52d4;
+    --accent-color: #ffc107;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+}
+
+/* Flyer-Style Hero Section */
+.flyer-hero-section {
+    position: relative;
+    background: url('../images/bw.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    padding: 3rem 0;
+}
+
+.flyer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(74, 20, 140, 0.95) 0%, rgba(123, 31, 162, 0.9) 100%);
+    z-index: 1;
+}
+
+.flyer-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.flyer-header {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.organization-name {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.event-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(-2deg);
+}
+
+.event-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.theme-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 0 auto 2rem;
+    max-width: 600px;
+}
+
+.theme-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.theme-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.flyer-details-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flyer-details-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.flyer-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flyer-details-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.flyer-details-list li i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: #000;
+    border-radius: 50%;
+}
+
+.btn-register-flyer {
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-register-flyer:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background-color: #ffce3a;
+    color: #000;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #7b1fa2;
+    box-shadow: 0 0 0 0.25rem rgba(123, 31, 162, 0.25);
+}
+
+/* Section Styles */
+section {
+    padding: 60px 0;
+}
+
+/* Enhanced Registration Form */
+.registration-card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.registration-card .card-header {
+    background-color: var(--primary-color);
+    border-bottom: none;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+.form-control, .form-select {
+    border-left: none;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #ced4da;
+    border-left: none;
+}
+
+.payment-info {
+    background-color: rgba(123, 31, 162, 0.1);
+    border-color: rgba(123, 31, 162, 0.2);
+    border-radius: 10px;
+}
+
+.section-header .divider {
+    margin: 0 auto;
+}
+
+/* Distinguished Speakers Section */
+.speakers-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.speakers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.speaker-hexagon {
+    position: relative;
+    width: 250px;
+    height: 280px;
+    background-color: var(--primary-color);
+    margin: 0 auto;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.speaker-hexagon:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background-color: #f9f9f9;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: 1;
+}
+
+.speaker-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.speaker-initials {
+    width: 70px;
+    height: 70px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.speaker-name-hex {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.speaker-title-hex {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 3px;
+}
+
+.speaker-company-hex {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.speaker-hexagon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.speaker-hexagon:hover .speaker-name-hex {
+    color: var(--primary-color);
+}
+
+.speaker-hexagon:hover .speaker-initials {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .speakers-container {
+        gap: 20px;
+    }
+
+    .speaker-hexagon {
+        width: 200px;
+        height: 230px;
+    }
+
+    .speaker-initials {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .speaker-name-hex {
+        font-size: 1rem;
+    }
+}
+
+/* About the Event Section */
+.event-highlight-card {
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-highlight-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.event-highlights-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.event-highlights-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+}
+
+.event-highlights-list li:last-child {
+    border-bottom: none;
+}
+
+.event-highlights-list li i {
+    color: var(--primary-color);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #4a148c;
+}
+
+footer a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-register {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .divider {
+        width: 60px;
+        height: 3px;
+    }
+}
