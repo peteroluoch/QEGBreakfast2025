@@ -1,0 +1,322 @@
+/* Modern Corporate Styling for QEG Website */
+
+:root {
+    /* Modern Corporate Color Palette */
+    --corporate-primary: #4a148c;
+    --corporate-primary-light: #7c43bd;
+    --corporate-primary-dark: #12005e;
+    --corporate-accent: #ffab00;
+    --corporate-accent-light: #ffdd4b;
+    --corporate-accent-dark: #c67c00;
+    --corporate-text-dark: #212121;
+    --corporate-text-medium: #757575;
+    --corporate-text-light: #f5f5f5;
+    --corporate-bg-light: #f8f9fa;
+    --corporate-bg-medium: #e9ecef;
+    --corporate-bg-dark: #343a40;
+    --corporate-success: #00c853;
+    --corporate-info: #00b0ff;
+    --corporate-warning: #ffc400;
+    --corporate-danger: #ff1744;
+    
+    /* Update existing variables */
+    --primary-color: var(--corporate-primary);
+    --primary-dark: var(--corporate-primary-dark);
+    --accent-color: var(--corporate-accent);
+    --text-dark: var(--corporate-text-dark);
+    --text-light: var(--corporate-text-light);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--corporate-text-dark);
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--corporate-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--corporate-primary-light);
+}
+
+.btn {
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: var(--corporate-primary);
+    border-color: var(--corporate-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--corporate-primary-light);
+    border-color: var(--corporate-primary-light);
+}
+
+.btn-accent {
+    background-color: var(--corporate-accent);
+    border-color: var(--corporate-accent);
+    color: var(--corporate-text-dark);
+}
+
+.btn-accent:hover {
+    background-color: var(--corporate-accent-light);
+    border-color: var(--corporate-accent-light);
+}
+
+.btn-outline-primary {
+    border-color: var(--corporate-primary);
+    color: var(--corporate-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--corporate-primary);
+    color: white;
+}
+
+/* Section Styling */
+section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-header h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--corporate-primary-dark);
+    margin-bottom: 1rem;
+}
+
+.section-header .lead {
+    font-size: 1.25rem;
+    color: var(--corporate-text-medium);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.divider {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(to right, var(--corporate-primary), var(--corporate-accent));
+    border-radius: 2px;
+    margin: 1rem 0;
+}
+
+.section-header .divider {
+    margin: 1rem 0 1.5rem;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background-color: var(--corporate-primary);
+    color: white;
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--corporate-primary-dark);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Navigation Styling */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--corporate-accent) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--corporate-accent);
+}
+
+.navbar-dark .navbar-nav .nav-link.btn {
+    padding: 0.5rem 1.5rem;
+    margin-left: 0.5rem;
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, var(--corporate-primary-dark) 0%, var(--corporate-primary) 100%);
+    color: white;
+    padding: 3rem 0 2rem;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--corporate-accent);
+    text-decoration: none;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--corporate-accent);
+    color: var(--corporate-text-dark);
+    transform: translateY(-3px);
+}
+
+/* About Section Styling */
+.event-highlight-card {
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-top: 4px solid var(--corporate-accent);
+}
+
+.event-highlights-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.event-highlights-list li i {
+    color: var(--corporate-success);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Speakers Section Styling */
+.speakers-section {
+    background-color: var(--corporate-bg-light);
+    position: relative;
+}
+
+.speakers-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%234a148c" opacity="0.05"/></svg>');
+    opacity: 0.5;
+}
+
+/* Details Section Styling */
+.details-section {
+    background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+    color: white;
+}
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .section-header h3 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header h3 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1.2rem;
+    }
+}
