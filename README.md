@@ -1,3 +1,4 @@
+
 # Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting
 
 This is a registration website for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting with the theme "BUILDING WEALTH, BUILDING FUTURES".
@@ -49,3 +50,6 @@ This site is designed to be easily deployed on Netlify:
 
 - Phone: 0721599013
 - Email: queenesthers2012@gmail.com
+
+# QEGBreakfast2025
+
