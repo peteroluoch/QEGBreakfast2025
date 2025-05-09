@@ -9,16 +9,44 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Initialize the registration form
+ * Initialize the registration form with enhanced reliability
  */
 function initRegistrationForm() {
-    const registrationForm = document.getElementById('registrationForm');
-    if (!registrationForm) {
-        console.log('Registration form not found on this page');
+    console.log('Starting registration form initialization');
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        console.log('Document still loading, adding event listener');
+        document.addEventListener('DOMContentLoaded', initRegistrationFormCore);
+    } else {
+        console.log('Document already loaded, initializing immediately');
+        initRegistrationFormCore();
+    }
+
+    // Add a fallback initialization after a short delay
+    setTimeout(function() {
+        console.log('Running delayed initialization as fallback');
+        initRegistrationFormCore();
+    }, 500);
+}
+
+/**
+ * Core initialization function for the registration form
+ */
+function initRegistrationFormCore() {
+    // Check if already initialized to prevent duplicate initialization
+    if (window.formInitialized) {
+        console.log('Form already initialized, skipping');
         return;
     }
 
-    console.log('Initializing registration form');
+    const registrationForm = document.getElementById('registrationForm');
+    if (!registrationForm) {
+        console.error('Registration form not found on this page');
+        return;
+    }
+
+    console.log('Initializing registration form core functionality');
 
     // Get all form elements
     const formSteps = document.querySelectorAll('.form-step');
@@ -31,44 +59,99 @@ function initRegistrationForm() {
     console.log(`Found ${nextButtons.length} next buttons`);
     console.log(`Found ${prevButtons.length} prev buttons`);
 
-    // Initialize the form
-    setupFormNavigation(formSteps, progressSteps, nextButtons, prevButtons);
-    setupFormValidation(formSteps);
-    setupFormSubmission(registrationForm, formSteps);
-    setupFormAnimations();
+    // Verify all required elements are present
+    if (formSteps.length === 0 || progressSteps.length === 0 || nextButtons.length === 0) {
+        console.error('Missing required form elements, cannot initialize');
+        return;
+    }
+
+    // Initialize the form components
+    try {
+        setupFormNavigation(formSteps, progressSteps, nextButtons, prevButtons);
+        setupFormValidation(formSteps);
+        setupFormSubmission(registrationForm, formSteps);
+        setupFormAnimations();
+
+        // Mark as initialized
+        window.formInitialized = true;
+
+        console.log('Registration form successfully initialized');
+
+        // Add a class to the form to indicate it's ready
+        registrationForm.classList.add('form-initialized');
+
+        // Add visual indicator that form is ready
+        const formReadyStyle = document.createElement('style');
+        formReadyStyle.textContent = `
+            .form-initialized .btn-next,
+            .form-initialized .btn-prev,
+            .form-initialized .btn-submit {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .form-initialized .btn-next::after,
+            .form-initialized .btn-submit::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+                animation: button-shine 2s ease-in-out;
+            }
+
+            @keyframes button-shine {
+                0% { left: -100%; }
+                100% { left: 100%; }
+            }
+        `;
+        document.head.appendChild(formReadyStyle);
+    } catch (error) {
+        console.error('Error initializing form:', error);
+    }
 }
 
 /**
  * Set up the navigation between form steps
  */
 function setupFormNavigation(formSteps, progressSteps, nextButtons, prevButtons) {
-    // Set up next buttons
+    console.log('Setting up form navigation with enhanced reliability');
+
+    // Set up next buttons with validation
     nextButtons.forEach((button) => {
         const nextStep = parseInt(button.getAttribute('data-next'));
         const currentStep = nextStep - 1;
 
-        // Remove any existing click handlers
+        // Remove any existing click handlers by replacing the button
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
 
-        // Add click handler
-        newButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log(`Navigating from step ${currentStep} to step ${nextStep}`);
+        // Add multiple event handlers for better reliability
+        ['click', 'touchend'].forEach(eventType => {
+            newButton.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log(`${eventType} event on next button from step ${currentStep} to step ${nextStep}`);
 
-            // Hide current step
-            formSteps[currentStep].classList.remove('active');
-            // Show next step
-            formSteps[nextStep].classList.add('active');
+                // Add visual feedback
+                this.classList.add('button-clicked');
+                setTimeout(() => {
+                    this.classList.remove('button-clicked');
+                }, 300);
 
-            // Update progress indicator
-            progressSteps[currentStep].classList.add('completed');
-            progressSteps[nextStep].classList.add('active');
-
-            // Scroll to top of form
-            scrollToForm();
+                // Validate current step before proceeding
+                if (currentStep === 0) {
+                    navigateToDetails(e);
+                } else if (currentStep === 1) {
+                    navigateToPayment(e);
+                }
+            });
         });
+
+        // Add data attribute for easier debugging
+        newButton.setAttribute('data-initialized', 'true');
     });
 
     // Set up previous buttons
@@ -76,90 +159,197 @@ function setupFormNavigation(formSteps, progressSteps, nextButtons, prevButtons)
         const prevStep = parseInt(button.getAttribute('data-prev'));
         const currentStep = prevStep + 1;
 
-        // Remove any existing click handlers
+        // Remove any existing click handlers by replacing the button
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
 
-        // Add click handler
-        newButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log(`Navigating from step ${currentStep} to step ${prevStep}`);
+        // Add multiple event handlers for better reliability
+        ['click', 'touchend'].forEach(eventType => {
+            newButton.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log(`${eventType} event on prev button from step ${currentStep} to step ${prevStep}`);
 
-            // Hide current step
-            formSteps[currentStep].classList.remove('active');
-            // Show previous step
-            formSteps[prevStep].classList.add('active');
+                // Add visual feedback
+                this.classList.add('button-clicked');
+                setTimeout(() => {
+                    this.classList.remove('button-clicked');
+                }, 300);
 
-            // Update progress indicator
-            progressSteps[currentStep].classList.remove('active');
-            progressSteps[prevStep].classList.add('active');
-            progressSteps[prevStep].classList.remove('completed');
+                // Back buttons always work without validation
+                // Hide current step
+                formSteps[currentStep].classList.remove('active');
+                // Show previous step
+                formSteps[prevStep].classList.add('active');
 
-            // Scroll to top of form
-            scrollToForm();
+                // Update progress indicator
+                progressSteps[currentStep].classList.remove('active');
+                progressSteps[prevStep].classList.add('active');
+                progressSteps[prevStep].classList.remove('completed');
+
+                // Scroll to top of form
+                scrollToForm();
+
+                // Log success
+                console.log(`Successfully navigated back to step ${prevStep}`);
+            });
         });
+
+        // Add data attribute for easier debugging
+        newButton.setAttribute('data-initialized', 'true');
     });
 
     // Add direct click handlers as a fallback
     setupDirectClickHandlers(formSteps, progressSteps);
+
+    // Add CSS for button click feedback
+    const buttonStyles = document.createElement('style');
+    buttonStyles.textContent = `
+        .button-clicked {
+            transform: scale(0.95) !important;
+            opacity: 0.9 !important;
+            transition: transform 0.1s ease, opacity 0.1s ease !important;
+        }
+    `;
+    document.head.appendChild(buttonStyles);
+
+    console.log('Form navigation setup complete');
 }
 
 /**
  * Set up direct click handlers for the navigation buttons
+ * This provides multiple redundant ways to ensure buttons work
  */
 function setupDirectClickHandlers(formSteps, progressSteps) {
+    console.log('Setting up direct click handlers as fallback');
+
     // First Continue button (Personal → Details)
     const btnNextToDetails = document.querySelector('.btn-next[data-next="2"]');
     if (btnNextToDetails) {
-        // Add multiple event handlers to ensure it works
-        btnNextToDetails.onclick = navigateToDetails;
-        btnNextToDetails.addEventListener('click', navigateToDetails);
+        console.log('Found first continue button by selector');
 
-        // Also add handler by ID
+        // Add multiple event handlers to ensure it works
+        const detailsHandlers = ['click', 'touchend', 'mouseup'];
+        detailsHandlers.forEach(eventType => {
+            btnNextToDetails.addEventListener(eventType, function(e) {
+                console.log(`${eventType} event triggered on first continue button`);
+                navigateToDetails(e);
+            }, { capture: true });
+        });
+
+        // Also add handler by ID for extra reliability
         const btnToDetailsById = document.getElementById('btn-to-details');
         if (btnToDetailsById) {
-            btnToDetailsById.onclick = navigateToDetails;
-            btnToDetailsById.addEventListener('click', navigateToDetails);
+            console.log('Found first continue button by ID');
+            detailsHandlers.forEach(eventType => {
+                btnToDetailsById.addEventListener(eventType, function(e) {
+                    console.log(`${eventType} event triggered on first continue button (by ID)`);
+                    navigateToDetails(e);
+                }, { capture: true });
+            });
         }
+    } else {
+        console.error('First continue button not found!');
     }
 
     // Second Continue button (Details → Payment)
     const btnNextToPayment = document.querySelector('.btn-next[data-next="3"]');
     if (btnNextToPayment) {
-        // Add multiple event handlers to ensure it works
-        btnNextToPayment.onclick = navigateToPayment;
-        btnNextToPayment.addEventListener('click', navigateToPayment);
+        console.log('Found second continue button by selector');
 
-        // Also add handler by ID
+        // Add multiple event handlers to ensure it works
+        const paymentHandlers = ['click', 'touchend', 'mouseup'];
+        paymentHandlers.forEach(eventType => {
+            btnNextToPayment.addEventListener(eventType, function(e) {
+                console.log(`${eventType} event triggered on second continue button`);
+                navigateToPayment(e);
+            }, { capture: true });
+        });
+
+        // Also add handler by ID for extra reliability
         const btnToPaymentById = document.getElementById('btn-to-payment');
         if (btnToPaymentById) {
-            btnToPaymentById.onclick = navigateToPayment;
-            btnToPaymentById.addEventListener('click', navigateToPayment);
+            console.log('Found second continue button by ID');
+            paymentHandlers.forEach(eventType => {
+                btnToPaymentById.addEventListener(eventType, function(e) {
+                    console.log(`${eventType} event triggered on second continue button (by ID)`);
+                    navigateToPayment(e);
+                }, { capture: true });
+            });
         }
+    } else {
+        console.error('Second continue button not found!');
     }
 
-    // Add global click handler for navigation buttons
+    // Add global click handler for navigation buttons (delegation pattern)
     document.addEventListener('click', function(e) {
         // Check if the clicked element is a continue button or its child
-        if (e.target.matches('.btn-next[data-next="2"], .btn-next[data-next="2"] *')) {
+        if (e.target.closest('.btn-next[data-next="2"]')) {
+            console.log('Global click handler caught first continue button click');
             navigateToDetails(e);
-        } else if (e.target.matches('.btn-next[data-next="3"], .btn-next[data-next="3"] *')) {
+        } else if (e.target.closest('.btn-next[data-next="3"]')) {
+            console.log('Global click handler caught second continue button click');
             navigateToPayment(e);
         }
-    });
+
+        // Also check for back buttons
+        if (e.target.closest('.btn-prev[data-prev="1"]')) {
+            console.log('Global click handler caught first back button click');
+            navigateBack(1, 2, e);
+        } else if (e.target.closest('.btn-prev[data-prev="2"]')) {
+            console.log('Global click handler caught second back button click');
+            navigateBack(2, 3, e);
+        }
+    }, { capture: true });
 
     // Add keyboard handler for accessibility
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.key === ' ') {
             const activeElement = document.activeElement;
-            if (activeElement.matches('.btn-next[data-next="2"]')) {
+            if (activeElement.matches('.btn-next[data-next="2"]') || activeElement.id === 'btn-to-details') {
+                console.log('Keyboard handler triggered first continue button');
                 navigateToDetails(e);
-            } else if (activeElement.matches('.btn-next[data-next="3"]')) {
+            } else if (activeElement.matches('.btn-next[data-next="3"]') || activeElement.id === 'btn-to-payment') {
+                console.log('Keyboard handler triggered second continue button');
                 navigateToPayment(e);
+            } else if (activeElement.matches('.btn-prev[data-prev="1"]')) {
+                console.log('Keyboard handler triggered first back button');
+                navigateBack(1, 2, e);
+            } else if (activeElement.matches('.btn-prev[data-prev="2"]')) {
+                console.log('Keyboard handler triggered second back button');
+                navigateBack(2, 3, e);
             }
         }
     });
+
+    console.log('Direct click handlers setup complete');
+}
+
+/**
+ * Helper function for back button navigation
+ */
+function navigateBack(prevStep, currentStep, e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    console.log(`Navigating back from step ${currentStep} to step ${prevStep}`);
+
+    // Hide current step
+    document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+    // Show previous step
+    document.querySelector(`.form-step[data-step="${prevStep}"]`).classList.add('active');
+
+    // Update progress indicator
+    document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.remove('active');
+    document.querySelector(`.progress-step[data-step="${prevStep}"]`).classList.add('active');
+    document.querySelector(`.progress-step[data-step="${prevStep}"]`).classList.remove('completed');
+
+    // Scroll to top of form
+    scrollToForm();
+
+    console.log(`Successfully navigated back to step ${prevStep}`);
 }
 
 /**
