@@ -59,16 +59,26 @@ body {
 /* Flyer-Style Hero Section */
 .flyer-hero-section {
     position: relative;
-    background: url('../images/bw.jpg') no-repeat center center;
-    background-size: contain;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 0 0;
+    width: 100%;
+    padding-top: 60px; /* Space for navbar */
     margin-top: 0;
     background-color: #f8f8f8;
+    text-align: center;
+}
+
+.flyer-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.flyer-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .flyer-overlay-light {
