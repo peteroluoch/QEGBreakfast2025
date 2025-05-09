@@ -50,6 +50,13 @@ This site is designed to be easily deployed on Netlify:
 
 - Phone: 0721599013
 - Email: queenesthers2012@gmail.com
+- Website: [queenesthersgeneration.com](https://queenesthersgeneration.com/)
+
+## Recent Updates
+
+- Added clickable website link to footer
+- Fixed registration form navigation buttons
+- Enhanced entire website with modern corporate styling
+- Improved user experience with smooth transitions and animations
 
 # QEGBreakfast2025
-
