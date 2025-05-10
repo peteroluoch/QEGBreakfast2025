@@ -56,39 +56,283 @@ body {
     color: #000;
 }
 
-/* Flyer-Style Hero Section */
+/* Enhanced Split-Layout Hero Section with Animations */
 .flyer-hero-section {
     position: relative;
     width: 100%;
+    height: 100vh;
     padding-top: 60px; /* Space for navbar */
     margin-top: 0;
-    background-color: #f8f8f8;
-    text-align: center;
-}
-
-.flyer-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
+    background-color: var(--primary-dark);
     overflow: hidden;
 }
 
-.flyer-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.flyer-overlay-light {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(74, 20, 140, 0.9) 0%, rgba(40, 10, 80, 0.8) 100%);
     z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content-wrapper {
+    display: flex;
+    width: 90%;
+    max-width: 1400px;
+    height: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Side: Text Container */
+.hero-text-container {
+    width: 45%;
+    padding-right: 30px;
+    opacity: 0; /* For animation */
+}
+
+.hero-text-panel {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 40px;
+    color: white;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+}
+
+/* Right Side: Flyer Container */
+.flyer-container {
+    width: 50%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* For animation */
+}
+
+.flyer-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animation Classes */
+.slide-in-right {
+    animation: slideInRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Hero Text Styles */
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hero-year-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 5px 20px;
+    border-radius: 50px;
+    margin: 10px 0 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero-cta {
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background-color: #ffce3a;
+    color: #000;
+    text-decoration: none;
+}
+
+.btn-hero-cta:hover::before {
+    left: 100%;
+}
+
+/* Hero Animation Keyframes */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Hero Adjustments */
+@media (max-width: 1200px) {
+    .hero-content-wrapper {
+        width: 95%;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content-wrapper {
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: auto;
+    }
+
+    .hero-text-container, .flyer-container {
+        width: 90%;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .hero-text-container {
+        padding-right: 0;
+    }
+
+    .hero-text-panel {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text-panel {
+        padding: 20px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-year-badge {
+        font-size: 1rem;
+        padding: 4px 15px;
+    }
 }
 
 .flyer-content {

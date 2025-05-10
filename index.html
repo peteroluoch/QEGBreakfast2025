@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/registration.css">
     <link rel="stylesheet" href="css/modern-corporate.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome (Latest Version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Modern Navigation Header -->
@@ -54,10 +54,29 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Flyer Image Only -->
+    <!-- Hero Section with Split Layout -->
     <header class="flyer-hero-section">
-        <div class="flyer-container">
-            <img src="images/bw.jpg" alt="Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting" class="flyer-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content-wrapper">
+                <!-- Left Side: Hero Text -->
+                <div class="hero-text-container slide-in-left">
+                    <div class="hero-text-panel">
+                        <h1 class="hero-title">Queen Esthers' Generation</h1>
+                        <div class="hero-subtitle">Economic Empowerment Breakfast Meeting</div>
+                        <div class="hero-year-badge">2025</div>
+                        <div class="hero-tagline">Building Wealth, Building Futures</div>
+                        <a href="#registration" class="btn btn-hero-cta fade-in-up">
+                            <i class="fas fa-ticket-alt me-2"></i> Register Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Flyer Image -->
+                <div class="flyer-container slide-in-right">
+                    <img src="images/bw.jpg" alt="Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting" class="flyer-image">
+                </div>
+            </div>
         </div>
     </header>
 
@@ -555,10 +574,10 @@
                                 Join us for this transformative economic empowerment breakfast meeting and take the first step towards building sustainable wealth.
                             </p>
                             <div class="footer-social-links">
-                                <a href="#" class="social-icon-footer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social-icon-footer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-icon-footer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social-icon-footer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 0;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 1;" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 2;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 3;" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

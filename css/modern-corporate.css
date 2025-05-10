@@ -666,13 +666,32 @@ footer a:hover {
     backdrop-filter: blur(10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     height: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .modern-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modern-card:hover::before {
+    opacity: 1;
 }
 
 .modern-card-header {
@@ -694,6 +713,32 @@ footer a:hover {
     color: var(--corporate-text-dark);
     font-size: 1.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-card-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease;
+}
+
+.modern-card:hover .modern-card-icon {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 171, 0, 0.4);
+}
+
+.modern-card:hover .modern-card-icon::after {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .modern-card-title {
@@ -731,6 +776,32 @@ footer a:hover {
     color: var(--corporate-accent);
     font-size: 1.2rem;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.list-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,171,0,0.2) 0%, rgba(255,171,0,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modern-card-list li:hover .list-icon {
+    background-color: var(--corporate-accent);
+    color: var(--corporate-text-dark);
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modern-card-list li:hover .list-icon::before {
+    opacity: 1;
 }
 
 .list-content {
