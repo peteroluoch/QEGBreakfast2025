@@ -49,3 +49,5 @@ This site is designed to be easily deployed on Netlify:
 
 - Phone: 0721599013
 - Email: queenesthers2012@gmail.com
+
+# QEGBreakfast2025
