@@ -61,10 +61,13 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    padding-top: 60px; /* Space for navbar */
+    padding-top: 80px; /* Increased space for navbar */
+    padding-bottom: 30px; /* Added bottom padding */
     margin-top: 0;
     background-color: var(--primary-dark);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-overlay {
@@ -80,7 +83,7 @@ body {
 .hero-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    flex: 1; /* Use flex to fill available space */
     z-index: 2;
     display: flex;
     align-items: center;
@@ -89,31 +92,41 @@ body {
 
 .hero-content-wrapper {
     display: flex;
-    width: 90%;
-    max-width: 1400px;
-    height: 80%;
+    width: 98%; /* Increased to use more space */
+    max-width: 1600px;
+    height: auto;
+    max-height: 90%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0;
 }
 
 /* Left Side: Text Container */
 .hero-text-container {
-    width: 45%;
-    padding-right: 30px;
+    width: 36%; /* Reduced to give more space to image */
+    padding-right: 0;
     opacity: 0; /* For animation */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-text-panel {
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    padding: 40px;
+    padding: 25px; /* Slightly reduced padding */
     color: white;
     text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-text-panel::before {
@@ -126,21 +139,99 @@ body {
     background: linear-gradient(to right, var(--accent-color), transparent);
 }
 
+/* Corporate Divider */
+.hero-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0 5px; /* Small margin on both sides */
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1s;
+}
+
+.divider-line {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+}
+
+.divider-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin: 10px 0;
+    box-shadow: 0 0 15px rgba(255, 171, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.divider-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease;
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Right Side: Flyer Container */
 .flyer-container {
-    width: 50%;
-    max-width: 600px;
+    width: 60%; /* Increased to 60% as requested */
+    max-width: 800px; /* Increased max-width */
     overflow: hidden;
     position: relative;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     opacity: 0; /* For animation */
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 8px; /* Added small padding around image */
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for padding */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
 }
 
 .flyer-image {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain; /* Ensure image maintains aspect ratio */
+    max-height: 75vh; /* Slightly increased max height */
+    border-radius: 10px; /* Match the container's rounded corners */
 }
 
 /* Animation Classes */
@@ -273,29 +364,54 @@ body {
 /* Responsive Hero Adjustments */
 @media (max-width: 1200px) {
     .hero-content-wrapper {
-        width: 95%;
+        width: 98%;
+    }
+
+    .hero-text-container {
+        width: 35%;
+    }
+
+    .flyer-container {
+        width: 60%; /* Maintain 60% width on medium screens */
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
     }
 
     .hero-subtitle {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+    }
+
+    .flyer-image {
+        max-height: 70vh;
     }
 }
 
 @media (max-width: 992px) {
+    .flyer-hero-section {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 90px; /* Increased padding to prevent nav overlap */
+        padding-bottom: 50px;
+    }
+
+    .hero-container {
+        padding: 30px 0;
+    }
+
     .hero-content-wrapper {
         flex-direction: column-reverse;
         justify-content: center;
         height: auto;
+        max-height: none;
+        gap: 40px;
     }
 
     .hero-text-container, .flyer-container {
         width: 90%;
         max-width: 600px;
-        margin-bottom: 30px;
+        height: auto;
     }
 
     .hero-text-container {
@@ -305,6 +421,16 @@ body {
     .hero-text-panel {
         padding: 30px;
         text-align: center;
+        height: auto;
+    }
+
+    .flyer-container {
+        margin-bottom: 0;
+        margin-top: 30px; /* Added margin to create space from nav */
+    }
+
+    .flyer-image {
+        max-height: 50vh; /* Further reduce image height on tablets */
     }
 
     .hero-title {
@@ -314,9 +440,55 @@ body {
     .hero-subtitle {
         font-size: 1.3rem;
     }
+
+    /* Change divider to horizontal on mobile */
+    .hero-divider {
+        flex-direction: row;
+        width: 80%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .divider-line {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+}
+
+@media (max-width: 768px) {
+    .flyer-hero-section {
+        padding-top: 80px; /* Increased padding */
+    }
+
+    .flyer-container {
+        margin-top: 40px; /* More space between nav and image */
+    }
+
+    .flyer-image {
+        max-height: 45vh; /* Further reduce image height on smaller tablets */
+    }
+
+    /* Change divider back to vertical on smaller screens */
+    .hero-divider {
+        flex-direction: column; /* Back to vertical */
+        width: auto;
+        height: 200px; /* Fixed height */
+        margin: 30px 0;
+    }
+
+    .divider-line {
+        width: 2px; /* Vertical line */
+        height: 60px; /* Shorter height */
+        background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+    }
 }
 
 @media (max-width: 576px) {
+    .flyer-hero-section {
+        padding-top: 70px;
+    }
+
     .hero-text-panel {
         padding: 20px;
     }
@@ -329,9 +501,27 @@ body {
         font-size: 1.1rem;
     }
 
-    .hero-year-badge {
+    .flyer-container {
+        margin-top: 50px; /* Even more space on smallest screens */
+    }
+
+    .flyer-image {
+        max-height: 40vh; /* Smallest image height for mobile */
+    }
+
+    /* Adjust vertical divider for smallest screens */
+    .hero-divider {
+        height: 180px;
+    }
+
+    .divider-line {
+        height: 50px;
+    }
+
+    .divider-icon {
+        width: 35px;
+        height: 35px;
         font-size: 1rem;
-        padding: 4px 15px;
     }
 }
 
