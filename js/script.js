@@ -659,11 +659,41 @@ function handleNavbarScroll() {
     }
 }
 
+// Function to handle scroll-to-top button
+function handleScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    if (!scrollToTopBtn) return; // Safety check
+
+    // Show button when page is scrolled down 300px
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('active');
+    } else {
+        scrollToTopBtn.classList.remove('active');
+    }
+}
+
 // Function to add animation effects for the entire page
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize navbar scroll effect
     window.addEventListener('scroll', handleNavbarScroll);
     handleNavbarScroll(); // Call once on page load
+
+    // Initialize scroll-to-top button
+    window.addEventListener('scroll', handleScrollToTop);
+    handleScrollToTop(); // Call once on page load
+
+    // Add click event for scroll-to-top button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     // Add animation to elements when they come into view
     const pageAnimateOnScroll = function() {
         const elements = document.querySelectorAll('.card, .section-header, .btn-register, .modern-card, .speaker-card');

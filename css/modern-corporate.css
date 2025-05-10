@@ -2771,6 +2771,64 @@ footer a:hover {
     font-size: 0.85rem;
 }
 
+/* Sleek Scroll to Top Button */
+.scroll-to-top-sleek {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffab00 0%, #ffd54f 100%);
+    color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.scroll-to-top-sleek:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffc107 0%, #ffab00 100%);
+}
+
+.scroll-to-top-sleek i {
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top-sleek:hover i {
+    transform: translateY(-2px);
+}
+
+/* Responsive Sleek Scroll to Top */
+@media (max-width: 768px) {
+    .scroll-to-top-sleek {
+        width: 35px;
+        height: 35px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .scroll-to-top-sleek {
+        width: 30px;
+        height: 30px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+    }
+}
+
 .footer-bottom-content {
     display: flex;
     align-items: center;
@@ -3138,11 +3196,12 @@ footer a:hover {
     border-radius: 10px;
     padding: 0 40px 0 50px; /* Left padding of 50px for icon, right padding of 40px for dropdown arrow */
     font-size: 1rem;
-    color: white;
+    color: #333; /* Changed from white to dark color for better visibility */
     transition: all 0.3s ease;
     appearance: none;
     cursor: pointer;
     position: relative; /* Ensure proper stacking context */
+    background-color: #f8f9fa; /* Light background for better visibility */
 }
 
 .floating-select-field:focus {
