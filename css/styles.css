@@ -139,10 +139,10 @@ body {
     background: linear-gradient(to right, var(--accent-color), transparent);
 }
 
-/* Corporate Divider */
+/* Corporate Divider - Vertical on large screens */
 .hero-divider {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Vertical on large screens */
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -153,8 +153,8 @@ body {
 }
 
 .divider-line {
-    width: 2px;
-    height: 80px;
+    width: 2px; /* Thin vertical line */
+    height: 80px; /* Tall line for vertical orientation */
     background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
 }
 
@@ -168,7 +168,7 @@ body {
     justify-content: center;
     color: var(--accent-color);
     font-size: 1.2rem;
-    margin: 10px 0;
+    margin: 10px 0; /* Vertical margins for vertical divider */
     box-shadow: 0 0 15px rgba(255, 171, 0, 0.5);
     position: relative;
     overflow: hidden;
@@ -441,18 +441,22 @@ body {
         font-size: 1.3rem;
     }
 
-    /* Change divider to horizontal on mobile */
+    /* Change divider to horizontal on small screens */
     .hero-divider {
-        flex-direction: row;
+        flex-direction: row; /* Horizontal on small screens */
         width: 80%;
         height: auto;
         margin: 20px 0;
     }
 
     .divider-line {
-        width: 80px;
-        height: 2px;
+        width: 80px; /* Wide line for horizontal orientation */
+        height: 2px; /* Thin horizontal line */
         background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+
+    .divider-icon {
+        margin: 0 15px; /* Horizontal margins for horizontal divider */
     }
 }
 
@@ -469,18 +473,20 @@ body {
         max-height: 45vh; /* Further reduce image height on smaller tablets */
     }
 
-    /* Change divider back to vertical on smaller screens */
+    /* Keep horizontal divider on smaller screens but adjust size */
     .hero-divider {
-        flex-direction: column; /* Back to vertical */
-        width: auto;
-        height: 200px; /* Fixed height */
-        margin: 30px 0;
+        width: 70%;
+        margin: 15px auto;
     }
 
     .divider-line {
-        width: 2px; /* Vertical line */
-        height: 60px; /* Shorter height */
-        background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+        width: 60px; /* Slightly shorter horizontal line */
+    }
+
+    .divider-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
     }
 }
 
@@ -509,19 +515,21 @@ body {
         max-height: 40vh; /* Smallest image height for mobile */
     }
 
-    /* Adjust vertical divider for smallest screens */
+    /* Adjust horizontal divider for smallest screens */
     .hero-divider {
-        height: 180px;
+        width: 90%;
+        margin: 10px auto;
     }
 
     .divider-line {
-        height: 50px;
+        width: 50px; /* Shortest horizontal line */
     }
 
     .divider-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        margin: 0 10px;
     }
 }
 
