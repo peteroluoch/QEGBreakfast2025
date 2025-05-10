@@ -701,10 +701,10 @@ function loadFormData() {
         if (formData.firstName) document.getElementById('firstName').value = formData.firstName;
         if (formData.lastName) document.getElementById('lastName').value = formData.lastName;
         if (formData.email) document.getElementById('email').value = formData.email;
-        if (formData.phoneNumber) document.getElementById('phoneNumber').value = formData.phoneNumber;
+        if (formData.phoneNumber) document.getElementById('phone').value = formData.phoneNumber;
         if (formData.organization) document.getElementById('organization').value = formData.organization;
         if (formData.position) document.getElementById('position').value = formData.position;
-        if (formData.hearAbout) document.getElementById('hearAbout').value = formData.hearAbout;
+        if (formData.industry) document.getElementById('industry').value = formData.industry;
 
         // Set payment option
         if (formData.paymentOption) {
