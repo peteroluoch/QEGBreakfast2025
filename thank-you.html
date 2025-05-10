@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/modern-corporate.css">
     <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/enhanced-hero.css?v=1.0">
 
     <style>
         .thank-you-section {
@@ -60,6 +61,7 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             animation: fadeInUp 1s ease forwards;
             overflow: hidden;
+            width: 100%;
         }
 
         .thank-you-card::before {
@@ -190,13 +192,14 @@
 
         .payment-detail-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 18px;
             position: relative;
             z-index: 1;
             transition: all 0.3s ease;
             padding: 8px 15px;
             border-radius: 10px;
+            flex-wrap: nowrap;
         }
 
         .payment-detail-item:hover {
@@ -236,11 +239,14 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            flex: 0 0 auto;
         }
 
         .detail-value {
             color: var(--corporate-text-medium);
             font-weight: 500;
+            flex: 1;
+            word-break: break-word;
         }
 
         .upcoming-events {
@@ -593,6 +599,236 @@
                 transform: translateY(0);
             }
         }
+
+        /* Responsive styles for thank you page */
+        @media (max-width: 992px) {
+            .thank-you-card {
+                padding: 40px 30px;
+            }
+
+            .thank-you-title {
+                font-size: 2.4rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.15rem;
+                max-width: 95%;
+            }
+
+            .payment-details {
+                padding: 25px;
+            }
+
+            .event-card-img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-section {
+                padding: 80px 0;
+            }
+
+            .thank-you-card {
+                padding: 30px 25px;
+            }
+
+            .thank-you-icon {
+                width: 90px;
+                height: 90px;
+                font-size: 2.5rem;
+                margin-bottom: 25px;
+            }
+
+            .thank-you-icon::before {
+                width: 110px;
+                height: 110px;
+            }
+
+            .thank-you-title {
+                font-size: 2.2rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .payment-details {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .payment-details h4 {
+                font-size: 1.3rem;
+            }
+
+            .detail-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+            }
+
+            .detail-label {
+                font-size: 0.85rem;
+            }
+
+            .detail-value {
+                font-size: 0.95rem;
+            }
+
+            .upcoming-events h4 {
+                font-size: 1.4rem;
+            }
+
+            .event-card {
+                margin-bottom: 20px;
+            }
+
+            .event-card-title {
+                font-size: 1.2rem;
+            }
+
+            .event-card-text {
+                font-size: 0.95rem;
+            }
+
+            .qeg-mission {
+                padding: 25px;
+            }
+
+            .qeg-mission h4 {
+                font-size: 1.3rem;
+            }
+
+            .qeg-mission p {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                padding: 20px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Detail content wrapper */
+        .detail-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        @media (max-width: 576px) {
+            .thank-you-section {
+                padding: 70px 0 50px;
+            }
+
+            .thank-you-card {
+                padding: 25px 20px;
+            }
+
+            .thank-you-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+            .thank-you-icon::before {
+                width: 100px;
+                height: 100px;
+            }
+
+            .thank-you-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .thank-you-message {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            .payment-detail-item {
+                padding: 10px;
+            }
+
+            .detail-content {
+                flex: 1;
+            }
+
+            .detail-label {
+                margin-bottom: 3px;
+                font-size: 0.85rem;
+            }
+
+            .detail-value {
+                font-size: 0.9rem;
+            }
+
+            .upcoming-events {
+                margin-top: 30px;
+            }
+
+            .upcoming-events h4 {
+                font-size: 1.3rem;
+            }
+
+            .event-card-img {
+                height: 160px;
+            }
+
+            .event-card-body {
+                padding: 20px;
+            }
+
+            .event-card-title {
+                font-size: 1.1rem;
+            }
+
+            .event-card-text {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .btn-corporate-outline {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+
+            .qeg-mission {
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+            .qeg-mission h4 {
+                font-size: 1.2rem;
+            }
+
+            .qeg-mission p {
+                font-size: 0.95rem;
+            }
+
+            .social-links {
+                padding: 15px;
+                margin-top: 30px;
+            }
+
+            .social-links h5 {
+                font-size: 1.1rem;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -647,6 +883,11 @@
                         <h1 class="hero-title">Registration Successful</h1>
                         <div class="hero-subtitle">Thank You for Registering</div>
                         <div class="hero-tagline">Building Wealth, Building Futures</div>
+                        <div class="hero-cta mt-4">
+                            <a href="index.html" class="btn btn-accent btn-lg px-4">
+                                <i class="fas fa-home me-2"></i> Return to Homepage
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -685,23 +926,31 @@
                             <h4>Payment Information</h4>
                             <div class="payment-detail-item">
                                 <div class="detail-icon"><i class="fas fa-user"></i></div>
-                                <span class="detail-label">Recipient:</span>
-                                <span class="detail-value">Esther Obasi-ike</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Recipient:</span>
+                                    <span class="detail-value">Esther Obasi-ike</span>
+                                </div>
                             </div>
                             <div class="payment-detail-item">
                                 <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
-                                <span class="detail-label">Phone:</span>
-                                <span class="detail-value">0721 599 013</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">0721 599 013</span>
+                                </div>
                             </div>
                             <div class="payment-detail-item">
                                 <div class="detail-icon"><i class="fas fa-money-bill-wave"></i></div>
-                                <span class="detail-label">Amount:</span>
-                                <span class="detail-value">KSh 7,000 per person</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Amount:</span>
+                                    <span class="detail-value">KSh 7,000 per person</span>
+                                </div>
                             </div>
                             <div class="payment-detail-item">
                                 <div class="detail-icon"><i class="fas fa-info-circle"></i></div>
-                                <span class="detail-label">Note:</span>
-                                <span class="detail-value">Please include your name as reference when making the payment</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Note:</span>
+                                    <span class="detail-value">Please include your name as reference when making the payment</span>
+                                </div>
                             </div>
                         </div>
 
@@ -774,7 +1023,7 @@
                         <div class="upcoming-events">
                             <h4>Discover More QEG Programs</h4>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-4 mb-md-0">
                                     <div class="event-card">
                                         <div class="event-card-img">
                                             <img src="images/monthlygatherings.jpg" alt="QEG Monthly Meetings">
@@ -957,6 +1206,61 @@
     <a href="#" class="scroll-to-top-sleek" id="scrollToTopStandalone" aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </a>
+
+    <style>
+        /* Sleek Scroll to Top Button */
+        .scroll-to-top-sleek {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--corporate-accent) 0%, var(--corporate-accent-light) 100%);
+            color: var(--corporate-text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+            border: none;
+            text-decoration: none;
+        }
+
+        .scroll-to-top-sleek:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 171, 0, 0.4);
+            color: var(--corporate-text-dark);
+        }
+
+        .scroll-to-top-sleek:focus {
+            outline: none;
+            color: var(--corporate-text-dark);
+        }
+
+        /* Responsive adjustments for scroll button */
+        @media (max-width: 768px) {
+            .scroll-to-top-sleek {
+                width: 45px;
+                height: 45px;
+                bottom: 25px;
+                right: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .scroll-to-top-sleek {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
