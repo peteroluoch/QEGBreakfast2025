@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/modern-corporate.css">
@@ -262,37 +262,130 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(123, 31, 162, 0.2);
         }
+
+        .qeg-mission {
+            background-color: rgba(123, 31, 162, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 4px solid var(--corporate-primary);
+        }
+
+        .qeg-mission h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--corporate-primary);
+            margin-bottom: 15px;
+        }
+
+        .qeg-mission p {
+            font-size: 1rem;
+            color: var(--corporate-text-medium);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 171, 0, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 171, 0, 0.6);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Corporate Modern Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Modern Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
         <div class="container">
-            <a class="navbar-brand" href="index.html">QEG Breakfast 2025</a>
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">QEG</span>
+                <span class="brand-year">2025</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html#about">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span>About</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">About</a>
+                        <a class="nav-link" href="index.html#speakers">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span>Speakers</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#speakers">Speakers</a>
+                        <a class="nav-link" href="index.html#details">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span>Details</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#details">Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#registration">Register</a>
+                        <a class="nav-link btn btn-accent btn-sm px-3 ms-lg-2" href="index.html#registration">
+                            <i class="fas fa-user-plus me-1"></i> Register Now
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Hero Section with Split Layout -->
+    <header class="flyer-hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content-wrapper">
+                <!-- Left Side: Hero Text -->
+                <div class="hero-text-container slide-in-left">
+                    <div class="hero-text-panel">
+                        <h1 class="hero-title">Registration Successful</h1>
+                        <div class="hero-subtitle">Thank You for Registering</div>
+                        <div class="hero-tagline">Building Wealth, Building Futures</div>
+                    </div>
+                </div>
+
+                <!-- Corporate Divider -->
+                <div class="hero-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Right Side: Flyer Image -->
+                <div class="flyer-container slide-in-right">
+                    <img src="images/bw.jpg" alt="Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting" class="flyer-image">
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Thank You Section -->
     <section class="thank-you-section">
@@ -332,40 +425,50 @@
                             </div>
                         </div>
 
-                        <div class="text-center">
+                        <div class="qeg-mission">
+                            <h4>About Queen Esthers' Generation</h4>
+                            <p>"Queen Esther's Generation is a generation of people who seek peace, truth, justice prosperity and total well being of God's people. A generation of women of God who provide spiritual nourishment for themselves, their families and society as a whole, with high regard for the human race. Cutting across the board as an interdenominational, multi cultural, multi racial and multi ethnic organization, QEG endeavors to remain a welcome home for all women who will be empowered and who will in turn empower others through the Gospel of Christ."</p>
+                        </div>
+
+                        <div class="text-center mt-4">
                             <a href="index.html" class="btn btn-corporate-primary">
                                 <i class="fas fa-home me-2"></i>Return to Homepage
                             </a>
                         </div>
 
                         <div class="upcoming-events">
-                            <h4>Discover More QEG Events</h4>
+                            <h4>Discover More QEG Programs</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="event-card">
                                         <div class="event-card-img">
-                                            <img src="https://queenesthersgeneration.com/wp-content/uploads/2023/11/QEG-MENTORSHIP-PROGRAM-BANNER-1.jpg" alt="QEG Mentorship Program">
+                                            <img src="images/monthlygatherings.jpg" alt="QEG Monthly Meetings">
                                         </div>
                                         <div class="event-card-body">
-                                            <h5 class="event-card-title">QEG Mentorship Program</h5>
-                                            <p class="event-card-text">Join our mentorship program designed to empower women through guidance and support.</p>
-                                            <a href="https://queenesthersgeneration.com/mentorship/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
+                                            <h5 class="event-card-title">Monthly Gatherings</h5>
+                                            <p class="event-card-text">You're welcome to our monthly meeting, "The Gathering of Stars and Queens," held on the first Saturday of every month at RCCG Solution Centre, Nairobi, Kenya.</p>
+                                            <a href="https://queenesthersgeneration.com/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="event-card">
                                         <div class="event-card-img">
-                                            <img src="https://queenesthersgeneration.com/wp-content/uploads/2023/11/QEG-LEADERSHIP-ACADEMY-BANNER.jpg" alt="QEG Leadership Academy">
+                                            <img src="images/queenesthersnextgeneration.jpg" alt="Queen Esther's Next Generation">
                                         </div>
                                         <div class="event-card-body">
-                                            <h5 class="event-card-title">QEG Leadership Academy</h5>
-                                            <p class="event-card-text">Develop your leadership skills through our comprehensive academy program.</p>
-                                            <a href="https://queenesthersgeneration.com/leadership-academy/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
+                                            <h5 class="event-card-title">Queen Esther's Next Generation</h5>
+                                            <p class="event-card-text">A special program for mentoring and training young girls between ages 13-20 years, preparing them for transformational leadership.</p>
+                                            <a href="https://queenesthersgeneration.com/qeng-queen-esthers-next-generation/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="qeg-mission mt-4">
+                            <h4>Our Core Values</h4>
+                            <p>TEEE – Transform, Equip, Empower, Engage</p>
                         </div>
 
                         <div class="social-links">
@@ -382,6 +485,143 @@
             </div>
         </div>
     </section>
+
+    <!-- Corporate Modern Footer -->
+    <footer class="corporate-footer">
+        <!-- Enhanced Pre-Footer CTA Section -->
+        <div class="pre-footer">
+            <div class="pre-footer-shape-1"></div>
+            <div class="pre-footer-shape-2"></div>
+            <div class="container">
+                <div class="pre-footer-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-md-7">
+                            <div class="pre-footer-badge">Limited Seats Available</div>
+                            <h3 class="pre-footer-title">Ready to join this transformative event?</h3>
+                            <p class="pre-footer-text">Secure your place at the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting.</p>
+                        </div>
+                        <div class="col-lg-4 col-md-5 text-md-end">
+                            <a href="index.html#registration" class="btn btn-cta-footer">
+                                <i class="fas fa-ticket-alt me-2"></i>Register Now
+                            </a>
+                            <div class="cta-hint">Join us at <a href="https://emara.ole-sereni.com/rooms-and-suites/" target="_blank" class="venue-link">Emara Ole Sereni Hotel</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Main Footer -->
+        <div class="footer-main-section">
+            <div class="footer-shape-1"></div>
+            <div class="footer-shape-2"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Logo and About -->
+                    <div class="col-lg-5 col-md-12 mb-5 mb-lg-0">
+                        <div class="footer-logo-section">
+                            <div class="footer-logo">
+                                <div class="footer-logo-accent"></div>
+                                <h3>Queen Esthers' Generation</h3>
+                                <span class="footer-tagline">Building Wealth, Building Futures</span>
+                            </div>
+                            <p class="footer-about-text">
+                                Join us for this transformative economic empowerment breakfast meeting and take the first step towards building sustainable wealth and securing your financial future.
+                            </p>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/QueenEsthersGeneration/" target="_blank" class="social-icon-footer" style="--social-index: 0;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/QEGeneration" target="_blank" class="social-icon-footer" style="--social-index: 1;" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/queenesthersgeneration/" target="_blank" class="social-icon-footer" style="--social-index: 2;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 3;" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-md-0">
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <ul class="footer-menu">
+                                <li style="--item-index: 1;"><a href="index.html#about"><i class="fas fa-chevron-right icon-bullet"></i>About the Event</a></li>
+                                <li style="--item-index: 2;"><a href="index.html#speakers"><i class="fas fa-chevron-right icon-bullet"></i>Our Speakers</a></li>
+                                <li style="--item-index: 3;"><a href="index.html#details"><i class="fas fa-chevron-right icon-bullet"></i>Event Details</a></li>
+                                <li style="--item-index: 4;"><a href="index.html#registration"><i class="fas fa-chevron-right icon-bullet"></i>Registration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="col-lg-4 col-md-8 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Contact Information</h4>
+                            <ul class="footer-contact-info">
+                                <li style="--item-index: 1;">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <span>Phone</span>
+                                        <a href="tel:0721599013">0721599013</a>
+                                    </div>
+                                </li>
+                                <li style="--item-index: 2;">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span>Email</span>
+                                        <a href="mailto:queenesthers2012@gmail.com">queenesthers2012@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li style="--item-index: 3;">
+                                    <i class="fas fa-globe"></i>
+                                    <div>
+                                        <span>Website</span>
+                                        <a href="https://queenesthersgeneration.com/" target="_blank">queenesthersgeneration.com</a>
+                                    </div>
+                                </li>
+                                <li style="--item-index: 4;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <span>Venue</span>
+                                        <a href="https://emara.ole-sereni.com/rooms-and-suites/" target="_blank">Emara Ole Sereni Hotel</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Footer Bottom -->
+        <div class="footer-bottom-section">
+            <div class="footer-bottom-shape"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p class="copyright-text">© 2025 Queen Esthers' Generation. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="developer-text">Developed by <a href="#" target="_blank">Codegx Technology</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom-divider"></div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <span class="link-divider">|</span>
+                            <a href="#">Terms of Service</a>
+                            <span class="link-divider">|</span>
+                            <a href="#">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sleek Scroll to Top Button -->
+    <a href="#" class="scroll-to-top-sleek" id="scrollToTopStandalone" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -419,6 +659,35 @@
                 }
             } catch (e) {
                 console.error('Error retrieving form data:', e);
+            }
+
+            // Sleek scroll-to-top button functionality
+            const scrollBtn = document.getElementById('scrollToTopStandalone');
+            if (scrollBtn) {
+                // Add click event
+                scrollBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Show/hide button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        scrollBtn.style.opacity = '0.9';
+                    } else {
+                        scrollBtn.style.opacity = '0';
+                    }
+                });
+
+                // Initial state
+                if (window.scrollY > 300) {
+                    scrollBtn.style.opacity = '0.9';
+                } else {
+                    scrollBtn.style.opacity = '0';
+                }
             }
         });
     </script>
