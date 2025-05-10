@@ -8,74 +8,211 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/modern-corporate.css">
+    <!-- Font Awesome (Latest Version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Flyer-Style Hero Section -->
+    <!-- Modern Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="brand-text">QEG</span>
+                <span class="brand-year">2025</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#speakers">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span>Speakers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#details">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span>Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-accent btn-sm px-3 ms-lg-2" href="#registration">
+                            <i class="fas fa-user-plus me-1"></i> Register Now
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Split Layout -->
     <header class="flyer-hero-section">
-        <div class="flyer-overlay"></div>
-        <div class="container py-5">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content-wrapper">
+                <!-- Left Side: Hero Text -->
+                <div class="hero-text-container slide-in-left">
+                    <div class="hero-text-panel">
+                        <h1 class="hero-title">Queen Esthers' Generation</h1>
+                        <div class="hero-subtitle">Economic Empowerment Breakfast Meeting</div>
+                        <div class="hero-tagline">Building Wealth, Building Futures</div>
+                    </div>
+                </div>
+
+                <!-- Corporate Divider -->
+                <div class="hero-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Right Side: Flyer Image -->
+                <div class="flyer-container slide-in-right">
+                    <img src="images/bw.jpg" alt="Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting" class="flyer-image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced Corporate Event Details Section -->
+    <section class="details-section" id="details">
+        <div class="details-bg-shape"></div>
+        <div class="details-bg-shape-2"></div>
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="flyer-content text-center">
-                        <div class="flyer-header">
-                            <h1 class="organization-name">QUEEN ESTHERS' GENERATION</h1>
-                            <div class="event-badge">
-                                <span>2025</span>
+                    <!-- Event Title and Theme with Corporate Styling -->
+                    <div class="event-header text-center mb-5">
+                        <div class="event-header-content">
+                            <div class="event-logo-container">
+                                <div class="event-logo-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                            </div>
+                            <h1 class="event-header-title">QUEEN ESTHERS' GENERATION</h1>
+                            <div class="event-year-badge">2025</div>
+                            <h2 class="event-header-subtitle">ECONOMIC EMPOWERMENT<br>BREAKFAST MEETING</h2>
+                            <div class="event-theme-container">
+                                <div class="event-theme-label">THEME</div>
+                                <div class="event-theme-text">BUILDING WEALTH, BUILDING FUTURES</div>
+                            </div>
+                            <div class="event-cta-container">
+                                <a href="#registration" class="btn btn-accent btn-lg px-5 event-cta-button">
+                                    <i class="fas fa-user-plus me-2"></i> REGISTER NOW
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row event-info-cards">
+                        <!-- Event Details Card -->
+                        <div class="col-md-6 mb-4">
+                            <div class="corporate-card event-details-card">
+                                <div class="card-accent-border"></div>
+                                <div class="corporate-card-header">
+                                    <div class="corporate-card-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <h3 class="corporate-card-title">Event Details</h3>
+                                </div>
+                                <div class="corporate-card-body">
+                                    <ul class="corporate-info-list">
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Venue</h4>
+                                                <p class="info-value">Emara Ole Sereni Hotel</p>
+                                            </div>
+                                        </li>
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Cost</h4>
+                                                <p class="info-value">7,000/= per person</p>
+                                            </div>
+                                        </li>
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-credit-card"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Payment</h4>
+                                                <p class="info-value">Send Money to 0721 599 013</p>
+                                            </div>
+                                        </li>
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Recipient</h4>
+                                                <p class="info-value">Esther Obasi-ike</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <h2 class="event-title">ECONOMIC EMPOWERMENT<br>BREAKFAST MEETING</h2>
-
-                        <div class="theme-box">
-                            <div class="theme-label">THEME</div>
-                            <div class="theme-text">BUILDING WEALTH, BUILDING FUTURES</div>
-                        </div>
-
-                        <div class="flyer-details-container mt-5">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="flyer-details-box">
-                                        <h3 class="details-title">EVENT DETAILS</h3>
-                                        <ul class="flyer-details-list">
-                                            <li>
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>Emara Ole Sereni Hotel</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-money-bill-wave"></i>
-                                                <span>Cost: 7,000/= per person</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-credit-card"></i>
-                                                <span>Send Money to 0721 599 013</span>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-user"></i>
-                                                <span>Registered to Esther Obasi-ike</span>
-                                            </li>
-                                        </ul>
+                        <!-- Contact Information Card -->
+                        <div class="col-md-6 mb-4">
+                            <div class="corporate-card contact-card">
+                                <div class="card-accent-border"></div>
+                                <div class="corporate-card-header">
+                                    <div class="corporate-card-icon">
+                                        <i class="fas fa-address-card"></i>
                                     </div>
+                                    <h3 class="corporate-card-title">Contact Information</h3>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="flyer-details-box">
-                                        <h3 class="details-title">CONTACT US</h3>
-                                        <ul class="flyer-details-list">
-                                            <li>
-                                                <i class="fas fa-phone"></i>
-                                                <span>0721599013</span>
-                                            </li>
-                                            <li>
+                                <div class="corporate-card-body">
+                                    <ul class="corporate-info-list">
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Phone</h4>
+                                                <p class="info-value">0721 599 013</p>
+                                            </div>
+                                        </li>
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
                                                 <i class="fas fa-envelope"></i>
-                                                <span>queenesthers2012@gmail.com</span>
-                                            </li>
-                                        </ul>
-                                        <div class="register-button-container mt-4">
-                                            <a href="#registration" class="btn btn-register-flyer">
-                                                REGISTER NOW
-                                            </a>
-                                        </div>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Email</h4>
+                                                <p class="info-value">queenesthers2012@gmail.com</p>
+                                            </div>
+                                        </li>
+                                        <li class="info-list-item">
+                                            <div class="info-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4 class="info-label">Website</h4>
+                                                <p class="info-value">www.queenesthersgeneration.org</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="contact-cta">
+                                        <a href="#registration" class="btn btn-corporate-primary btn-lg">
+                                            <i class="fas fa-user-plus me-2"></i> Register Now
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -84,36 +221,129 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- About the Event Section -->
-    <section class="py-5 bg-light">
+    <!-- Enhanced Corporate About the Event Section -->
+    <section class="about-section" id="about">
+        <div class="about-bg-shape"></div>
+        <div class="about-bg-shape-2"></div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="section-header mb-4">
-                        <h3 class="display-6 fw-bold">About the Event</h3>
-                        <div class="divider my-3"></div>
-                    </div>
-                    <p class="lead">Join us for an inspiring breakfast meeting focused on economic empowerment and wealth building strategies.</p>
-                    <p>The Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting brings together industry leaders, entrepreneurs, and visionaries to share insights on building sustainable wealth and creating impactful futures.</p>
-                    <p>This event is designed to equip attendees with practical knowledge, networking opportunities, and actionable strategies to enhance their financial well-being and contribute to economic growth.</p>
-                    <div class="mt-4">
-                        <a href="#registration" class="btn btn-primary">
-                            <i class="fas fa-user-plus me-2"></i> Register Now
-                        </a>
+            <!-- Section Header with Corporate Style -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <div class="corporate-section-header">
+                        <div class="section-subtitle">Queen Esthers' Generation</div>
+                        <h2 class="section-title">About the Event</h2>
+                        <div class="section-divider mx-auto"></div>
+                        <p class="section-lead">Join us for an inspiring breakfast meeting focused on economic empowerment and wealth building strategies.</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="row align-items-center">
+                <!-- Left Column: About Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-content-wrapper">
+                        <div class="about-content-card">
+                            <div class="about-content">
+                                <div class="about-icon-header">
+                                    <div class="about-icon-wrapper">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h3 class="about-content-title">Vision & Purpose</h3>
+                                </div>
+
+                                <p class="about-text">The Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting brings together industry leaders, entrepreneurs, and visionaries to share insights on building sustainable wealth and creating impactful futures.</p>
+
+                                <p class="about-text">This event is designed to equip attendees with practical knowledge, networking opportunities, and actionable strategies to enhance their financial well-being and contribute to economic growth.</p>
+
+                                <div class="about-features">
+                                    <div class="about-feature">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Networking</h4>
+                                            <p>Connect with like-minded professionals</p>
+                                        </div>
+                                    </div>
+                                    <div class="about-feature">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Growth</h4>
+                                            <p>Learn strategies for financial success</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about-cta">
+                                    <a href="#registration" class="btn btn-corporate-primary">
+                                        <i class="fas fa-user-plus me-2"></i> Register Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Event Highlights -->
                 <div class="col-lg-6">
-                    <div class="card event-highlight-card border-0">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-4"><i class="fas fa-star me-2 text-warning"></i> Event Highlights</h4>
-                            <ul class="event-highlights-list">
-                                <li><i class="fas fa-check-circle me-2"></i> Networking with industry leaders</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Expert insights on wealth building</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Practical financial strategies</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Entrepreneurship opportunities</li>
-                                <li><i class="fas fa-check-circle me-2"></i> Inspirational success stories</li>
+                    <div class="highlights-card">
+                        <div class="highlights-header">
+                            <div class="highlights-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="highlights-title">Event Highlights</h3>
+                        </div>
+                        <div class="highlights-body">
+                            <ul class="highlights-list">
+                                <li class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Networking</h4>
+                                        <p>Connect with industry leaders and professionals</p>
+                                    </div>
+                                </li>
+                                <li class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Wealth Building</h4>
+                                        <p>Expert insights on sustainable wealth creation</p>
+                                    </div>
+                                </li>
+                                <li class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Financial Strategies</h4>
+                                        <p>Practical approaches to financial management</p>
+                                    </div>
+                                </li>
+                                <li class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Entrepreneurship</h4>
+                                        <p>Discover new business opportunities and insights</p>
+                                    </div>
+                                </li>
+                                <li class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Success Stories</h4>
+                                        <p>Inspirational journeys from accomplished leaders</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -122,147 +352,333 @@
         </div>
     </section>
 
-    <!-- Distinguished Speakers Section -->
-    <section class="py-5 speakers-section">
+    <!-- Enhanced Corporate Speakers Section -->
+    <section class="speakers-section" id="speakers">
+        <div class="speakers-bg-shape"></div>
+        <div class="speakers-bg-shape-2"></div>
         <div class="container">
-            <div class="section-header text-center mb-5">
-                <h3 class="display-5 fw-bold">Our Distinguished Speakers</h3>
-                <div class="divider my-4 mx-auto"></div>
-                <p class="lead">Learn from industry leaders and experts</p>
+            <div class="corporate-section-header text-center mb-5">
+                <div class="section-subtitle">Meet Our</div>
+                <h2 class="section-title">Distinguished Speakers</h2>
+                <div class="section-divider mx-auto"></div>
+                <p class="section-lead">Learn from industry leaders and experts in economic empowerment</p>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="speakers-container">
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
-                                <div class="speaker-initials">EOI</div>
-                                <h4 class="speaker-name-hex">Pastor Esther Obasi-ike, Ph.D</h4>
-                                <p class="speaker-title-hex">Founder & President</p>
-                                <p class="speaker-company-hex">Queen Esthers' Generation</p>
+                    <div class="enhanced-speakers-container">
+                        <!-- Speaker 1 -->
+                        <div class="enhanced-speaker-card">
+                            <div class="speaker-card-inner">
+                                <div class="speaker-photo-wrapper">
+                                    <div class="speaker-photo">
+                                        <div class="speaker-initials">EOI</div>
+                                    </div>
+                                    <div class="speaker-accent-border"></div>
+                                </div>
+                                <div class="speaker-info">
+                                    <h4 class="speaker-name">Pastor Esther Obasi-ike, Ph.D</h4>
+                                    <div class="speaker-position">
+                                        <span class="speaker-title">Founder & President</span>
+                                        <span class="speaker-company">Queen Esthers' Generation</span>
+                                    </div>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Leadership</span>
+                                        <span class="expertise-tag">Empowerment</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
-                                <div class="speaker-initials">GW</div>
-                                <h4 class="speaker-name-hex">Dr. George Wachiuri</h4>
-                                <p class="speaker-title-hex">CEO</p>
-                                <p class="speaker-company-hex">Optiven Group Limited</p>
+                        <!-- Speaker 2 -->
+                        <div class="enhanced-speaker-card">
+                            <div class="speaker-card-inner">
+                                <div class="speaker-photo-wrapper">
+                                    <div class="speaker-photo">
+                                        <div class="speaker-initials">GW</div>
+                                    </div>
+                                    <div class="speaker-accent-border"></div>
+                                </div>
+                                <div class="speaker-info">
+                                    <h4 class="speaker-name">Dr. George Wachiuri</h4>
+                                    <div class="speaker-position">
+                                        <span class="speaker-title">CEO</span>
+                                        <span class="speaker-company">Optiven Group Limited</span>
+                                    </div>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Real Estate</span>
+                                        <span class="expertise-tag">Investment</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
-                                <div class="speaker-initials">FM</div>
-                                <h4 class="speaker-name-hex">Flora Mutahi</h4>
-                                <p class="speaker-title-hex">CEO</p>
-                                <p class="speaker-company-hex">Melvin March International Limited</p>
+                        <!-- Speaker 3 -->
+                        <div class="enhanced-speaker-card">
+                            <div class="speaker-card-inner">
+                                <div class="speaker-photo-wrapper">
+                                    <div class="speaker-photo">
+                                        <div class="speaker-initials">FM</div>
+                                    </div>
+                                    <div class="speaker-accent-border"></div>
+                                </div>
+                                <div class="speaker-info">
+                                    <h4 class="speaker-name">Flora Mutahi</h4>
+                                    <div class="speaker-position">
+                                        <span class="speaker-title">CEO</span>
+                                        <span class="speaker-company">Melvin March International Limited</span>
+                                    </div>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Business</span>
+                                        <span class="expertise-tag">Strategy</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="speaker-hexagon">
-                            <div class="speaker-content">
-                                <div class="speaker-initials">TOA</div>
-                                <h4 class="speaker-name-hex">Pastor Tosin Olayinka Ajibs</h4>
-                                <p class="speaker-title-hex">Founder & Proprietress</p>
-                                <p class="speaker-company-hex">Paradise of God Schools, Nigeria</p>
+                        <!-- Speaker 4 -->
+                        <div class="enhanced-speaker-card">
+                            <div class="speaker-card-inner">
+                                <div class="speaker-photo-wrapper">
+                                    <div class="speaker-photo">
+                                        <div class="speaker-initials">TOA</div>
+                                    </div>
+                                    <div class="speaker-accent-border"></div>
+                                </div>
+                                <div class="speaker-info">
+                                    <h4 class="speaker-name">Pastor Tosin Olayinka Ajibs</h4>
+                                    <div class="speaker-position">
+                                        <span class="speaker-title">Founder & Proprietress</span>
+                                        <span class="speaker-company">Paradise of God Schools, Nigeria</span>
+                                    </div>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Education</span>
+                                        <span class="expertise-tag">Entrepreneurship</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="text-center mt-5">
+                <a href="#registration" class="btn btn-corporate-primary btn-lg">
+                    <i class="fas fa-user-plus me-2"></i> Register to Meet Our Speakers
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Enhanced Registration Form Section -->
-    <section class="py-5 bg-light" id="registration">
+    <!-- Ultra-Modern Registration Form Section -->
+    <section class="registration-section" id="registration">
+        <div class="registration-bg-shape"></div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-header text-center mb-5">
-                        <h3 class="display-5 fw-bold">Registration Form</h3>
-                        <div class="divider my-4 mx-auto"></div>
-                        <p class="lead">Secure your spot at this transformative event</p>
+                <div class="col-lg-10">
+                    <div class="registration-header text-center">
+                        <h2 class="registration-title">Register for the Event</h2>
+                        <div class="registration-divider"></div>
+                        <p class="registration-subtitle">Secure your spot at the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting</p>
                     </div>
-                    <div class="card registration-card">
-                        <div class="card-header bg-primary text-white py-3">
-                            <h4 class="mb-0 text-center">Personal Information</h4>
+
+                    <div class="registration-container">
+                        <div class="registration-progress">
+                            <div class="progress-step active" data-step="1">
+                                <div class="step-icon"><i class="fas fa-user"></i></div>
+                                <div class="step-label">Personal</div>
+                            </div>
+                            <div class="progress-connector"></div>
+                            <div class="progress-step" data-step="2">
+                                <div class="step-icon"><i class="fas fa-building"></i></div>
+                                <div class="step-label">Details</div>
+                            </div>
+                            <div class="progress-connector"></div>
+                            <div class="progress-step" data-step="3">
+                                <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                                <div class="step-label">Payment</div>
+                            </div>
                         </div>
-                        <div class="card-body p-4">
+
+                        <div class="registration-form-wrapper">
                             <form id="registrationForm">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="firstName" class="form-label fw-bold">First Name <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                                <!-- Step 1: Personal Information -->
+                                <div class="form-step active" data-step="1">
+                                    <h3 class="form-step-title">Personal Information</h3>
+
+                                    <div class="floating-input-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="floating-input">
+                                                    <input type="text" id="firstName" class="floating-input-field" placeholder=" " required>
+                                                    <label for="firstName" class="floating-label">First Name</label>
+                                                    <div class="input-icon">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="floating-input">
+                                                    <input type="text" id="lastName" class="floating-input-field" placeholder=" " required>
+                                                    <label for="lastName" class="floating-label">Last Name</label>
+                                                    <div class="input-icon">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="email" id="email" class="floating-input-field" placeholder=" ">
+                                            <label for="email" class="floating-label">Email Address</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <small class="input-hint">We'll send confirmation details to this email</small>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="tel" id="phone" class="floating-input-field" placeholder=" " required>
+                                            <label for="phone" class="floating-label">Phone Number</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="lastName" class="form-label fw-bold">Last Name <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-next" data-next="2" id="btn-to-details">
+                                            Continue to Details <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Additional Details -->
+                                <div class="form-step" data-step="2">
+                                    <h3 class="form-step-title">Additional Details</h3>
+
+                                    <div class="floating-input-group">
+                                        <div class="floating-input">
+                                            <input type="text" id="organization" class="floating-input-field" placeholder=" ">
+                                            <label for="organization" class="floating-label">Organization/Company</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-input">
+                                            <input type="text" id="position" class="floating-input-field" placeholder=" ">
+                                            <label for="position" class="floating-label">Position/Title</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="floating-select">
+                                            <select id="industry" class="floating-select-field">
+                                                <option value="" selected disabled></option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Healthcare">Healthcare</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Real Estate">Real Estate</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                                <option value="Retail">Retail</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <label for="industry" class="floating-label">Industry</label>
+                                            <div class="input-icon">
+                                                <i class="fas fa-industry"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-bold">Email Address</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
-                                    </div>
-                                    <small class="text-muted">We'll send confirmation details to this email</small>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phoneNumber" class="form-label fw-bold">Phone Number <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="e.g., 0721XXXXXX" required>
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-prev" data-prev="1">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <button type="button" class="btn-next" data-next="3" id="btn-to-payment">
+                                            Continue to Payment <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="organization" class="form-label fw-bold">Organization/Company</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                        <input type="text" class="form-control" id="organization" placeholder="Where do you work?">
+                                <!-- Step 3: Payment Information -->
+                                <div class="form-step" data-step="3">
+                                    <h3 class="form-step-title">Payment Information</h3>
+
+                                    <div class="payment-card">
+                                        <div class="payment-card-header">
+                                            <div class="payment-amount">
+                                                <span class="currency">KSh</span>
+                                                <span class="amount">7,000</span>
+                                                <span class="period">per person</span>
+                                            </div>
+                                        </div>
+                                        <div class="payment-card-body">
+                                            <div class="payment-method-selector">
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="mpesa" value="mpesa" checked>
+                                                    <label for="mpesa">
+                                                        <span class="payment-icon"><i class="fas fa-mobile-alt"></i></span>
+                                                        <span class="payment-label">M-Pesa</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="bank" value="bank">
+                                                    <label for="bank">
+                                                        <span class="payment-icon"><i class="fas fa-university"></i></span>
+                                                        <span class="payment-label">Bank Transfer</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment-option">
+                                                    <input type="radio" name="paymentOption" id="cash" value="cash">
+                                                    <label for="cash">
+                                                        <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                                        <span class="payment-label">Cash</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="payment-details">
+                                                <div class="payment-detail-item">
+                                                    <div class="detail-icon"><i class="fas fa-user"></i></div>
+                                                    <span class="detail-label">Recipient:</span>
+                                                    <span class="detail-value">Esther Obasi-ike</span>
+                                                </div>
+                                                <div class="payment-detail-item">
+                                                    <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
+                                                    <span class="detail-label">Phone:</span>
+                                                    <span class="detail-value">0721 599 013</span>
+                                                </div>
+                                                <div class="payment-detail-item">
+                                                    <div class="detail-icon"><i class="fas fa-info-circle"></i></div>
+                                                    <span class="detail-label">Note:</span>
+                                                    <span class="detail-value">Please include your name as reference</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="terms-agreement">
+                                                <div class="custom-checkbox">
+                                                    <input type="checkbox" id="termsCheck" required>
+                                                    <label for="termsCheck">
+                                                        <div class="checkbox-icon"></div>
+                                                        <div>I agree to the <a href="#" class="terms-link" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a> of this event and confirm my attendance</div>
+                                                    </label>
+                                                </div>
+                                                <div class="terms-error-message" style="display: none;">Please agree to the terms and conditions to proceed</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label for="paymentOption" class="form-label fw-bold">Payment Option <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-money-bill"></i></span>
-                                        <select class="form-select" id="paymentOption" required>
-                                            <option value="" selected disabled>Select your preferred payment method</option>
-                                            <option value="mpesa">M-Pesa</option>
-                                            <option value="bank">Bank Transfer</option>
-                                            <option value="cash">Cash</option>
-                                        </select>
+                                    <div class="form-navigation">
+                                        <button type="button" class="btn-prev" data-prev="2">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <button type="submit" class="btn-submit">
+                                            Complete Registration <i class="fas fa-check"></i>
+                                        </button>
                                     </div>
-                                </div>
-
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                                    <label class="form-check-label" for="termsCheck">
-                                        I agree to the terms and conditions
-                                    </label>
-                                </div>
-
-                                <div class="payment-info alert alert-info mb-4">
-                                    <h5 class="alert-heading"><i class="fas fa-info-circle me-2"></i>Payment Information</h5>
-                                    <p class="mb-0">Conference Cost: <strong>7,000/= per person</strong></p>
-                                    <p>Send Money to <strong>0721 599 013</strong> registered to <strong>Esther Obasi-ike</strong></p>
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg px-5">
-                                        <i class="fas fa-paper-plane me-2"></i>Submit Registration
-                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -274,19 +690,106 @@
 
 
 
-    <!-- Enhanced Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="mb-2">© 2025 Queen Esthers' Generation. All Rights Reserved.</p>
-                    <div class="social-links mt-3 mb-3">
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in fa-lg"></i></a>
+    <!-- Corporate Modern Footer -->
+    <footer class="corporate-footer">
+        <!-- Pre-Footer CTA Section -->
+        <div class="pre-footer">
+            <div class="container">
+                <div class="pre-footer-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-md-7">
+                            <h3 class="pre-footer-title">Ready to join this transformative event?</h3>
+                            <p class="pre-footer-text">Secure your place at the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting.</p>
+                        </div>
+                        <div class="col-lg-4 col-md-5 text-md-end">
+                            <a href="#registration" class="btn btn-cta-footer">
+                                <i class="fas fa-ticket-alt me-2"></i>Register Now
+                            </a>
+                        </div>
                     </div>
-                    <p class="small">Contact: queenesthers2012@gmail.com | 0721599013</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer -->
+        <div class="footer-main-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo and About -->
+                    <div class="col-lg-5 col-md-12 mb-5 mb-lg-0">
+                        <div class="footer-logo-section">
+                            <div class="footer-logo">
+                                <h3>Queen Esthers' Generation</h3>
+                                <span class="footer-tagline">Building Wealth, Building Futures</span>
+                            </div>
+                            <p class="footer-about-text">
+                                Join us for this transformative economic empowerment breakfast meeting and take the first step towards building sustainable wealth.
+                            </p>
+                            <div class="footer-social-links">
+                                <a href="#" class="social-icon-footer" style="--social-index: 0;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 1;" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 2;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon-footer" style="--social-index: 3;" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-md-0">
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <ul class="footer-menu">
+                                <li><a href="#about">About the Event</a></li>
+                                <li><a href="#speakers">Our Speakers</a></li>
+                                <li><a href="#details">Event Details</a></li>
+                                <li><a href="#registration">Registration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="col-lg-4 col-md-8 col-sm-6">
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Contact Information</h4>
+                            <ul class="footer-contact-info">
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <span>Phone</span>
+                                        <a href="tel:0721599013">0721599013</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span>Email</span>
+                                        <a href="mailto:queenesthers2012@gmail.com">queenesthers2012@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-globe"></i>
+                                    <div>
+                                        <span>Website</span>
+                                        <a href="https://queenesthersgeneration.com/" target="_blank">queenesthersgeneration.com</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p class="copyright-text">© 2025 Queen Esthers' Generation. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="developer-text">Developed by <a href="#" target="_blank">Codegx Technology</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,5 +799,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    <!-- Registration Form JS -->
+    <script src="js/registration-form.js"></script>
 </body>
 </html>
