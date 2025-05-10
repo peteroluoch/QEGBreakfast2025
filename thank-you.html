@@ -974,15 +974,21 @@
     <script>
         // Display personalized information from localStorage and save to Firebase
         document.addEventListener('DOMContentLoaded', function() {
+            console.log("Thank you page loaded, checking for registration data...");
+
             try {
                 const storedData = localStorage.getItem('qegRegistrationData');
+                console.log("Retrieved data from localStorage:", storedData ? "Data found" : "No data found");
+
                 if (storedData) {
                     const formData = JSON.parse(storedData);
+                    console.log("Parsed form data:", formData);
 
                     // Personalize the thank you message
                     const thankYouMessage = document.querySelector('.thank-you-message');
                     if (thankYouMessage && formData.firstName) {
                         thankYouMessage.innerHTML = `Thank you, <strong>${formData.firstName} ${formData.lastName}</strong>, for registering for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting. We're excited to have you join us for this transformative event!`;
+                        console.log("Personalized thank you message with name:", formData.firstName, formData.lastName);
                     }
 
                     // Add personalized payment method info if available
@@ -997,51 +1003,67 @@
                                 <span class="detail-value">${formData.paymentMethod.charAt(0).toUpperCase() + formData.paymentMethod.slice(1)}</span>
                             `;
                             paymentDetails.insertBefore(methodItem, paymentDetails.firstChild);
+                            console.log("Added payment method to details:", formData.paymentMethod);
                         }
                     }
 
-                    // Check if registration is already saved to Firebase
-                    if (!formData.registrationId) {
-                        // Save registration data to Firebase
-                        window.firebaseDB.saveRegistration(formData)
-                            .then((docRef) => {
-                                // Store the document ID in localStorage for reference
-                                formData.registrationId = docRef.id;
-                                localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+                    // Check if Firebase is available
+                    if (window.firebaseDB) {
+                        console.log("Firebase DB object found on thank you page");
 
-                                // Add registration ID to the page for reference
-                                const paymentDetails = document.querySelector('.payment-details');
-                                if (paymentDetails) {
-                                    const idItem = document.createElement('div');
-                                    idItem.className = 'payment-detail-item';
-                                    idItem.innerHTML = `
-                                        <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
-                                        <span class="detail-label">Registration ID:</span>
-                                        <span class="detail-value">${docRef.id}</span>
-                                    `;
-                                    paymentDetails.appendChild(idItem);
-                                }
-                            })
-                            .catch((error) => {
-                                console.error('Error saving registration: ', error);
-                            });
+                        // Check if registration is already saved to Firebase
+                        if (!formData.registrationId) {
+                            console.log("No registration ID found, attempting to save to Firebase...");
+
+                            // Save registration data to Firebase
+                            window.firebaseDB.saveRegistration(formData)
+                                .then((docRef) => {
+                                    console.log('Registration saved from thank you page with ID: ', docRef.id);
+
+                                    // Store the document ID in localStorage for reference
+                                    formData.registrationId = docRef.id;
+                                    localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+
+                                    // Add registration ID to the page for reference
+                                    const paymentDetails = document.querySelector('.payment-details');
+                                    if (paymentDetails) {
+                                        const idItem = document.createElement('div');
+                                        idItem.className = 'payment-detail-item';
+                                        idItem.innerHTML = `
+                                            <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                            <span class="detail-label">Registration ID:</span>
+                                            <span class="detail-value">${docRef.id}</span>
+                                        `;
+                                        paymentDetails.appendChild(idItem);
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error saving registration from thank you page: ', error);
+                                });
+                        } else {
+                            console.log("Registration ID already exists:", formData.registrationId);
+
+                            // Registration already saved, display the ID
+                            const paymentDetails = document.querySelector('.payment-details');
+                            if (paymentDetails) {
+                                const idItem = document.createElement('div');
+                                idItem.className = 'payment-detail-item';
+                                idItem.innerHTML = `
+                                    <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                    <span class="detail-label">Registration ID:</span>
+                                    <span class="detail-value">${formData.registrationId}</span>
+                                `;
+                                paymentDetails.appendChild(idItem);
+                            }
+                        }
                     } else {
-                        // Registration already saved, display the ID
-                        const paymentDetails = document.querySelector('.payment-details');
-                        if (paymentDetails) {
-                            const idItem = document.createElement('div');
-                            idItem.className = 'payment-detail-item';
-                            idItem.innerHTML = `
-                                <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
-                                <span class="detail-label">Registration ID:</span>
-                                <span class="detail-value">${formData.registrationId}</span>
-                            `;
-                            paymentDetails.appendChild(idItem);
-                        }
+                        console.warn("Firebase DB object not found on thank you page");
                     }
+                } else {
+                    console.warn("No registration data found in localStorage");
                 }
             } catch (e) {
-                console.error('Error retrieving form data:', e);
+                console.error('Error processing registration data:', e);
             }
 
             // Sleek scroll-to-top button functionality

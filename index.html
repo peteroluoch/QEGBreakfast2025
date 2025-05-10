@@ -966,31 +966,49 @@
                     }
 
                     // Save to Firebase and redirect
-                    if (window.firebaseDB) {
-                        // If Firebase is available, save the data
-                        window.firebaseDB.saveRegistration(formData)
-                            .then((docRef) => {
-                                console.log('Registration saved with ID: ', docRef.id);
+                    try {
+                        console.log("Attempting to save to Firebase...");
 
-                                // Store the document ID in localStorage for reference
-                                formData.registrationId = docRef.id;
-                                localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
-
-                                // Redirect to thank you page
-                                window.location.href = 'thank-you.html';
-                            })
-                            .catch((error) => {
-                                console.error('Error saving registration: ', error);
-                                // Still redirect even if there's an error
-                                setTimeout(function() {
-                                    window.location.href = 'thank-you.html';
-                                }, 1000);
-                            });
-                    } else {
-                        // Fallback if Firebase is not available
-                        setTimeout(function() {
+                        // Set a timeout to ensure redirection happens even if Firebase fails
+                        const redirectTimeout = setTimeout(function() {
+                            console.log("Redirect timeout triggered");
                             window.location.href = 'thank-you.html';
-                        }, 1500);
+                        }, 5000); // 5 second fallback
+
+                        if (window.firebaseDB) {
+                            console.log("Firebase DB object found, attempting to save...");
+                            // If Firebase is available, save the data
+                            window.firebaseDB.saveRegistration(formData)
+                                .then((docRef) => {
+                                    console.log('Registration saved with ID: ', docRef.id);
+
+                                    // Clear the timeout since we're handling redirection here
+                                    clearTimeout(redirectTimeout);
+
+                                    // Store the document ID in localStorage for reference
+                                    formData.registrationId = docRef.id;
+                                    localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+
+                                    // Redirect to thank you page
+                                    window.location.href = 'thank-you.html';
+                                })
+                                .catch((error) => {
+                                    console.error('Error saving registration: ', error);
+                                    // Clear the timeout since we're handling redirection here
+                                    clearTimeout(redirectTimeout);
+
+                                    // Still redirect even if there's an error
+                                    window.location.href = 'thank-you.html';
+                                });
+                        } else {
+                            console.log("Firebase DB object not found, using fallback...");
+                            // Fallback if Firebase is not available
+                            // The timeout will handle redirection
+                        }
+                    } catch (e) {
+                        console.error("Exception in Firebase save process:", e);
+                        // Ensure redirection happens even if there's an exception
+                        window.location.href = 'thank-you.html';
                     }
                 });
             }
