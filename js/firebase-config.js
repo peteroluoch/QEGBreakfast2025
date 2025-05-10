@@ -14,9 +14,8 @@ const firebaseConfig = {
   measurementId: "G-W9BPZHL3NV"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// Firebase should already be initialized in the HTML file
+// Get Firestore instance
 const db = firebase.firestore();
 
 /**
