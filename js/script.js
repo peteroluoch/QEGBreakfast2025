@@ -649,8 +649,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Function to handle navbar scrolling effect
+function handleNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
+
 // Function to add animation effects for the entire page
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize navbar scroll effect
+    window.addEventListener('scroll', handleNavbarScroll);
+    handleNavbarScroll(); // Call once on page load
     // Add animation to elements when they come into view
     const pageAnimateOnScroll = function() {
         const elements = document.querySelectorAll('.card, .section-header, .btn-register, .modern-card, .speaker-card');
