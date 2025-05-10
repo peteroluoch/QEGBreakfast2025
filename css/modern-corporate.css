@@ -1229,8 +1229,15 @@ footer a:hover {
     }
 
     .enhanced-speakers-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 25px;
+    }
+
+    /* Adjust the last speaker card on medium screens */
+    .enhanced-speakers-container .enhanced-speaker-card:last-child {
+        grid-column: 1 / span 2;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .speaker-photo {
@@ -1448,6 +1455,13 @@ footer a:hover {
         grid-template-columns: 1fr;
         max-width: 280px;
         margin: 0 auto;
+    }
+
+    /* Reset the last speaker card on small screens */
+    .enhanced-speakers-container .enhanced-speaker-card:last-child {
+        grid-column: 1;
+        max-width: none;
+        margin: 0;
     }
 
     .speaker-photo {
@@ -2571,6 +2585,611 @@ footer a:hover {
     width: 100%;
 }
 
+/* Enhanced Registration Form Styling */
+.registration-section {
+    background: linear-gradient(135deg, var(--corporate-primary-light) 0%, var(--corporate-primary-dark) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.registration-bg-shape {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 0;
+    animation: floatAnimation 20s infinite alternate ease-in-out;
+}
+
+.registration-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.registration-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.registration-divider {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(to right, var(--corporate-accent), transparent);
+    border-radius: 2px;
+    margin: 15px auto 20px;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.registration-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 1.4s ease forwards;
+}
+
+.registration-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1.6s ease forwards;
+}
+
+.registration-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+    opacity: 0.6;
+}
+
+.progress-step.active {
+    opacity: 1;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.progress-step.active .step-icon {
+    background: linear-gradient(135deg, var(--corporate-accent) 0%, var(--corporate-accent-light) 100%);
+    color: var(--corporate-text-dark);
+    border-color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 171, 0, 0.4);
+}
+
+.step-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease;
+}
+
+.progress-step.active .step-icon::after {
+    opacity: 1;
+    transform: scale(1);
+    animation: rotateShineLogo 8s infinite linear;
+}
+
+.step-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-label {
+    color: var(--corporate-accent);
+    font-weight: 700;
+}
+
+.progress-connector {
+    height: 3px;
+    width: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    margin: 0 10px;
+    top: -15px;
+}
+
+.progress-connector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--corporate-accent);
+    transition: width 0.4s ease;
+}
+
+.registration-form-wrapper {
+    padding: 40px;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.form-step-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--corporate-accent);
+    border-radius: 2px;
+}
+
+.floating-input-group {
+    margin-bottom: 30px;
+}
+
+.floating-input {
+    position: relative;
+    margin-bottom: 25px;
+    display: block; /* Ensure block display for proper positioning */
+    overflow: visible; /* Allow elements to overflow for floating label */
+}
+
+.floating-input-field {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 20px 0 50px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative; /* Ensure proper stacking context */
+}
+
+.floating-input-field:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--corporate-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.floating-label {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.floating-input-field:focus ~ .floating-label,
+.floating-input-field:not(:placeholder-shown) ~ .floating-label {
+    top: 5px;
+    left: 50px; /* Keep aligned with the text field */
+    font-size: 0.8rem;
+    color: var(--corporate-accent);
+}
+
+.input-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none; /* Prevent icon from intercepting clicks */
+    width: 20px; /* Fixed width for the icon */
+    text-align: center; /* Center the icon */
+}
+
+.floating-input-field:focus ~ .input-icon {
+    color: var(--corporate-accent);
+}
+
+.input-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 20px;
+}
+
+.floating-select {
+    position: relative;
+    margin-bottom: 25px;
+    display: block; /* Ensure block display for proper positioning */
+    overflow: visible; /* Allow elements to overflow for floating label */
+}
+
+.floating-select-field {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 20px 0 50px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+    appearance: none;
+    cursor: pointer;
+    position: relative; /* Ensure proper stacking context */
+}
+
+.floating-select-field:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--corporate-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.floating-select::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    width: 20px; /* Fixed width for the icon */
+    text-align: center; /* Center the icon */
+}
+
+.floating-select:focus-within::after {
+    color: var(--corporate-accent);
+    transform: rotate(180deg);
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.btn-prev, .btn-next, .btn-submit {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-prev {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-prev:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+.btn-next, .btn-submit {
+    background: linear-gradient(135deg, var(--corporate-accent) 0%, var(--corporate-accent-light) 100%);
+    color: var(--corporate-text-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-next::before, .btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-next:hover, .btn-submit:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-next:hover::before, .btn-submit:hover::before {
+    left: 100%;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--corporate-success) 0%, #00e676 100%);
+}
+
+.payment-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.payment-card-header {
+    padding: 25px;
+    background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 5px;
+}
+
+.amount {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--corporate-accent);
+    line-height: 1;
+}
+
+.period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 5px;
+}
+
+.payment-card-body {
+    padding: 25px;
+}
+
+.payment-method-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.payment-option {
+    flex: 1;
+    margin: 0 10px;
+    position: relative;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.payment-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option input[type="radio"]:checked + label {
+    background-color: rgba(255, 171, 0, 0.2);
+    border-color: var(--corporate-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.payment-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.payment-option input[type="radio"]:checked + label .payment-icon {
+    background-color: var(--corporate-accent);
+    color: var(--corporate-text-dark);
+    transform: scale(1.1);
+}
+
+.payment-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.payment-details {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.payment-detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.payment-detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--corporate-accent);
+    font-size: 1.2rem;
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 10px;
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.terms-agreement {
+    margin-top: 20px;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.checkbox-icon {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label .checkbox-icon {
+    background-color: var(--corporate-accent);
+    border-color: var(--corporate-accent);
+}
+
+.checkbox-icon::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: var(--corporate-text-dark);
+    transition: all 0.3s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label .checkbox-icon::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.terms-link {
+    color: var(--corporate-accent);
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.terms-link:hover {
+    color: var(--corporate-accent-light);
+}
+
+.terms-error-message {
+    color: var(--corporate-danger);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-left: 34px;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .pre-footer {
@@ -2583,6 +3202,48 @@ footer a:hover {
 
     .footer-main-section {
         padding: 50px 0 30px;
+    }
+
+    .registration-section {
+        padding: 80px 0;
+    }
+
+    .registration-title {
+        font-size: 2.4rem;
+    }
+
+    .registration-progress {
+        padding: 25px 15px;
+    }
+
+    .step-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .step-label {
+        font-size: 0.9rem;
+    }
+
+    .progress-connector {
+        width: 60px;
+    }
+
+    .registration-form-wrapper {
+        padding: 30px;
+    }
+
+    .form-step-title {
+        font-size: 1.6rem;
+    }
+
+    .floating-input-field, .floating-select-field {
+        height: 55px;
+    }
+
+    .payment-amount .amount {
+        font-size: 2.5rem;
     }
 }
 
@@ -2626,5 +3287,126 @@ footer a:hover {
     .footer-bottom-section .col-md-4 {
         width: 100%;
         text-align: center;
+    }
+
+    /* Registration Form Mobile Styles */
+    .registration-section {
+        padding: 70px 0;
+    }
+
+    .registration-title {
+        font-size: 2rem;
+    }
+
+    .registration-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .registration-progress {
+        padding: 20px 10px;
+        flex-wrap: wrap;
+    }
+
+    .step-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .step-label {
+        font-size: 0.85rem;
+    }
+
+    .progress-connector {
+        width: 40px;
+    }
+
+    .registration-form-wrapper {
+        padding: 25px 20px;
+    }
+
+    .form-step-title {
+        font-size: 1.5rem;
+    }
+
+    .floating-input-field, .floating-select-field {
+        height: 50px;
+        font-size: 0.95rem;
+    }
+
+    .floating-label {
+        font-size: 0.95rem;
+    }
+
+    .payment-method-selector {
+        flex-direction: column;
+    }
+
+    .payment-option {
+        margin: 0 0 15px 0;
+    }
+
+    .payment-option:last-child {
+        margin-bottom: 0;
+    }
+
+    .payment-amount .amount {
+        font-size: 2.2rem;
+    }
+
+    .btn-prev, .btn-next, .btn-submit {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .form-navigation {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .btn-prev, .btn-next, .btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Registration Form Small Mobile Styles */
+    .registration-section {
+        padding: 60px 0;
+    }
+
+    .registration-title {
+        font-size: 1.8rem;
+    }
+
+    .registration-subtitle {
+        font-size: 1rem;
+    }
+
+    .registration-progress {
+        padding: 15px 5px;
+    }
+
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .step-label {
+        font-size: 0.8rem;
+    }
+
+    .progress-connector {
+        width: 30px;
+    }
+
+    .registration-form-wrapper {
+        padding: 20px 15px;
+    }
+
+    .form-step-title {
+        font-size: 1.4rem;
     }
 }

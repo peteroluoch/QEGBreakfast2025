@@ -477,9 +477,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="registration-header text-center">
-                        <h2 class="registration-title">Join Us</h2>
+                        <h2 class="registration-title">Register for the Event</h2>
                         <div class="registration-divider"></div>
-                        <p class="registration-subtitle">Secure your place at this exclusive event</p>
+                        <p class="registration-subtitle">Secure your spot at the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting</p>
                     </div>
 
                     <div class="registration-container">
@@ -510,7 +510,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="floating-input">
-                                                    <input type="text" id="firstName" class="floating-input-field" required>
+                                                    <input type="text" id="firstName" class="floating-input-field" placeholder=" " required>
                                                     <label for="firstName" class="floating-label">First Name</label>
                                                     <div class="input-icon">
                                                         <i class="fas fa-user"></i>
@@ -519,7 +519,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="floating-input">
-                                                    <input type="text" id="lastName" class="floating-input-field" required>
+                                                    <input type="text" id="lastName" class="floating-input-field" placeholder=" " required>
                                                     <label for="lastName" class="floating-label">Last Name</label>
                                                     <div class="input-icon">
                                                         <i class="fas fa-user"></i>
@@ -529,7 +529,7 @@
                                         </div>
 
                                         <div class="floating-input">
-                                            <input type="email" id="email" class="floating-input-field">
+                                            <input type="email" id="email" class="floating-input-field" placeholder=" ">
                                             <label for="email" class="floating-label">Email Address</label>
                                             <div class="input-icon">
                                                 <i class="fas fa-envelope"></i>
@@ -538,10 +538,10 @@
                                         </div>
 
                                         <div class="floating-input">
-                                            <input type="tel" id="phoneNumber" class="floating-input-field" required>
+                                            <input type="tel" id="phoneNumber" class="floating-input-field" placeholder=" " required>
                                             <label for="phoneNumber" class="floating-label">Phone Number</label>
                                             <div class="input-icon">
-                                                <i class="fas fa-phone"></i>
+                                                <i class="fas fa-phone-alt"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -559,7 +559,7 @@
 
                                     <div class="floating-input-group">
                                         <div class="floating-input">
-                                            <input type="text" id="organization" class="floating-input-field">
+                                            <input type="text" id="organization" class="floating-input-field" placeholder=" ">
                                             <label for="organization" class="floating-label">Organization/Company</label>
                                             <div class="input-icon">
                                                 <i class="fas fa-building"></i>
@@ -567,7 +567,7 @@
                                         </div>
 
                                         <div class="floating-input">
-                                            <input type="text" id="position" class="floating-input-field">
+                                            <input type="text" id="position" class="floating-input-field" placeholder=" ">
                                             <label for="position" class="floating-label">Position/Title</label>
                                             <div class="input-icon">
                                                 <i class="fas fa-briefcase"></i>
@@ -575,17 +575,20 @@
                                         </div>
 
                                         <div class="floating-select">
-                                            <select id="hearAbout" class="floating-select-field">
+                                            <select id="industry" class="floating-select-field">
                                                 <option value="" selected disabled></option>
-                                                <option value="social">Social Media</option>
-                                                <option value="friend">Friend/Colleague</option>
-                                                <option value="email">Email</option>
-                                                <option value="website">Website</option>
-                                                <option value="other">Other</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Healthcare">Healthcare</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Real Estate">Real Estate</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                                <option value="Retail">Retail</option>
+                                                <option value="Other">Other</option>
                                             </select>
-                                            <label for="hearAbout" class="floating-label">How did you hear about us?</label>
+                                            <label for="industry" class="floating-label">Industry</label>
                                             <div class="input-icon">
-                                                <i class="fas fa-globe"></i>
+                                                <i class="fas fa-industry"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -639,14 +642,19 @@
 
                                             <div class="payment-details">
                                                 <div class="payment-detail-item">
-                                                    <span class="detail-icon"><i class="fas fa-user"></i></span>
-                                                    <span class="detail-label">Send Money to:</span>
+                                                    <div class="detail-icon"><i class="fas fa-user"></i></div>
+                                                    <span class="detail-label">Recipient:</span>
                                                     <span class="detail-value">Esther Obasi-ike</span>
                                                 </div>
                                                 <div class="payment-detail-item">
-                                                    <span class="detail-icon"><i class="fas fa-phone"></i></span>
-                                                    <span class="detail-label">Phone Number:</span>
+                                                    <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
+                                                    <span class="detail-label">Phone:</span>
                                                     <span class="detail-value">0721 599 013</span>
+                                                </div>
+                                                <div class="payment-detail-item">
+                                                    <div class="detail-icon"><i class="fas fa-info-circle"></i></div>
+                                                    <span class="detail-label">Note:</span>
+                                                    <span class="detail-value">Please include your name as reference</span>
                                                 </div>
                                             </div>
 
@@ -654,11 +662,11 @@
                                                 <div class="custom-checkbox">
                                                     <input type="checkbox" id="termsCheck" required>
                                                     <label for="termsCheck">
-                                                        <span class="checkbox-icon"></span>
-                                                        <span>I agree to the <a href="#" class="terms-link">terms and conditions</a> <span class="text-danger">*</span></span>
+                                                        <div class="checkbox-icon"></div>
+                                                        <div>I agree to the <a href="#" class="terms-link" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a> of this event and confirm my attendance</div>
                                                     </label>
                                                 </div>
-                                                <div class="terms-error-message"></div>
+                                                <div class="terms-error-message" style="display: none;">Please agree to the terms and conditions to proceed</div>
                                             </div>
                                         </div>
                                     </div>
