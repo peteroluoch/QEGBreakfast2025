@@ -575,7 +575,7 @@
                                         </div>
 
                                         <div class="floating-select">
-                                            <select id="industry" class="floating-select-field">
+                                            <select id="industry" class="floating-select-field" required>
                                                 <option value="" selected disabled></option>
                                                 <option value="Finance">Finance</option>
                                                 <option value="Technology">Technology</option>
@@ -584,9 +584,12 @@
                                                 <option value="Real Estate">Real Estate</option>
                                                 <option value="Manufacturing">Manufacturing</option>
                                                 <option value="Retail">Retail</option>
+                                                <option value="Hospitality">Hospitality</option>
+                                                <option value="Consulting">Consulting</option>
+                                                <option value="Media & Entertainment">Media & Entertainment</option>
                                                 <option value="Other">Other</option>
                                             </select>
-                                            <label for="industry" class="floating-label">Industry</label>
+                                            <label for="industry" class="floating-label">Industry <span class="required-indicator">*</span></label>
                                             <div class="input-icon">
                                                 <i class="fas fa-industry"></i>
                                             </div>
@@ -675,7 +678,7 @@
                                         <button type="button" class="btn-prev" data-prev="2">
                                             <i class="fas fa-arrow-left"></i> Back
                                         </button>
-                                        <button type="submit" class="btn-submit">
+                                        <button type="button" class="btn-submit" id="completeRegistrationBtn">
                                             Complete Registration <i class="fas fa-check"></i>
                                         </button>
                                     </div>
@@ -863,6 +866,76 @@
                 scrollBtn.style.opacity = '0.9';
             } else {
                 scrollBtn.style.opacity = '0';
+            }
+
+            // Enhanced handler for the complete registration button
+            const completeRegistrationBtn = document.getElementById('completeRegistrationBtn');
+            if (completeRegistrationBtn) {
+                completeRegistrationBtn.addEventListener('click', function() {
+                    // Enhanced validation for final step
+                    const finalStep = document.querySelector('.form-step[data-step="3"]');
+                    const requiredFields = finalStep.querySelectorAll('[required]');
+                    const termsCheck = document.getElementById('termsCheck');
+                    let isValid = true;
+
+                    // Validate required fields
+                    requiredFields.forEach(field => {
+                        if (field.type === 'checkbox' && !field.checked) {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                        } else if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                        } else {
+                            field.classList.remove('is-invalid');
+                        }
+                    });
+
+                    // Special check for terms
+                    if (termsCheck && !termsCheck.checked) {
+                        isValid = false;
+                        termsCheck.classList.add('is-invalid');
+                        document.querySelector('.terms-error-message').style.display = 'block';
+                    } else if (termsCheck) {
+                        termsCheck.classList.remove('is-invalid');
+                        document.querySelector('.terms-error-message').style.display = 'none';
+                    }
+
+                    if (!isValid) {
+                        // Scroll to the first invalid field
+                        const firstInvalidField = finalStep.querySelector('.is-invalid');
+                        if (firstInvalidField) {
+                            firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        return;
+                    }
+
+                    // Show loading state
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+                    this.disabled = true;
+
+                    // Store form data in localStorage to persist across page loads
+                    try {
+                        const formData = {
+                            firstName: document.getElementById('firstName').value,
+                            lastName: document.getElementById('lastName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            organization: document.getElementById('organization').value,
+                            position: document.getElementById('position').value,
+                            industry: document.getElementById('industry').value,
+                            paymentMethod: document.querySelector('input[name="paymentOption"]:checked').value
+                        };
+                        localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+                    } catch (e) {
+                        console.error('Error saving form data:', e);
+                    }
+
+                    // Redirect after a short delay
+                    setTimeout(function() {
+                        window.location.href = 'thank-you.html';
+                    }, 1500);
+                });
             }
         });
     </script>
