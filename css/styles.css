@@ -103,7 +103,7 @@ body {
 
 /* Left Side: Text Container */
 .hero-text-container {
-    width: 36%; /* Reduced to give more space to image */
+    width: 38%; /* Slightly increased for better text display */
     padding-right: 0;
     opacity: 0; /* For animation */
     height: 100%;
@@ -123,7 +123,7 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    height: 100%;
+    height: auto; /* Auto height based on content */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -210,28 +210,30 @@ body {
 
 /* Right Side: Flyer Container */
 .flyer-container {
-    width: 60%; /* Increased to 60% as requested */
-    max-width: 800px; /* Increased max-width */
+    width: 58%; /* Width as requested, slightly reduced to prevent interference */
+    max-width: 750px; /* Max width */
     overflow: hidden;
     position: relative;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     opacity: 0; /* For animation */
-    height: auto;
+    height: 70vh; /* Fixed height */
     display: flex;
     align-items: center;
-    padding: 8px; /* Added small padding around image */
-    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for padding */
+    justify-content: center; /* Center image */
+    padding: 2px; /* Minimal padding */
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
     border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
 }
 
 .flyer-image {
-    width: 100%;
-    height: auto;
+    width: auto; /* Auto width */
+    height: 100%; /* Full height */
     display: block;
-    object-fit: contain; /* Ensure image maintains aspect ratio */
-    max-height: 75vh; /* Slightly increased max height */
+    object-fit: contain; /* Ensure all content is visible */
     border-radius: 10px; /* Match the container's rounded corners */
+    transform: none; /* No transform needed */
+    background-color: transparent; /* No background */
 }
 
 /* Animation Classes */
@@ -368,11 +370,12 @@ body {
     }
 
     .hero-text-container {
-        width: 35%;
+        width: 38%;
     }
 
     .flyer-container {
-        width: 60%; /* Maintain 60% width on medium screens */
+        width: 58%; /* Maintain width on medium screens */
+        height: 65vh; /* Slightly reduced height */
     }
 
     .hero-title {
@@ -381,10 +384,6 @@ body {
 
     .hero-subtitle {
         font-size: 1.3rem;
-    }
-
-    .flyer-image {
-        max-height: 70vh;
     }
 }
 
@@ -409,8 +408,8 @@ body {
     }
 
     .hero-text-container, .flyer-container {
-        width: 90%;
-        max-width: 600px;
+        width: 95%; /* Increased from 90% to stretch more */
+        max-width: 650px; /* Increased max-width */
         height: auto;
     }
 
@@ -427,10 +426,16 @@ body {
     .flyer-container {
         margin-bottom: 0;
         margin-top: 30px; /* Added margin to create space from nav */
+        padding: 2px; /* Minimal padding */
+        width: 85%; /* Slightly reduced width */
+        height: 55vh; /* Fixed height for tablets */
     }
 
     .flyer-image {
-        max-height: 50vh; /* Further reduce image height on tablets */
+        border-radius: 8px; /* Maintain consistent radius */
+        transform: none; /* No transform needed */
+        height: 100%; /* Full height */
+        width: auto; /* Auto width */
     }
 
     .hero-title {
@@ -509,10 +514,16 @@ body {
 
     .flyer-container {
         margin-top: 50px; /* Even more space on smallest screens */
+        padding: 2px; /* Minimal padding */
+        width: 90%; /* Slightly reduced width */
+        height: 45vh; /* Fixed height for mobile */
     }
 
     .flyer-image {
-        max-height: 40vh; /* Smallest image height for mobile */
+        border-radius: 6px; /* Slightly smaller radius on mobile */
+        height: 100%; /* Full height */
+        width: auto; /* Auto width */
+        max-width: 100%; /* Ensure it doesn't overflow */
     }
 
     /* Adjust horizontal divider for smallest screens */
