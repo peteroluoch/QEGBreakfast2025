@@ -587,7 +587,7 @@
                                                 <option value="Hospitality">Hospitality</option>
                                                 <option value="Consulting">Consulting</option>
                                                 <option value="Media & Entertainment">Media & Entertainment</option>
-                                                <option value="Other">Other</option>
+                                                <option value="Other">Other/s</option>
                                             </select>
                                             <label for="industry" class="floating-label">Industry <span class="required-indicator">*</span></label>
                                             <div class="input-icon">
@@ -838,6 +838,12 @@
     <!-- Simple Form Navigation JS -->
     <script src="js/simple-form-nav.js"></script>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
     <script>
         // Sleek scroll-to-top button functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -914,27 +920,78 @@
                     this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
                     this.disabled = true;
 
-                    // Store form data in localStorage to persist across page loads
+                    // Collect all form data from all steps
                     try {
-                        const formData = {
+                        // Step 1 data
+                        const personalInfo = {
                             firstName: document.getElementById('firstName').value,
                             lastName: document.getElementById('lastName').value,
                             email: document.getElementById('email').value,
-                            phone: document.getElementById('phone').value,
+                            phone: document.getElementById('phone').value
+                        };
+
+                        // Step 2 data
+                        const professionalInfo = {
                             organization: document.getElementById('organization').value,
                             position: document.getElementById('position').value,
-                            industry: document.getElementById('industry').value,
-                            paymentMethod: document.querySelector('input[name="paymentOption"]:checked').value
+                            industry: document.getElementById('industry').value
                         };
+
+                        // Step 3 data
+                        const paymentInfo = {
+                            paymentMethod: document.querySelector('input[name="paymentOption"]:checked').value,
+                            termsAccepted: document.getElementById('termsCheck').checked
+                        };
+
+                        // Additional metadata
+                        const metadata = {
+                            registrationDate: new Date().toISOString(),
+                            userAgent: navigator.userAgent,
+                            referrer: document.referrer || 'direct',
+                            status: 'pending' // Initial status (pending payment)
+                        };
+
+                        // Combine all data
+                        const formData = {
+                            ...personalInfo,
+                            ...professionalInfo,
+                            ...paymentInfo,
+                            ...metadata
+                        };
+
+                        // Store in localStorage for the thank you page
                         localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
                     } catch (e) {
                         console.error('Error saving form data:', e);
                     }
 
-                    // Redirect after a short delay
-                    setTimeout(function() {
-                        window.location.href = 'thank-you.html';
-                    }, 1500);
+                    // Save to Firebase and redirect
+                    if (window.firebaseDB) {
+                        // If Firebase is available, save the data
+                        window.firebaseDB.saveRegistration(formData)
+                            .then((docRef) => {
+                                console.log('Registration saved with ID: ', docRef.id);
+
+                                // Store the document ID in localStorage for reference
+                                formData.registrationId = docRef.id;
+                                localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+
+                                // Redirect to thank you page
+                                window.location.href = 'thank-you.html';
+                            })
+                            .catch((error) => {
+                                console.error('Error saving registration: ', error);
+                                // Still redirect even if there's an error
+                                setTimeout(function() {
+                                    window.location.href = 'thank-you.html';
+                                }, 1000);
+                            });
+                    } else {
+                        // Fallback if Firebase is not available
+                        setTimeout(function() {
+                            window.location.href = 'thank-you.html';
+                        }, 1500);
+                    }
                 });
             }
         });

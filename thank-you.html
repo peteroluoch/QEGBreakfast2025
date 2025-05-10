@@ -963,8 +963,16 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="js/firebase-config.js"></script>
+
     <script>
-        // Display personalized information from localStorage
+        // Display personalized information from localStorage and save to Firebase
         document.addEventListener('DOMContentLoaded', function() {
             try {
                 const storedData = localStorage.getItem('qegRegistrationData');
@@ -989,6 +997,46 @@
                                 <span class="detail-value">${formData.paymentMethod.charAt(0).toUpperCase() + formData.paymentMethod.slice(1)}</span>
                             `;
                             paymentDetails.insertBefore(methodItem, paymentDetails.firstChild);
+                        }
+                    }
+
+                    // Check if registration is already saved to Firebase
+                    if (!formData.registrationId) {
+                        // Save registration data to Firebase
+                        window.firebaseDB.saveRegistration(formData)
+                            .then((docRef) => {
+                                // Store the document ID in localStorage for reference
+                                formData.registrationId = docRef.id;
+                                localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+
+                                // Add registration ID to the page for reference
+                                const paymentDetails = document.querySelector('.payment-details');
+                                if (paymentDetails) {
+                                    const idItem = document.createElement('div');
+                                    idItem.className = 'payment-detail-item';
+                                    idItem.innerHTML = `
+                                        <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                        <span class="detail-label">Registration ID:</span>
+                                        <span class="detail-value">${docRef.id}</span>
+                                    `;
+                                    paymentDetails.appendChild(idItem);
+                                }
+                            })
+                            .catch((error) => {
+                                console.error('Error saving registration: ', error);
+                            });
+                    } else {
+                        // Registration already saved, display the ID
+                        const paymentDetails = document.querySelector('.payment-details');
+                        if (paymentDetails) {
+                            const idItem = document.createElement('div');
+                            idItem.className = 'payment-detail-item';
+                            idItem.innerHTML = `
+                                <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                <span class="detail-label">Registration ID:</span>
+                                <span class="detail-value">${formData.registrationId}</span>
+                            `;
+                            paymentDetails.appendChild(idItem);
                         }
                     }
                 }
