@@ -501,10 +501,10 @@ function saveFormData() {
         firstName: document.getElementById('firstName')?.value || '',
         lastName: document.getElementById('lastName')?.value || '',
         email: document.getElementById('email')?.value || '',
-        phoneNumber: document.getElementById('phoneNumber')?.value || '',
+        phoneNumber: document.getElementById('phone')?.value || '',
         organization: document.getElementById('organization')?.value || '',
         position: document.getElementById('position')?.value || '',
-        hearAbout: document.getElementById('hearAbout')?.value || '',
+        industry: document.getElementById('industry')?.value || '',
         paymentOption: document.querySelector('input[name="paymentOption"]:checked')?.value || 'mpesa'
     };
 
