@@ -3123,11 +3123,12 @@ footer a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    padding: 0 20px 0 50px; /* Left padding of 50px ensures text doesn't overlap with icon */
+    padding: 20px 20px 0 60px; /* Adjusted padding - top padding added, left padding reduced */
     font-size: 1rem;
     color: white;
     transition: all 0.3s ease;
     position: relative; /* Ensure proper stacking context */
+    margin-bottom: 15px; /* Increased space between fields */
 }
 
 .floating-input-field:focus {
@@ -3139,34 +3140,40 @@ footer a:hover {
 
 .floating-label {
     position: absolute;
-    top: 20px;
-    left: 50px;
-    font-size: 1rem;
+    top: 5px; /* Moved to top of field */
+    left: 60px; /* Aligned with input text */
+    font-size: 0.85rem; /* Smaller size */
     color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
     pointer-events: none;
+    font-weight: 600; /* Make the label more visible */
+    white-space: nowrap; /* Prevent label from wrapping */
 }
 
 .floating-input-field:focus ~ .floating-label,
 .floating-input-field:not(:placeholder-shown) ~ .floating-label {
-    top: 5px;
-    left: 50px; /* Keep aligned with the text field, to the right of the icon */
-    font-size: 0.8rem;
+    top: -10px; /* Move label above the input field */
+    left: 60px; /* Aligned with input text */
+    font-size: 0.75rem; /* Even smaller when focused */
     color: var(--corporate-accent);
-    background-color: rgba(123, 31, 162, 0.05); /* Subtle background to separate from content */
-    padding: 0 5px; /* Add some padding for better readability */
-    border-radius: 3px; /* Rounded corners for the label background */
+    background-color: rgba(123, 31, 162, 0.1); /* Enhanced background to separate from content */
+    padding: 2px 8px; /* Increased padding for better readability */
+    border-radius: 4px; /* Rounded corners for the label background */
+    font-weight: 700; /* Make the label more visible */
+    z-index: 2; /* Ensure label appears above the input field */
 }
 
 .input-icon {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 20px; /* Positioned at the left edge of the field */
     color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
     pointer-events: none; /* Prevent icon from intercepting clicks */
-    width: 20px; /* Fixed width for the icon */
+    width: 25px; /* Increased width for the icon */
     text-align: center; /* Center the icon */
+    font-size: 1.1rem; /* Slightly larger icon */
+    z-index: 1; /* Ensure proper stacking */
 }
 
 .floating-input-field:focus ~ .input-icon {
@@ -3194,7 +3201,7 @@ footer a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    padding: 0 40px 0 50px; /* Left padding of 50px for icon, right padding of 40px for dropdown arrow */
+    padding: 20px 40px 0 60px; /* Adjusted padding to match text inputs */
     font-size: 1rem;
     color: #333; /* Changed from white to dark color for better visibility */
     transition: all 0.3s ease;
@@ -3202,6 +3209,7 @@ footer a:hover {
     cursor: pointer;
     position: relative; /* Ensure proper stacking context */
     background-color: #f8f9fa; /* Light background for better visibility */
+    margin-bottom: 15px; /* Increased space between fields */
 }
 
 .floating-select-field:focus {
@@ -3232,13 +3240,15 @@ footer a:hover {
 
 .floating-select-field:focus ~ .floating-label,
 .floating-select-field:not([value=""]):not([value="null"]) ~ .floating-label {
-    top: 5px;
-    left: 50px; /* Keep aligned with the text field, to the right of the icon */
-    font-size: 0.8rem;
+    top: -10px; /* Move label above the input field */
+    left: 60px; /* Aligned with input text */
+    font-size: 0.75rem; /* Even smaller when focused */
     color: var(--corporate-accent);
-    background-color: rgba(123, 31, 162, 0.05); /* Subtle background to separate from content */
-    padding: 0 5px; /* Add some padding for better readability */
-    border-radius: 3px; /* Rounded corners for the label background */
+    background-color: rgba(123, 31, 162, 0.1); /* Enhanced background to separate from content */
+    padding: 2px 8px; /* Increased padding for better readability */
+    border-radius: 4px; /* Rounded corners for the label background */
+    font-weight: 700; /* Make the label more visible */
+    z-index: 2; /* Ensure label appears above the input field */
 }
 
 .form-navigation {
@@ -3577,6 +3587,24 @@ footer a:hover {
 
     .floating-input-field, .floating-select-field {
         height: 55px;
+        padding: 20px 20px 0 55px; /* Adjusted padding for tablet screens */
+    }
+
+    .floating-label {
+        top: 5px;
+        left: 55px; /* Adjusted for tablet screens */
+    }
+
+    .floating-input-field:focus ~ .floating-label,
+    .floating-input-field:not(:placeholder-shown) ~ .floating-label,
+    .floating-select-field:focus ~ .floating-label,
+    .floating-select-field:not([value=""]):not([value="null"]) ~ .floating-label {
+        top: -10px; /* Keep label above the field */
+        left: 55px; /* Adjusted for tablet screens */
+    }
+
+    .input-icon {
+        left: 18px; /* Adjusted for tablet screens */
     }
 
     .payment-amount .amount {
@@ -3593,6 +3621,30 @@ footer a:hover {
     .pre-footer-text {
         text-align: center;
         margin-bottom: 20px;
+    }
+
+    /* Additional form adjustments for mobile */
+    .floating-input-field, .floating-select-field {
+        padding: 20px 20px 0 50px; /* Adjusted padding for mobile */
+    }
+
+    .floating-label {
+        top: 5px;
+        left: 50px; /* Adjusted for mobile */
+        font-size: 0.8rem; /* Smaller font for mobile */
+    }
+
+    .floating-input-field:focus ~ .floating-label,
+    .floating-input-field:not(:placeholder-shown) ~ .floating-label,
+    .floating-select-field:focus ~ .floating-label,
+    .floating-select-field:not([value=""]):not([value="null"]) ~ .floating-label {
+        top: -10px; /* Keep label above the field */
+        left: 50px; /* Adjusted for mobile */
+        font-size: 0.7rem; /* Even smaller when focused */
+    }
+
+    .input-icon {
+        left: 15px; /* Adjusted for mobile */
     }
 
     .btn-cta-footer {
@@ -3745,5 +3797,30 @@ footer a:hover {
 
     .form-step-title {
         font-size: 1.4rem;
+    }
+
+    /* Additional form adjustments for small mobile */
+    .floating-input-field, .floating-select-field {
+        padding: 20px 20px 0 45px; /* Further reduced padding for small mobile */
+    }
+
+    .floating-label {
+        top: 5px;
+        left: 45px; /* Adjusted for small mobile */
+        font-size: 0.75rem; /* Smaller font size for small screens */
+    }
+
+    .floating-input-field:focus ~ .floating-label,
+    .floating-input-field:not(:placeholder-shown) ~ .floating-label,
+    .floating-select-field:focus ~ .floating-label,
+    .floating-select-field:not([value=""]):not([value="null"]) ~ .floating-label {
+        top: -10px; /* Keep label above the field */
+        left: 45px; /* Adjusted for small mobile */
+        font-size: 0.65rem; /* Even smaller when focused */
+    }
+
+    .input-icon {
+        left: 12px; /* Adjusted for small mobile */
+        font-size: 1rem; /* Slightly smaller icon */
     }
 }

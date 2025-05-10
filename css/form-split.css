@@ -1,0 +1,159 @@
+/**
+ * Split Form Input Styles
+ * This file contains styles for the split form input fields
+ */
+
+/* Form Group Styles */
+.split-form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Label Styles */
+.split-form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+/* Required indicator */
+.split-form-label .required {
+    color: #ff9800;
+    margin-left: 4px;
+}
+
+/* Input Field Styles */
+.split-form-input {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 20px 0 50px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.split-form-input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--corporate-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Input Icon Styles */
+.split-input-icon {
+    position: absolute;
+    top: 38px;
+    left: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    width: 20px;
+    text-align: center;
+}
+
+.split-form-input:focus ~ .split-input-icon {
+    color: var(--corporate-accent);
+}
+
+/* Select Field Styles */
+.split-form-select {
+    width: 100%;
+    height: 50px;
+    background-color: #f8f9fa;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 0 20px 0 50px;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+    appearance: none;
+    cursor: pointer;
+}
+
+.split-form-select:focus {
+    border-color: var(--corporate-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Select Arrow */
+.split-select-arrow {
+    position: absolute;
+    top: 38px;
+    right: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.split-form-select:focus ~ .split-select-arrow {
+    color: var(--corporate-accent);
+    transform: rotate(180deg);
+}
+
+/* Input Hint */
+.split-input-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .split-form-input, .split-form-select {
+        height: 48px;
+        font-size: 0.95rem;
+    }
+    
+    .split-form-label {
+        font-size: 0.9rem;
+    }
+    
+    .split-input-icon {
+        top: 36px;
+    }
+    
+    .split-select-arrow {
+        top: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .split-form-input, .split-form-select {
+        height: 45px;
+        padding-left: 45px;
+    }
+    
+    .split-form-label {
+        font-size: 0.85rem;
+    }
+    
+    .split-input-icon {
+        top: 34px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .split-form-input, .split-form-select {
+        height: 42px;
+        padding-left: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .split-form-label {
+        font-size: 0.8rem;
+    }
+    
+    .split-input-icon {
+        top: 32px;
+        left: 12px;
+    }
+}

@@ -9,7 +9,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/registration.css">
-    <link rel="stylesheet" href="css/modern-corporate.css">
+    <link rel="stylesheet" href="css/modern-corporate.css?v=1.4">
+    <link rel="stylesheet" href="css/form-split.css?v=1.0">
     <!-- Font Awesome (Latest Version) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -506,41 +507,41 @@
                                 <div class="form-step active" data-step="1">
                                     <h3 class="form-step-title">Personal Information</h3>
 
-                                    <div class="floating-input-group">
+                                    <div class="split-form-group-container">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="floating-input">
-                                                    <input type="text" id="firstName" class="floating-input-field" placeholder=" " required>
-                                                    <label for="firstName" class="floating-label">First Name</label>
-                                                    <div class="input-icon">
+                                                <div class="split-form-group">
+                                                    <label for="firstName" class="split-form-label">First Name <span class="required">*</span></label>
+                                                    <input type="text" id="firstName" class="split-form-input" required>
+                                                    <div class="split-input-icon">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="floating-input">
-                                                    <input type="text" id="lastName" class="floating-input-field" placeholder=" " required>
-                                                    <label for="lastName" class="floating-label">Last Name</label>
-                                                    <div class="input-icon">
+                                                <div class="split-form-group">
+                                                    <label for="lastName" class="split-form-label">Last Name <span class="required">*</span></label>
+                                                    <input type="text" id="lastName" class="split-form-input" required>
+                                                    <div class="split-input-icon">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="floating-input">
-                                            <input type="email" id="email" class="floating-input-field" placeholder=" ">
-                                            <label for="email" class="floating-label">Email Address</label>
-                                            <div class="input-icon">
+                                        <div class="split-form-group">
+                                            <label for="email" class="split-form-label">Email Address <span class="required">*</span></label>
+                                            <input type="email" id="email" class="split-form-input" required>
+                                            <div class="split-input-icon">
                                                 <i class="fas fa-envelope"></i>
                                             </div>
-                                            <small class="input-hint">We'll send confirmation details to this email</small>
+                                            <small class="split-input-hint">We'll send confirmation details to this email</small>
                                         </div>
 
-                                        <div class="floating-input">
-                                            <input type="tel" id="phone" class="floating-input-field" placeholder=" " required>
-                                            <label for="phone" class="floating-label">Phone Number</label>
-                                            <div class="input-icon">
+                                        <div class="split-form-group">
+                                            <label for="phone" class="split-form-label">Phone Number <span class="required">*</span></label>
+                                            <input type="tel" id="phone" class="split-form-input" required>
+                                            <div class="split-input-icon">
                                                 <i class="fas fa-phone-alt"></i>
                                             </div>
                                         </div>
@@ -557,26 +558,27 @@
                                 <div class="form-step" data-step="2">
                                     <h3 class="form-step-title">Additional Details</h3>
 
-                                    <div class="floating-input-group">
-                                        <div class="floating-input">
-                                            <input type="text" id="organization" class="floating-input-field" placeholder=" ">
-                                            <label for="organization" class="floating-label">Organization/Company</label>
-                                            <div class="input-icon">
+                                    <div class="split-form-group-container">
+                                        <div class="split-form-group">
+                                            <label for="organization" class="split-form-label">Organization/Company</label>
+                                            <input type="text" id="organization" class="split-form-input">
+                                            <div class="split-input-icon">
                                                 <i class="fas fa-building"></i>
                                             </div>
                                         </div>
 
-                                        <div class="floating-input">
-                                            <input type="text" id="position" class="floating-input-field" placeholder=" ">
-                                            <label for="position" class="floating-label">Position/Title</label>
-                                            <div class="input-icon">
+                                        <div class="split-form-group">
+                                            <label for="position" class="split-form-label">Position/Title</label>
+                                            <input type="text" id="position" class="split-form-input">
+                                            <div class="split-input-icon">
                                                 <i class="fas fa-briefcase"></i>
                                             </div>
                                         </div>
 
-                                        <div class="floating-select">
-                                            <select id="industry" class="floating-select-field" required>
-                                                <option value="" selected disabled></option>
+                                        <div class="split-form-group">
+                                            <label for="industry" class="split-form-label">Industry <span class="required">*</span></label>
+                                            <select id="industry" class="split-form-select" required>
+                                                <option value="" selected disabled>Select your industry</option>
                                                 <option value="Finance">Finance</option>
                                                 <option value="Technology">Technology</option>
                                                 <option value="Healthcare">Healthcare</option>
@@ -589,9 +591,11 @@
                                                 <option value="Media & Entertainment">Media & Entertainment</option>
                                                 <option value="Other">Other/s</option>
                                             </select>
-                                            <label for="industry" class="floating-label">Industry <span class="required-indicator">*</span></label>
-                                            <div class="input-icon">
+                                            <div class="split-input-icon">
                                                 <i class="fas fa-industry"></i>
+                                            </div>
+                                            <div class="split-select-arrow">
+                                                <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </div>
                                     </div>
