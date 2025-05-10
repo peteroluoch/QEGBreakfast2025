@@ -664,6 +664,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.transform = 'translateY(0)';
             }
         });
+
+        // Animate footer elements
+        animateFooterElements();
     };
 
     // Set initial state for animation
@@ -680,4 +683,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Trigger once on page load
     setTimeout(pageAnimateOnScroll, 100);
+
+    // Footer animations
+    function animateFooterElements() {
+        const footerCols = document.querySelectorAll('.footer-col');
+
+        // Immediately activate all footer columns to ensure they're visible
+        footerCols.forEach(col => {
+            // Get the delay attribute for staggered animation effect
+            const delay = parseInt(col.getAttribute('data-delay') || 0);
+
+            // Add active class with the specified delay
+            setTimeout(() => {
+                col.classList.add('active');
+            }, delay);
+        });
+    }
+
+    // Initialize footer animations immediately
+    animateFooterElements();
 });
