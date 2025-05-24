@@ -754,8 +754,40 @@
                 max-width: 100%;
             }
 
+            /* Enhanced payment details for small screens */
+            .payment-details {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+            }
+
+            .payment-details h4 {
+                font-size: 1.2rem;
+                text-align: center;
+                display: block;
+                margin-bottom: 25px;
+            }
+
+            .payment-details h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+            }
+
             .payment-detail-item {
-                padding: 10px;
+                padding: 12px 10px;
+                margin-bottom: 12px;
+                border-bottom: 1px dashed rgba(123, 31, 162, 0.1);
+            }
+
+            .payment-detail-item:last-child {
+                border-bottom: none;
+            }
+
+            .detail-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-right: 15px;
             }
 
             .detail-content {
@@ -763,12 +795,17 @@
             }
 
             .detail-label {
-                margin-bottom: 3px;
+                margin-bottom: 5px;
                 font-size: 0.85rem;
+                display: block;
+                color: var(--corporate-primary);
+                font-weight: 700;
             }
 
             .detail-value {
-                font-size: 0.9rem;
+                font-size: 1rem;
+                display: block;
+                font-weight: 600;
             }
 
             .upcoming-events {
@@ -1318,14 +1355,56 @@
                         const paymentDetails = document.querySelector('.payment-details');
                         if (paymentDetails) {
                             const methodItem = document.createElement('div');
-                            methodItem.className = 'payment-detail-item';
+                            methodItem.className = 'payment-detail-item payment-method-item';
                             methodItem.innerHTML = `
                                 <div class="detail-icon"><i class="fas fa-credit-card"></i></div>
-                                <span class="detail-label">Selected Payment Method:</span>
-                                <span class="detail-value">${formData.paymentMethod.charAt(0).toUpperCase() + formData.paymentMethod.slice(1)}</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Selected Payment Method:</span>
+                                    <span class="detail-value">${formData.paymentMethod.charAt(0).toUpperCase() + formData.paymentMethod.slice(1)}</span>
+                                </div>
                             `;
+
+                            // Add special class for mobile styling
+                            methodItem.setAttribute('data-payment-method', formData.paymentMethod.toLowerCase());
+
+                            // Insert at the beginning of payment details
                             paymentDetails.insertBefore(methodItem, paymentDetails.firstChild);
                             console.log("Added payment method to details:", formData.paymentMethod);
+
+                            // Add special styling for mobile view
+                            const styleElement = document.createElement('style');
+                            styleElement.textContent = `
+                                /* Payment method responsive styling */
+                                @media (max-width: 576px) {
+                                    .payment-method-item {
+                                        background-color: rgba(255, 171, 0, 0.1);
+                                        border-left: 3px solid var(--corporate-accent);
+                                    }
+
+                                    .payment-method-item .detail-content {
+                                        display: flex;
+                                        flex-direction: column;
+                                    }
+
+                                    .payment-method-item .detail-label {
+                                        font-weight: 700;
+                                        color: var(--corporate-text-dark);
+                                        margin-bottom: 5px;
+                                    }
+
+                                    .payment-method-item .detail-value {
+                                        font-size: 1.1rem;
+                                        font-weight: 600;
+                                        color: var(--corporate-accent);
+                                    }
+
+                                    /* Special styling for M-Pesa */
+                                    [data-payment-method="mpesa"] .detail-value {
+                                        color: #4CAF50;
+                                    }
+                                }
+                            `;
+                            document.head.appendChild(styleElement);
                         }
                     }
 
@@ -1353,8 +1432,10 @@
                                         idItem.className = 'payment-detail-item';
                                         idItem.innerHTML = `
                                             <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
-                                            <span class="detail-label">Registration ID:</span>
-                                            <span class="detail-value">${docRef.id}</span>
+                                            <div class="detail-content">
+                                                <span class="detail-label">Registration ID:</span>
+                                                <span class="detail-value">${docRef.id}</span>
+                                            </div>
                                         `;
                                         paymentDetails.appendChild(idItem);
                                     }
@@ -1372,8 +1453,10 @@
                                 idItem.className = 'payment-detail-item';
                                 idItem.innerHTML = `
                                     <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
-                                    <span class="detail-label">Registration ID:</span>
-                                    <span class="detail-value">${formData.registrationId}</span>
+                                    <div class="detail-content">
+                                        <span class="detail-label">Registration ID:</span>
+                                        <span class="detail-value">${formData.registrationId}</span>
+                                    </div>
                                 `;
                                 paymentDetails.appendChild(idItem);
                             }
