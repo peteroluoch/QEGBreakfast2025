@@ -1,5 +1,17 @@
-// Form validation and submission handling
+// Enhanced Form validation and submission handling with mobile optimizations
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize loading states
+    initializeLoadingStates();
+
+    // Initialize mobile optimizations
+    initializeMobileOptimizations();
+
+    // Initialize smooth scrolling
+    initializeSmoothScrolling();
+
+    // Initialize footer interactions
+    initializeFooterInteractions();
+
     const registrationForm = document.getElementById('registrationForm');
 
     // Add smooth scrolling for anchor links
@@ -361,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h4>Payment Information</h4>
                             <p>Please complete your payment to confirm your attendance:</p>
                             <ul>
-                                <li><strong>Amount:</strong> KSh 7,000 per person</li>
+                                <li><strong>Amount:</strong> KSh 5,000 per person</li>
                                 <li><strong>Send to:</strong> Esther Obasi-ike (0721 599 013)</li>
                             </ul>
                         </div>
@@ -745,4 +757,397 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize footer animations immediately
     animateFooterElements();
+});
+
+// Enhanced Mobile and Performance Optimizations
+
+// Initialize loading states for smooth page transitions
+function initializeLoadingStates() {
+    // Add loading class to elements that should animate in
+    const animatedElements = document.querySelectorAll('.card, .speaker-card, .highlight-item, .info-list-item');
+    animatedElements.forEach(el => el.classList.add('loading'));
+
+    // Use Intersection Observer for performance-friendly animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('loading');
+                entry.target.classList.add('loaded');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// Mobile-specific optimizations
+function initializeMobileOptimizations() {
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        document.body.classList.add('mobile-device');
+
+        // Optimize touch interactions
+        optimizeTouchInteractions();
+
+        // Improve form experience on mobile
+        optimizeMobileForm();
+
+        // Add mobile-specific navigation improvements
+        optimizeMobileNavigation();
+    }
+
+    // Handle orientation changes
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            window.scrollTo(0, window.scrollY + 1);
+            window.scrollTo(0, window.scrollY - 1);
+        }, 100);
+    });
+}
+
+// Optimize touch interactions for mobile
+function optimizeTouchInteractions() {
+    // Add touch feedback to buttons
+    const touchElements = document.querySelectorAll('.btn, .nav-link, .social-icon-footer, .card');
+
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
+
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        }, { passive: true });
+    });
+}
+
+// Optimize form experience for mobile devices
+function optimizeMobileForm() {
+    const inputs = document.querySelectorAll('input, textarea, select');
+
+    inputs.forEach(input => {
+        // Prevent zoom on focus for iOS
+        if (input.type !== 'file') {
+            input.addEventListener('focus', function() {
+                if (window.innerWidth < 768) {
+                    const viewport = document.querySelector('meta[name=viewport]');
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+            });
+
+            input.addEventListener('blur', function() {
+                if (window.innerWidth < 768) {
+                    const viewport = document.querySelector('meta[name=viewport]');
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0');
+                }
+            });
+        }
+    });
+}
+
+// Optimize mobile navigation
+function optimizeMobileNavigation() {
+    const navbar = document.querySelector('.navbar');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navbar.contains(event.target) && navbarCollapse.classList.contains('show')) {
+            navbarToggler.click();
+        }
+    });
+
+    // Close mobile menu when scrolling
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && navbarCollapse.classList.contains('show')) {
+            navbarToggler.click();
+        }
+
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+}
+
+// Enhanced smooth scrolling with easing
+function initializeSmoothScrolling() {
+    // Custom smooth scroll function with easing
+    function smoothScrollTo(target, duration = 800) {
+        const targetElement = document.querySelector(target);
+        if (!targetElement) return;
+
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition - 80; // Account for navbar
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        // Easing function for smooth animation
+        function ease(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+
+    // Apply to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            if (target !== '#') {
+                smoothScrollTo(target);
+            }
+        });
+    });
+}
+
+// Initialize footer interactions
+function initializeFooterInteractions() {
+    // Newsletter form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+
+            // Show loading state
+            const button = this.querySelector('button');
+            const originalContent = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            button.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.style.background = '#4caf50';
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalContent;
+                    button.disabled = false;
+                    button.style.background = '';
+                    this.reset();
+                    showNotification('Thank you for subscribing!', 'success');
+                }, 2000);
+            }, 1000);
+        });
+    }
+
+    // Quick contact form
+    const quickContactForm = document.getElementById('quickContactForm');
+    if (quickContactForm) {
+        quickContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const button = this.querySelector('button');
+            const originalContent = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            button.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check me-2"></i>Sent!';
+                button.style.background = '#4caf50';
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalContent;
+                    button.disabled = false;
+                    button.style.background = '';
+                    this.reset();
+                    showNotification('Message sent successfully!', 'success');
+                }, 2000);
+            }, 1000);
+        });
+    }
+
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Performance monitoring
+function initializePerformanceMonitoring() {
+    // Monitor page load performance
+    window.addEventListener('load', function() {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log('Page load time:', loadTime + 'ms');
+
+        // Send to analytics if needed
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_load_time', {
+                'value': loadTime,
+                'event_category': 'Performance'
+            });
+        }
+    });
+}
+
+// Error handling and fallbacks
+function initializeErrorHandling() {
+    // Global error handler
+    window.addEventListener('error', function(e) {
+        console.error('Global error:', e.error);
+
+        // Graceful degradation for critical features
+        if (e.error && e.error.message.includes('Firebase')) {
+            console.warn('Firebase error detected, using fallback');
+            // Implement fallback registration method
+        }
+    });
+
+    // Handle offline/online states
+    window.addEventListener('offline', function() {
+        showNotification('You are currently offline. Some features may not work.', 'warning');
+    });
+
+    window.addEventListener('online', function() {
+        showNotification('Connection restored!', 'success');
+    });
+}
+
+// Utility function for notifications
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type} notification-toast`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'} me-2"></i>
+        ${message}
+    `;
+
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        max-width: 300px;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    `;
+
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Image lazy loading for performance
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Luxury Footer Countdown Timer
+function initializeCountdownTimer() {
+    // Set the event date (July 4, 2025 11:00 AM)
+    const eventDate = new Date('2025-07-04T11:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Update countdown display
+            const daysElement = document.getElementById('days');
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+
+            if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+            if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+            if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+        } else {
+            // Event has started or passed
+            const daysElement = document.getElementById('days');
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+
+            if (daysElement) daysElement.textContent = '00';
+            if (hoursElement) hoursElement.textContent = '00';
+            if (minutesElement) minutesElement.textContent = '00';
+
+            // Update label to show event is live
+            const countdownLabel = document.querySelector('.countdown-label');
+            if (countdownLabel) {
+                countdownLabel.textContent = 'Event is Live!';
+                countdownLabel.style.color = '#4caf50';
+            }
+        }
+    }
+
+    // Update immediately and then every minute
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+}
+
+// Enhanced footer form handlers (simplified after removing forms)
+function initializeLuxuryFooterForms() {
+    // Forms have been removed as requested
+    // This function is kept for future use if needed
+    console.log('Footer forms initialization - forms removed as requested');
+}
+
+// Initialize all enhancements when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializePerformanceMonitoring();
+    initializeErrorHandling();
+    initializeLazyLoading();
+    initializeCountdownTimer();
+    initializeLuxuryFooterForms();
 });

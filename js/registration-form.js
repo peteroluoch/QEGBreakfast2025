@@ -850,7 +850,7 @@ function showConfirmationDialog() {
                     <span class="confirmation-value">${paymentOption.toUpperCase()}</span>
                 </div>
             </div>
-            <p class="confirmation-note">By clicking "Confirm Registration", you agree to pay KSh 7,000 to complete your registration.</p>
+            <p class="confirmation-note">By clicking "Confirm Registration", you agree to pay KSh 5,000 to complete your registration.</p>
         </div>
         <div class="dialog-footer">
             <button class="dialog-cancel">Cancel</button>
@@ -1090,7 +1090,7 @@ function showSuccessMessage(formData) {
                 <h4>Payment Information</h4>
                 <p>Please complete your payment to confirm your attendance:</p>
                 <ul>
-                    <li><strong>Amount:</strong> KSh 7,000 per person</li>
+                    <li><strong>Amount:</strong> KSh 5,000 per person</li>
                     <li><strong>Send to:</strong> Esther Obasi-ike (0721 599 013)</li>
                     <li><strong>Payment Method:</strong> ${formData.paymentOption.toUpperCase()}</li>
                 </ul>
