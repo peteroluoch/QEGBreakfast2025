@@ -1148,6 +1148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePerformanceMonitoring();
     initializeErrorHandling();
     initializeLazyLoading();
-    initializeCountdownTimer();
+    // Countdown timer is now handled in individual pages
+    // initializeCountdownTimer();
     initializeLuxuryFooterForms();
 });
