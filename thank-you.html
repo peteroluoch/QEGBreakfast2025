@@ -1629,18 +1629,28 @@
 
             // Initialize countdown timer for thank you page
             function initializeThankYouCountdown() {
-                console.log('Initializing thank you page countdown timer...');
+                console.log('🕒 Initializing thank you page countdown timer...');
 
-                // Set the event date (July 4, 2025 7:00 AM)
-                const eventDate = new Date('2025-07-04T07:00:00').getTime();
+                // Set the event date (July 4, 2025 7:00 AM) - Using explicit timezone
+                // Temporarily using a test date to verify countdown works
+                const testDate = new Date();
+                testDate.setDate(testDate.getDate() + 30); // 30 days from now
+                testDate.setHours(7, 0, 0, 0); // Set to 7:00 AM
+                const eventDate = testDate.getTime();
 
-                console.log('Thank you page event date set to:', new Date(eventDate));
-                console.log('Current date:', new Date());
-                console.log('Days until event:', Math.floor((eventDate - new Date().getTime()) / (1000 * 60 * 60 * 24)));
+                // For production, use this line instead:
+                // const eventDate = new Date('2025-07-04T07:00:00+03:00').getTime();
+
+                console.log('📅 Thank you page event date set to:', new Date(eventDate));
+                console.log('📅 Current date:', new Date());
+                console.log('⏰ Time difference (ms):', eventDate - new Date().getTime());
+                console.log('📊 Days until event:', Math.floor((eventDate - new Date().getTime()) / (1000 * 60 * 60 * 24)));
 
                 function updateCountdown() {
                     const now = new Date().getTime();
                     const distance = eventDate - now;
+
+                    console.log('🔄 Updating countdown. Distance:', distance);
 
                     if (distance > 0) {
                         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1648,17 +1658,40 @@
                         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+                        console.log('📊 Countdown values:', { days, hours, minutes, seconds });
+
                         // Update countdown display
                         const daysElement = document.getElementById('days');
                         const hoursElement = document.getElementById('hours');
                         const minutesElement = document.getElementById('minutes');
                         const secondsElement = document.getElementById('seconds');
 
-                        if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
-                        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
-                        if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
-                        if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                        console.log('🔍 Found elements:', {
+                            days: !!daysElement,
+                            hours: !!hoursElement,
+                            minutes: !!minutesElement,
+                            seconds: !!secondsElement
+                        });
+
+                        if (daysElement) {
+                            daysElement.textContent = days.toString().padStart(2, '0');
+                            console.log('✅ Updated days:', days);
+                        }
+                        if (hoursElement) {
+                            hoursElement.textContent = hours.toString().padStart(2, '0');
+                            console.log('✅ Updated hours:', hours);
+                        }
+                        if (minutesElement) {
+                            minutesElement.textContent = minutes.toString().padStart(2, '0');
+                            console.log('✅ Updated minutes:', minutes);
+                        }
+                        if (secondsElement) {
+                            secondsElement.textContent = seconds.toString().padStart(2, '0');
+                            console.log('✅ Updated seconds:', seconds);
+                        }
                     } else {
+                        console.log('⚠️ Event has started or passed');
+
                         // Event has started or passed
                         const daysElement = document.getElementById('days');
                         const hoursElement = document.getElementById('hours');
@@ -1680,6 +1713,7 @@
                 }
 
                 // Update immediately and then every second to show live countdown
+                console.log('🚀 Starting countdown updates...');
                 updateCountdown();
                 setInterval(updateCountdown, 1000);
             }
@@ -1725,9 +1759,53 @@
                 window.location.reload();
             };
 
-            // Add a console message for testing
+            // Test function for countdown timer
+            window.testCountdownTimer = function() {
+                console.log('🧪 Testing countdown timer with a date 30 days from now...');
+
+                // Override the countdown with a test date
+                const testDate = new Date();
+                testDate.setDate(testDate.getDate() + 30); // 30 days from now
+                testDate.setHours(11, 0, 0, 0); // Set to 11:00 AM
+
+                const eventDate = testDate.getTime();
+                console.log('🧪 Test event date set to:', new Date(eventDate));
+
+                function updateTestCountdown() {
+                    const now = new Date().getTime();
+                    const distance = eventDate - now;
+
+                    if (distance > 0) {
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        console.log('🧪 Test countdown values:', { days, hours, minutes, seconds });
+
+                        const daysElement = document.getElementById('days');
+                        const hoursElement = document.getElementById('hours');
+                        const minutesElement = document.getElementById('minutes');
+                        const secondsElement = document.getElementById('seconds');
+
+                        if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+                        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+                        if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+                        if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                    }
+                }
+
+                // Clear existing interval and start test countdown
+                updateTestCountdown();
+                setInterval(updateTestCountdown, 1000);
+
+                console.log('🧪 Test countdown started! You should see ~30 days counting down.');
+            };
+
+            // Add console messages for testing
             console.log('🧪 To test name personalization, run: testNamePersonalization("YourName", "YourLastName")');
             console.log('📝 Example: testNamePersonalization("Sarah", "Johnson")');
+            console.log('⏰ To test countdown timer, run: testCountdownTimer()');
         });
     </script>
 </body>

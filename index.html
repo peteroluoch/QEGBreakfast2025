@@ -1159,7 +1159,14 @@
             console.log('Initializing countdown timer...');
 
             // Set the event date (July 4, 2025 7:00 AM)
-            const eventDate = new Date('2025-07-04T07:00:00').getTime();
+            // Temporarily using a test date to verify countdown works
+            const testDate = new Date();
+            testDate.setDate(testDate.getDate() + 30); // 30 days from now
+            testDate.setHours(7, 0, 0, 0); // Set to 7:00 AM
+            const eventDate = testDate.getTime();
+
+            // For production, use this line instead:
+            // const eventDate = new Date('2025-07-04T07:00:00').getTime();
 
             console.log('Event date set to:', new Date(eventDate));
             console.log('Current date:', new Date());
