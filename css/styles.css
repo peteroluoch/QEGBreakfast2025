@@ -1,10 +1,51 @@
 /* Custom Styles for QEG Economic Empowerment */
 
-/* Global Styles */
+/* Global Styles with Enhanced Performance */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Enhanced Smooth Transitions */
+*, *::before, *::after {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Loading State */
+.loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.loaded {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 :root {
@@ -502,49 +543,115 @@ body {
 @media (max-width: 576px) {
     .flyer-hero-section {
         padding-top: 70px;
+        min-height: 100vh;
     }
 
     .hero-text-panel {
         padding: 20px;
+        margin-bottom: 20px;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
     }
 
     .flyer-container {
-        margin-top: 50px; /* Even more space on smallest screens */
-        padding: 2px; /* Minimal padding */
-        width: 90%; /* Slightly reduced width */
-        height: 45vh; /* Fixed height for mobile */
+        margin-top: 30px;
+        padding: 2px;
+        width: 95%;
+        height: 50vh;
+        max-height: 400px;
     }
 
     .flyer-image {
-        border-radius: 6px; /* Slightly smaller radius on mobile */
-        height: 100%; /* Full height */
-        width: auto; /* Auto width */
-        max-width: 100%; /* Ensure it doesn't overflow */
+        border-radius: 6px;
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     /* Adjust horizontal divider for smallest screens */
     .hero-divider {
         width: 90%;
-        margin: 10px auto;
+        margin: 15px auto;
     }
 
     .divider-line {
-        width: 50px; /* Shortest horizontal line */
+        width: 40px;
     }
 
     .divider-icon {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+        margin: 0 8px;
+    }
+
+    /* Enhanced mobile button */
+    .btn-hero-cta, .btn-accent {
+        padding: 12px 24px;
         font-size: 0.9rem;
-        margin: 0 10px;
+        border-radius: 25px;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 375px) */
+@media (max-width: 374px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-text-panel {
+        padding: 15px;
+    }
+
+    .flyer-container {
+        height: 45vh;
+        max-height: 350px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn, .nav-link, .social-icon-footer {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 16px;
+    }
+
+    /* Larger touch targets for mobile */
+    .footer-menu li a,
+    .footer-contact-info li a {
+        padding: 12px 0;
+        display: block;
     }
 }
 
@@ -1090,6 +1197,74 @@ footer a:hover {
     opacity: 0.8;
 }
 
+/* Enhanced Mobile Optimizations */
+
+/* Notification Toast Styles */
+.notification-toast {
+    font-family: inherit;
+    font-size: 0.9rem;
+    border: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.notification-toast.alert-success {
+    background: rgba(76, 175, 80, 0.95);
+    color: white;
+}
+
+.notification-toast.alert-warning {
+    background: rgba(255, 152, 0, 0.95);
+    color: white;
+}
+
+.notification-toast.alert-info {
+    background: rgba(33, 150, 243, 0.95);
+    color: white;
+}
+
+/* Mobile Device Specific Styles */
+.mobile-device .btn {
+    min-height: 44px;
+    padding: 12px 20px;
+}
+
+.mobile-device .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-device .form-control {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Loading States */
+.loading {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Performance Optimizations */
+.card, .speaker-card, .highlight-item {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Smooth Scrolling Enhancement */
+@supports (scroll-behavior: smooth) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-section {
@@ -1112,5 +1287,47 @@ footer a:hover {
     .divider {
         width: 60px;
         height: 3px;
+    }
+
+    /* Mobile-specific improvements */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-title, .section-title {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }

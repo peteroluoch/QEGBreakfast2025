@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - QEG Economic Empowerment Breakfast 2025</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modern-corporate.css">
+
+    <style>
+        .admin-container {
+            padding: 100px 0 50px;
+        }
+
+        .admin-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .admin-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .admin-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--corporate-primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .admin-subtitle {
+            font-size: 1rem;
+            color: var(--corporate-text-medium);
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-floating {
+            margin-bottom: 20px;
+        }
+
+        .registrations-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .registrations-table th {
+            background-color: rgba(123, 31, 162, 0.05);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--corporate-primary-dark);
+            border-bottom: 2px solid rgba(123, 31, 162, 0.1);
+        }
+
+        .registrations-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--corporate-text-medium);
+        }
+
+        .registrations-table tr:hover {
+            background-color: rgba(123, 31, 162, 0.02);
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background-color: rgba(255, 171, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .status-paid {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .btn-view {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+
+        .btn-edit {
+            background-color: rgba(255, 171, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .btn-delete {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+        }
+
+        .registration-details {
+            display: none;
+        }
+
+        .detail-section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-section:last-child {
+            border-bottom: none;
+        }
+
+        .detail-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--corporate-primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .detail-label {
+            width: 150px;
+            font-weight: 600;
+            color: var(--corporate-text-dark);
+        }
+
+        .detail-value {
+            flex: 1;
+            color: var(--corporate-text-medium);
+        }
+
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(123, 31, 162, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--corporate-primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">QEG</span>
+                <span class="brand-year">2025</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin.html">
+                            <i class="fas fa-user-shield nav-icon"></i>
+                            <span>Admin</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <div class="admin-container">
+        <div class="container">
+            <!-- Login Section -->
+            <div class="admin-card" id="loginSection">
+                <div class="admin-header">
+                    <h2 class="admin-title">Admin Dashboard</h2>
+                    <p class="admin-subtitle">Please login to access the registration data</p>
+                </div>
+
+                <div class="login-form">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="adminPassword" placeholder="Password">
+                        <label for="adminPassword">Password</label>
+                    </div>
+                    <div class="alert alert-danger d-none" id="loginError">
+                        Incorrect password. Please try again.
+                    </div>
+                    <button class="btn btn-corporate-primary w-100" id="loginBtn">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </button>
+                </div>
+            </div>
+
+            <!-- Registrations Section (Hidden until logged in) -->
+            <div class="admin-card d-none" id="registrationsSection">
+                <div class="admin-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="admin-title">Registrations</h2>
+                        <p class="admin-subtitle">Manage event registrations</p>
+                    </div>
+                    <button class="btn btn-outline-secondary" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    </button>
+                </div>
+
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="table-responsive d-none" id="registrationsTable">
+                    <table class="registrations-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Organization</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationsBody">
+                            <!-- Registrations will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert alert-info mt-3 d-none" id="noRegistrationsMessage">
+                    No registrations found. When people register for the event, they will appear here.
+                </div>
+            </div>
+
+            <!-- Registration Details Section (Hidden until a registration is selected) -->
+            <div class="admin-card d-none" id="registrationDetails">
+                <div class="admin-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="admin-title">Registration Details</h2>
+                        <p class="admin-subtitle">View complete information</p>
+                    </div>
+                    <button class="btn btn-outline-secondary" id="backToListBtn">
+                        <i class="fas fa-arrow-left me-2"></i>Back to List
+                    </button>
+                </div>
+
+                <div id="detailsContent">
+                    <!-- Registration details will be loaded here -->
+                </div>
+
+                <div class="mt-4 d-flex justify-content-between">
+                    <button class="btn btn-outline-danger" id="deleteRegistrationBtn">
+                        <i class="fas fa-trash me-2"></i>Delete Registration
+                    </button>
+                    <button class="btn btn-corporate-primary" id="markAsPaidBtn">
+                        <i class="fas fa-check-circle me-2"></i>Mark as Paid
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVOLCtIdzNO9W3Cl7L_VmT3bi7JNgb05I",
+      authDomain: "qegbreakfast2025.firebaseapp.com",
+      projectId: "qegbreakfast2025",
+      storageBucket: "qegbreakfast2025.appspot.com",
+      messagingSenderId: "884616922462",
+      appId: "1:884616922462:web:aff2e07bbb6648f9693bcf",
+      measurementId: "G-W9BPZHL3NV"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+    <!-- Firebase Operations -->
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // Simple admin password (in a real app, this would be server-side)
+        const ADMIN_PASSWORD = 'QEG2025admin'; // You can change this password if needed
+
+        // DOM Elements
+        const loginSection = document.getElementById('loginSection');
+        const registrationsSection = document.getElementById('registrationsSection');
+        const registrationDetails = document.getElementById('registrationDetails');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const adminPassword = document.getElementById('adminPassword');
+        const loginError = document.getElementById('loginError');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const registrationsTable = document.getElementById('registrationsTable');
+        const registrationsBody = document.getElementById('registrationsBody');
+        const noRegistrationsMessage = document.getElementById('noRegistrationsMessage');
+        const backToListBtn = document.getElementById('backToListBtn');
+        const detailsContent = document.getElementById('detailsContent');
+        const deleteRegistrationBtn = document.getElementById('deleteRegistrationBtn');
+        const markAsPaidBtn = document.getElementById('markAsPaidBtn');
+
+        // Current registration ID
+        let currentRegistrationId = null;
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Login button
+            loginBtn.addEventListener('click', handleLogin);
+
+            // Allow Enter key to submit login
+            adminPassword.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleLogin();
+                }
+            });
+
+            // Logout button
+            logoutBtn.addEventListener('click', handleLogout);
+
+            // Back to list button
+            backToListBtn.addEventListener('click', function() {
+                registrationDetails.classList.add('d-none');
+                registrationsSection.classList.remove('d-none');
+            });
+
+            // Delete registration button
+            deleteRegistrationBtn.addEventListener('click', function() {
+                if (currentRegistrationId && confirm('Are you sure you want to delete this registration? This action cannot be undone.')) {
+                    deleteRegistration(currentRegistrationId);
+                }
+            });
+
+            // Mark as paid button
+            markAsPaidBtn.addEventListener('click', function() {
+                if (currentRegistrationId) {
+                    const paymentDetails = {
+                        method: 'manual',
+                        amount: 5000,
+                        currency: 'KES',
+                        notes: 'Marked as paid by admin',
+                        paidBy: 'Admin'
+                    };
+                    markRegistrationAsPaid(currentRegistrationId, paymentDetails);
+                }
+            });
+        });
+
+        // Handle login
+        function handleLogin() {
+            const password = adminPassword.value;
+
+            if (password === ADMIN_PASSWORD) {
+                loginSection.classList.add('d-none');
+                registrationsSection.classList.remove('d-none');
+                loadRegistrations();
+            } else {
+                loginError.classList.remove('d-none');
+                adminPassword.value = '';
+            }
+        }
+
+        // Handle logout
+        function handleLogout() {
+            loginSection.classList.remove('d-none');
+            registrationsSection.classList.add('d-none');
+            registrationDetails.classList.add('d-none');
+            adminPassword.value = '';
+            loginError.classList.add('d-none');
+        }
+
+        // Load registrations from Firebase
+        function loadRegistrations() {
+            loadingSpinner.classList.remove('d-none');
+            registrationsTable.classList.add('d-none');
+            noRegistrationsMessage.classList.add('d-none');
+
+            window.firebaseDB.getAllRegistrations()
+                .then((registrations) => {
+                    loadingSpinner.classList.add('d-none');
+
+                    if (registrations.length === 0) {
+                        noRegistrationsMessage.classList.remove('d-none');
+                    } else {
+                        registrationsTable.classList.remove('d-none');
+                        renderRegistrationsTable(registrations);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error loading registrations: ', error);
+                    loadingSpinner.classList.add('d-none');
+                    alert('Error loading registrations. Please try again.');
+                });
+        }
+
+        // Render registrations table
+        function renderRegistrationsTable(registrations) {
+            registrationsBody.innerHTML = '';
+
+            registrations.forEach((registration) => {
+                const row = document.createElement('tr');
+
+                // Format date
+                const date = registration.timestamp ? new Date(registration.timestamp.toDate()) : new Date();
+                const formattedDate = date.toLocaleDateString();
+
+                row.innerHTML = `
+                    <td>${registration.firstName} ${registration.lastName}</td>
+                    <td>${registration.email}</td>
+                    <td>${registration.phone}</td>
+                    <td>${registration.organization}</td>
+                    <td>${registration.paymentMethod}</td>
+                    <td><span class="status-badge status-${registration.status || 'pending'}">${registration.status || 'pending'}</span></td>
+                    <td>${formattedDate}</td>
+                    <td>
+                        <span class="action-btn btn-view" data-id="${registration.id}"><i class="fas fa-eye"></i></span>
+                        <span class="action-btn btn-edit" data-id="${registration.id}"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn btn-delete" data-id="${registration.id}"><i class="fas fa-trash"></i></span>
+                    </td>
+                `;
+
+                registrationsBody.appendChild(row);
+            });
+
+            // Add event listeners to action buttons
+            document.querySelectorAll('.btn-view').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    viewRegistrationDetails(id);
+                });
+            });
+
+            document.querySelectorAll('.btn-edit').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    editRegistration(id);
+                });
+            });
+
+            document.querySelectorAll('.btn-delete').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    if (confirm('Are you sure you want to delete this registration? This action cannot be undone.')) {
+                        deleteRegistration(id);
+                    }
+                });
+            });
+        }
+
+        // View registration details
+        function viewRegistrationDetails(id) {
+            currentRegistrationId = id;
+
+            window.firebaseDB.getRegistration(id)
+                .then((registration) => {
+                    if (registration) {
+                        renderRegistrationDetails(registration);
+                        registrationsSection.classList.add('d-none');
+                        registrationDetails.classList.remove('d-none');
+
+                        // Update button state based on registration status
+                        if (registration.status === 'paid') {
+                            markAsPaidBtn.disabled = true;
+                            markAsPaidBtn.innerHTML = '<i class="fas fa-check-circle me-2"></i>Already Paid';
+                        } else {
+                            markAsPaidBtn.disabled = false;
+                            markAsPaidBtn.innerHTML = '<i class="fas fa-check-circle me-2"></i>Mark as Paid';
+                        }
+                    } else {
+                        alert('Registration not found.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error getting registration: ', error);
+                    alert('Error loading registration details. Please try again.');
+                });
+        }
+
+        // Render registration details
+        function renderRegistrationDetails(registration) {
+            // Format date
+            const regDate = registration.timestamp ? new Date(registration.timestamp.toDate()) : new Date();
+            const formattedRegDate = regDate.toLocaleDateString() + ' ' + regDate.toLocaleTimeString();
+
+            let html = `
+                <div class="detail-section">
+                    <h3 class="detail-title">Personal Information</h3>
+                    <div class="detail-item">
+                        <div class="detail-label">Name</div>
+                        <div class="detail-value">${registration.firstName} ${registration.lastName}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Email</div>
+                        <div class="detail-value">${registration.email}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Phone</div>
+                        <div class="detail-value">${registration.phone}</div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3 class="detail-title">Professional Information</h3>
+                    <div class="detail-item">
+                        <div class="detail-label">Organization</div>
+                        <div class="detail-value">${registration.organization}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Position</div>
+                        <div class="detail-value">${registration.position}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Industry</div>
+                        <div class="detail-value">${registration.industry}</div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3 class="detail-title">Payment Information</h3>
+                    <div class="detail-item">
+                        <div class="detail-label">Payment Method</div>
+                        <div class="detail-value">${registration.paymentMethod}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value"><span class="status-badge status-${registration.status || 'pending'}">${registration.status || 'pending'}</span></div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3 class="detail-title">Registration Details</h3>
+                    <div class="detail-item">
+                        <div class="detail-label">Registration ID</div>
+                        <div class="detail-value">${registration.id}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Registration Date</div>
+                        <div class="detail-value">${formattedRegDate}</div>
+                    </div>
+                </div>
+            `;
+
+            detailsContent.innerHTML = html;
+        }
+
+        // Edit registration
+        function editRegistration(id) {
+            alert('Edit functionality will be implemented in a future update.');
+        }
+
+        // Delete registration
+        function deleteRegistration(id) {
+            window.firebaseDB.deleteRegistration(id)
+                .then(() => {
+                    if (currentRegistrationId === id) {
+                        registrationDetails.classList.add('d-none');
+                        registrationsSection.classList.remove('d-none');
+                    }
+                    loadRegistrations();
+                })
+                .catch((error) => {
+                    console.error('Error deleting registration: ', error);
+                    alert('Error deleting registration. Please try again.');
+                });
+        }
+
+        // Mark registration as paid
+        function markRegistrationAsPaid(id, paymentDetails) {
+            window.firebaseDB.markRegistrationAsPaid(id, paymentDetails)
+                .then(() => {
+                    viewRegistrationDetails(id);
+                })
+                .catch((error) => {
+                    console.error('Error marking registration as paid: ', error);
+                    alert('Error updating payment status. Please try again.');
+                });
+        }
+    </script>
+
+    <!-- Luxury Footer -->
+    <footer class="luxury-footer">
+        <!-- Premium Header Section -->
+        <div class="footer-premium-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="footer-brand-section">
+                            <h2 class="footer-brand-name">
+                                <span class="brand-accent">Queen Esthers'</span> Generation
+                                <div class="luxury-accent-logo">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                            </h2>
+                            <p class="footer-brand-tagline">Building Wealth, Building Futures</p>
+                            <p class="footer-mission-statement">
+                                Empowering women through economic education, spiritual growth, and transformational leadership development.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="footer-premium-cta">
+                            <span class="premium-badge">
+                                <i class="fas fa-crown me-2"></i>Admin Portal
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Divider -->
+        <div class="footer-luxury-divider">
+            <div class="container">
+                <div class="divider-line-left"></div>
+                <div class="divider-center-ornament">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="divider-line-right"></div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main-luxury">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Information -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-headset"></i></span>
+                                Contact Information
+                            </h4>
+                            <div class="contact-cards-luxury">
+                                <div class="contact-card-luxury">
+                                    <div class="contact-icon-wrapper">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Call Us</span>
+                                        <a href="tel:+254721599013" class="contact-value">+254 721 599 013</a>
+                                    </div>
+                                    <div class="contact-status">
+                                        <span class="status-indicator online"></span>
+                                        <span class="status-text">Available</span>
+                                    </div>
+                                </div>
+                                <div class="contact-card-luxury">
+                                    <div class="contact-icon-wrapper">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Email Us</span>
+                                        <a href="mailto:queenesthers2012@gmail.com" class="contact-value">queenesthers2012@gmail.com</a>
+                                    </div>
+                                    <div class="contact-status">
+                                        <span class="status-indicator online"></span>
+                                        <span class="status-text">24/7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-link"></i></span>
+                                Quick Links
+                            </h4>
+                            <div class="luxury-menu-grid">
+                                <a href="index.html" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-home"></i></div>
+                                    <span class="menu-text">Homepage</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#about" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-info-circle"></i></div>
+                                    <span class="menu-text">About Event</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#speakers" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-microphone"></i></div>
+                                    <span class="menu-text">Our Speakers</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#registration" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-ticket-alt"></i></div>
+                                    <span class="menu-text">Register Now</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Footer Bottom -->
+        <div class="footer-bottom-section">
+            <div class="footer-bottom-shape"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-8">
+                        <p class="copyright-text">
+                            <i class="fas fa-copyright me-2"></i>
+                            © 2025 Queen Esthers' Generation. All Rights Reserved.
+                        </p>
+                        <p class="copyright-subtext">
+                            Empowering economic growth through strategic partnerships and education.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="footer-bottom-right">
+                            <p class="developer-text">
+                                <i class="fas fa-laptop-code me-2"></i>
+                                Developed by
+                                <a href="https://codegx.tech" target="_blank" rel="noopener noreferrer">Codegx Technologies</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-divider"></div>
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <div class="footer-bottom-links">
+                            <a href="#privacy-policy">
+                                <i class="fas fa-shield-alt me-1"></i>Privacy Policy
+                            </a>
+                            <span class="link-divider">|</span>
+                            <a href="#terms-of-service">
+                                <i class="fas fa-file-contract me-1"></i>Terms of Service
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

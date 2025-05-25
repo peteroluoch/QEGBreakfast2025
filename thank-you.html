@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - QEG Economic Empowerment Breakfast 2025</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modern-corporate.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/enhanced-hero.css?v=1.0">
+
+    <style>
+        .thank-you-section {
+            padding: 100px 0;
+            background-color: var(--corporate-bg-light);
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .thank-you-bg-shape {
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.05) 0%, rgba(74, 20, 140, 0.1) 100%);
+            z-index: 0;
+            animation: floatAnimation 15s infinite alternate ease-in-out;
+        }
+
+        .thank-you-bg-shape-2 {
+            position: absolute;
+            bottom: -200px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 171, 0, 0.05) 0%, rgba(255, 171, 0, 0.01) 100%);
+            z-index: 0;
+            animation: floatAnimation 20s infinite alternate-reverse ease-in-out;
+        }
+
+        .thank-you-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            padding: 50px;
+            position: relative;
+            z-index: 1;
+            border-top: 5px solid var(--corporate-accent);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 1s ease forwards;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .thank-you-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(255, 171, 0, 0.05) 0%, rgba(255, 213, 79, 0.1) 100%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+            z-index: -1;
+        }
+
+        .thank-you-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.03) 0%, rgba(74, 20, 140, 0.05) 100%);
+            border-radius: 50%;
+            transform: translate(-30%, 30%);
+            z-index: -1;
+        }
+
+        .thank-you-icon {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--corporate-accent) 0%, #ffd54f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 35px;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(255, 171, 0, 0.3);
+            animation: pulseGlow 2s infinite alternate;
+            position: relative;
+        }
+
+        .thank-you-icon::before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 2px dashed rgba(255, 171, 0, 0.3);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+        }
+
+        .thank-you-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .thank-you-message {
+            font-size: 1.25rem;
+            color: var(--corporate-text-medium);
+            text-align: center;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            max-width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .payment-details {
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.03) 0%, rgba(123, 31, 162, 0.07) 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--corporate-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M98 2L2 98' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3Cpath d='M82 2L2 82' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3Cpath d='M66 2L2 66' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3Cpath d='M50 2L2 50' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3Cpath d='M34 2L2 34' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3Cpath d='M18 2L2 18' stroke='rgba(123, 31, 162, 0.05)' stroke-width='2'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .payment-details h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--corporate-primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .payment-details h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--corporate-accent) 0%, rgba(255, 171, 0, 0.5) 100%);
+            border-radius: 3px;
+        }
+
+        .payment-detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 10px;
+            flex-wrap: nowrap;
+        }
+
+        .payment-detail-item:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transform: translateX(5px);
+        }
+
+        .payment-detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--corporate-primary) 0%, rgba(123, 31, 162, 0.8) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            color: white;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(123, 31, 162, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .payment-detail-item:hover .detail-icon {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .detail-label {
+            font-weight: 600;
+            margin-right: 10px;
+            color: var(--corporate-text-dark);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex: 0 0 auto;
+        }
+
+        .detail-value {
+            color: var(--corporate-text-medium);
+            font-weight: 500;
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .upcoming-events {
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .upcoming-events::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                rgba(0,0,0,0) 0%,
+                rgba(123, 31, 162, 0.1) 20%,
+                rgba(123, 31, 162, 0.1) 80%,
+                rgba(0,0,0,0) 100%);
+        }
+
+        .upcoming-events h4 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--corporate-primary-dark);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .upcoming-events h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--corporate-accent) 0%, rgba(255, 171, 0, 0.5) 100%);
+            border-radius: 3px;
+        }
+
+        .event-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 25px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 20px 40px rgba(123, 31, 162, 0.15);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        .event-card:hover::after {
+            opacity: 1;
+        }
+
+        .event-card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .event-card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+
+        .event-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.7s ease;
+        }
+
+        .event-card:hover .event-card-img img {
+            transform: scale(1.08);
+        }
+
+        .event-card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .event-card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--corporate-accent) 0%, rgba(255, 171, 0, 0.5) 100%);
+            border-radius: 3px;
+        }
+
+        .event-card-text {
+            font-size: 1rem;
+            color: var(--corporate-text-medium);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .btn-corporate-outline {
+            background-color: transparent;
+            color: var(--corporate-primary);
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 2px solid var(--corporate-primary);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-corporate-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--corporate-primary);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+
+        .btn-corporate-outline:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 31, 162, 0.2);
+            text-decoration: none;
+        }
+
+        .btn-corporate-outline:hover::before {
+            width: 100%;
+        }
+
+        .btn-corporate-outline i {
+            margin-left: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-corporate-outline:hover i {
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            margin-top: 40px;
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(123, 31, 162, 0.03) 0%, rgba(123, 31, 162, 0) 70%);
+            z-index: 0;
+        }
+
+        .social-links h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--corporate-primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.1) 0%, rgba(123, 31, 162, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--corporate-primary);
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(123, 31, 162, 0.2);
+        }
+
+        .social-icon:hover::before {
+            opacity: 1;
+        }
+
+        .qeg-mission {
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.02) 0%, rgba(123, 31, 162, 0.05) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 4px solid var(--corporate-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qeg-mission::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: rgba(123, 31, 162, 0.05);
+            line-height: 1;
+        }
+
+        .qeg-mission h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--corporate-primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .qeg-mission h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--corporate-accent) 0%, rgba(255, 171, 0, 0.5) 100%);
+            border-radius: 3px;
+        }
+
+        .qeg-mission p {
+            font-size: 1.05rem;
+            color: var(--corporate-text-medium);
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 171, 0, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 171, 0, 0.6);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive styles for thank you page */
+        @media (max-width: 992px) {
+            .thank-you-card {
+                padding: 40px 30px;
+            }
+
+            .thank-you-title {
+                font-size: 2.4rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.15rem;
+                max-width: 95%;
+            }
+
+            .payment-details {
+                padding: 25px;
+            }
+
+            .event-card-img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-section {
+                padding: 80px 0;
+            }
+
+            .thank-you-card {
+                padding: 30px 25px;
+            }
+
+            .thank-you-icon {
+                width: 90px;
+                height: 90px;
+                font-size: 2.5rem;
+                margin-bottom: 25px;
+            }
+
+            .thank-you-icon::before {
+                width: 110px;
+                height: 110px;
+            }
+
+            .thank-you-title {
+                font-size: 2.2rem;
+            }
+
+            .thank-you-message {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .payment-details {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .payment-details h4 {
+                font-size: 1.3rem;
+            }
+
+            .detail-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+            }
+
+            .detail-label {
+                font-size: 0.85rem;
+            }
+
+            .detail-value {
+                font-size: 0.95rem;
+            }
+
+            .upcoming-events h4 {
+                font-size: 1.4rem;
+            }
+
+            .event-card {
+                margin-bottom: 20px;
+            }
+
+            .event-card-title {
+                font-size: 1.2rem;
+            }
+
+            .event-card-text {
+                font-size: 0.95rem;
+            }
+
+            .qeg-mission {
+                padding: 25px;
+            }
+
+            .qeg-mission h4 {
+                font-size: 1.3rem;
+            }
+
+            .qeg-mission p {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                padding: 20px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Detail content wrapper */
+        .detail-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        @media (max-width: 576px) {
+            .thank-you-section {
+                padding: 70px 0 50px;
+            }
+
+            .thank-you-card {
+                padding: 25px 20px;
+            }
+
+            .thank-you-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+            .thank-you-icon::before {
+                width: 100px;
+                height: 100px;
+            }
+
+            .thank-you-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .thank-you-message {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            /* Enhanced payment details for small screens */
+            .payment-details {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+            }
+
+            .payment-details h4 {
+                font-size: 1.2rem;
+                text-align: center;
+                display: block;
+                margin-bottom: 25px;
+            }
+
+            .payment-details h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+            }
+
+            .payment-detail-item {
+                padding: 12px 10px;
+                margin-bottom: 12px;
+                border-bottom: 1px dashed rgba(123, 31, 162, 0.1);
+            }
+
+            .payment-detail-item:last-child {
+                border-bottom: none;
+            }
+
+            .detail-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-right: 15px;
+            }
+
+            .detail-content {
+                flex: 1;
+            }
+
+            .detail-label {
+                margin-bottom: 5px;
+                font-size: 0.85rem;
+                display: block;
+                color: var(--corporate-primary);
+                font-weight: 700;
+            }
+
+            .detail-value {
+                font-size: 1rem;
+                display: block;
+                font-weight: 600;
+            }
+
+            .upcoming-events {
+                margin-top: 30px;
+            }
+
+            .upcoming-events h4 {
+                font-size: 1.3rem;
+            }
+
+            .event-card-img {
+                height: 160px;
+            }
+
+            .event-card-body {
+                padding: 20px;
+            }
+
+            .event-card-title {
+                font-size: 1.1rem;
+            }
+
+            .event-card-text {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .btn-corporate-outline {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+
+            .qeg-mission {
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+            .qeg-mission h4 {
+                font-size: 1.2rem;
+            }
+
+            .qeg-mission p {
+                font-size: 0.95rem;
+            }
+
+            .social-links {
+                padding: 15px;
+                margin-top: 30px;
+            }
+
+            .social-links h5 {
+                font-size: 1.1rem;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">QEG</span>
+                <span class="brand-year">2025</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">
+                            <i class="fas fa-info-circle nav-icon"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#speakers">
+                            <i class="fas fa-users nav-icon"></i>
+                            <span>Speakers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#details">
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span>Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-accent btn-sm px-3 ms-lg-2" href="index.html#registration">
+                            <i class="fas fa-user-plus me-1"></i> Register Now
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Split Layout -->
+    <header class="flyer-hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content-wrapper">
+                <!-- Left Side: Hero Text -->
+                <div class="hero-text-container slide-in-left">
+                    <div class="hero-text-panel">
+                        <h1 class="hero-title">Registration Successful</h1>
+                        <div class="hero-subtitle">Thank You for Registering</div>
+                        <div class="hero-tagline">Building Wealth, Building Futures</div>
+                        <div class="hero-cta mt-4">
+                            <a href="index.html" class="btn btn-accent btn-lg px-4">
+                                <i class="fas fa-home me-2"></i> Return to Homepage
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Divider -->
+                <div class="hero-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Right Side: Flyer Image -->
+                <div class="flyer-container slide-in-right">
+                    <img src="images/bw.jpg" alt="Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting" class="flyer-image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Thank You Section -->
+    <section class="thank-you-section">
+        <div class="thank-you-bg-shape"></div>
+        <div class="thank-you-bg-shape-2"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="thank-you-card">
+                        <div class="thank-you-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 class="thank-you-title" id="thankYouTitle">Thank You!</h2>
+                        <p class="thank-you-message" id="thankYouMessage">Thank you for registering for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting. We're excited to have you join us for this transformative event!</p>
+
+                        <div class="payment-details">
+                            <h4>Payment Information</h4>
+                            <div class="payment-detail-item">
+                                <div class="detail-icon"><i class="fas fa-user"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Recipient:</span>
+                                    <span class="detail-value">Esther Obasi-ike</span>
+                                </div>
+                            </div>
+                            <div class="payment-detail-item">
+                                <div class="detail-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">0721 599 013</span>
+                                </div>
+                            </div>
+                            <div class="payment-detail-item">
+                                <div class="detail-icon"><i class="fas fa-money-bill-wave"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Amount:</span>
+                                    <span class="detail-value">KSh 5,000 per person</span>
+                                </div>
+                            </div>
+                            <div class="payment-detail-item">
+                                <div class="detail-icon"><i class="fas fa-info-circle"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Note:</span>
+                                    <span class="detail-value">Please include your name as reference when making the payment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qeg-mission">
+                            <h4>About Queen Esthers' Generation</h4>
+                            <p>"Queen Esther's Generation is a generation of people who seek peace, truth, justice prosperity and total well being of God's people. A generation of women of God who provide spiritual nourishment for themselves, their families and society as a whole, with high regard for the human race. Cutting across the board as an interdenominational, multi cultural, multi racial and multi ethnic organization, QEG endeavors to remain a welcome home for all women who will be empowered and who will in turn empower others through the Gospel of Christ."</p>
+                        </div>
+
+                        <div class="text-center mt-5">
+                            <a href="index.html" class="btn btn-corporate-primary btn-lg">
+                                <i class="fas fa-home me-2"></i>Return to Homepage
+                            </a>
+                            <div class="mt-3">
+                                <span class="return-hint">Continue exploring the QEG Economic Empowerment Breakfast 2025</span>
+                            </div>
+                        </div>
+
+                        <style>
+                            .btn-corporate-primary {
+                                background: linear-gradient(135deg, var(--corporate-primary) 0%, var(--corporate-primary-dark) 100%);
+                                color: white;
+                                font-weight: 600;
+                                padding: 12px 30px;
+                                border-radius: 50px;
+                                border: none;
+                                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                                box-shadow: 0 10px 25px rgba(123, 31, 162, 0.2);
+                                position: relative;
+                                overflow: hidden;
+                                z-index: 1;
+                            }
+
+                            .btn-corporate-primary::before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: -100%;
+                                width: 100%;
+                                height: 100%;
+                                background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+                                transition: all 0.6s ease;
+                                z-index: -1;
+                            }
+
+                            .btn-corporate-primary:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0 15px 35px rgba(123, 31, 162, 0.3);
+                                color: white;
+                            }
+
+                            .btn-corporate-primary:hover::before {
+                                left: 100%;
+                            }
+
+                            .btn-corporate-primary i {
+                                transition: all 0.3s ease;
+                            }
+
+                            .btn-corporate-primary:hover i {
+                                transform: translateX(-3px);
+                            }
+
+                            .return-hint {
+                                font-size: 0.9rem;
+                                color: var(--corporate-text-light);
+                                opacity: 0.8;
+                            }
+                        </style>
+
+                        <div class="upcoming-events">
+                            <h4>Discover More QEG Programs</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 mb-md-0">
+                                    <div class="event-card">
+                                        <div class="event-card-img">
+                                            <img src="images/monthlygatherings.jpg" alt="QEG Monthly Meetings">
+                                        </div>
+                                        <div class="event-card-body">
+                                            <h5 class="event-card-title">Monthly Gatherings</h5>
+                                            <p class="event-card-text">You're welcome to our monthly meeting, "The Gathering of Stars and Queens," held on the first Saturday of every month at RCCG Solution Centre, Nairobi, Kenya.</p>
+                                            <a href="https://queenesthersgeneration.com/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="event-card">
+                                        <div class="event-card-img">
+                                            <img src="images/queenesthersnextgeneration.jpg" alt="Queen Esther's Next Generation">
+                                        </div>
+                                        <div class="event-card-body">
+                                            <h5 class="event-card-title">Queen Esther's Next Generation</h5>
+                                            <p class="event-card-text">A special program for mentoring and training young girls between ages 13-20 years, preparing them for transformational leadership.</p>
+                                            <a href="https://queenesthersgeneration.com/qeng-queen-esthers-next-generation/" target="_blank" class="btn-corporate-outline">Learn More <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qeg-mission mt-4">
+                            <h4>Our Core Values</h4>
+                            <p>TEEE – Transform, Equip, Empower, Engage</p>
+                        </div>
+
+                        <div class="social-links">
+                            <h5>Connect with Queen Esthers' Generation</h5>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/QueenEsthersGeneration/" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/QEGeneration" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/queenesthersgeneration/" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UCeQe5NyBpn0St5pg9J-WjWw" target="_blank" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer (Same as Landing Page) -->
+    <footer class="luxury-footer">
+        <!-- Premium Header Section -->
+        <div class="footer-premium-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="footer-brand-section">
+                            <h2 class="footer-brand-name">
+                                <span class="brand-accent">Queen Esthers'</span> Generation
+                                <div class="luxury-accent-logo">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                            </h2>
+                            <p class="footer-brand-tagline">Building Wealth, Building Futures</p>
+                            <p class="footer-mission-statement">
+                                Empowering women through economic education, spiritual growth, and transformational leadership development across Kenya and beyond.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="footer-premium-cta">
+                            <span class="premium-badge">
+                                <i class="fas fa-crown me-2"></i>Premium Event
+                            </span>
+                            <div class="countdown-container">
+                                <div class="countdown-label">Event Countdown</div>
+                                <div class="countdown-display">
+                                    <div class="countdown-item">
+                                        <span class="countdown-number" id="days">00</span>
+                                        <span class="countdown-text">Days</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span class="countdown-number" id="hours">00</span>
+                                        <span class="countdown-text">Hours</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span class="countdown-number" id="minutes">00</span>
+                                        <span class="countdown-text">Minutes</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span class="countdown-number" id="seconds">00</span>
+                                        <span class="countdown-text">Seconds</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Divider -->
+        <div class="footer-luxury-divider">
+            <div class="divider-line-left"></div>
+            <div class="divider-center-ornament">
+                <i class="fas fa-gem"></i>
+            </div>
+            <div class="divider-line-right"></div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="footer-content-grid">
+            <div class="container">
+                <div class="row">
+                    <!-- Social Media & Newsletter Column -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-share-alt"></i></span>
+                                Connect With Us
+                            </h4>
+                            <div class="social-links-luxury">
+                                <a href="https://www.facebook.com/QueenEsthersGeneration/" target="_blank" rel="noopener noreferrer" class="social-link-luxury facebook" aria-label="Follow us on Facebook">
+                                    <div class="social-icon-wrapper">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <span class="social-label">Facebook</span>
+                                </a>
+                                <a href="https://twitter.com/QEGeneration" target="_blank" rel="noopener noreferrer" class="social-link-luxury twitter" aria-label="Follow us on Twitter">
+                                    <div class="social-icon-wrapper">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <span class="social-label">Twitter</span>
+                                </a>
+                                <a href="https://www.instagram.com/queenesthersgeneration/" target="_blank" rel="noopener noreferrer" class="social-link-luxury instagram" aria-label="Follow us on Instagram">
+                                    <div class="social-icon-wrapper">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <span class="social-label">Instagram</span>
+                                </a>
+                                <a href="https://youtube.com/@queenesthersgeneration" target="_blank" rel="noopener noreferrer" class="social-link-luxury youtube" aria-label="Subscribe to our YouTube channel">
+                                    <div class="social-icon-wrapper">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <span class="social-label">YouTube</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation & Event Info Column -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-compass"></i></span>
+                                Quick Navigation
+                            </h4>
+                            <div class="luxury-menu-grid">
+                                <a href="index.html#about" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-info-circle"></i></div>
+                                    <span class="menu-text">About Event</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#speakers" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-microphone"></i></div>
+                                    <span class="menu-text">Our Speakers</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#details" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-calendar-alt"></i></div>
+                                    <span class="menu-text">Event Details</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                                <a href="index.html#registration" class="luxury-menu-item">
+                                    <div class="menu-icon"><i class="fas fa-ticket-alt"></i></div>
+                                    <span class="menu-text">Register Now</span>
+                                    <div class="menu-arrow"><i class="fas fa-arrow-right"></i></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Highlights Column -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-star"></i></span>
+                                Event Highlights
+                            </h4>
+                            <div class="event-highlights-luxury">
+                                <div class="highlight-item-luxury">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <span class="highlight-label">Date</span>
+                                        <span class="highlight-value">4th July 2025</span>
+                                    </div>
+                                </div>
+                                <div class="highlight-item-luxury">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <span class="highlight-label">Time</span>
+                                        <span class="highlight-value">7:00 AM - 11:00 AM</span>
+                                    </div>
+                                </div>
+                                <div class="highlight-item-luxury">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-tag"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <span class="highlight-label">Investment</span>
+                                        <span class="highlight-value">KSh 5,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Support Column -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-widget luxury-widget">
+                            <h4 class="widget-title-luxury">
+                                <span class="title-icon"><i class="fas fa-headset"></i></span>
+                                Get In Touch
+                            </h4>
+
+                            <!-- Luxury Contact Cards -->
+                            <div class="contact-cards-luxury">
+                                <div class="contact-card-luxury">
+                                    <div class="contact-icon-wrapper">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Call Us</span>
+                                        <a href="tel:+254721599013" class="contact-value">+254 721 599 013</a>
+                                    </div>
+                                    <div class="contact-status">
+                                        <span class="status-indicator online"></span>
+                                        <span class="status-text">Available</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-card-luxury">
+                                    <div class="contact-icon-wrapper">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Email Us</span>
+                                        <a href="mailto:queenesthers2012@gmail.com" class="contact-value">queenesthers2012@gmail.com</a>
+                                    </div>
+                                    <div class="contact-status">
+                                        <span class="status-indicator online"></span>
+                                        <span class="status-text">24/7</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-card-luxury">
+                                    <div class="contact-icon-wrapper">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Event Venue</span>
+                                        <a href="https://emara.ole-sereni.com/" target="_blank" rel="noopener noreferrer" class="contact-value">Emara Ole Sereni Hotel</a>
+                                    </div>
+                                    <div class="contact-status">
+                                        <span class="status-indicator"></span>
+                                        <span class="status-text">Nairobi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Footer Bottom -->
+        <div class="footer-bottom-section">
+            <div class="footer-bottom-shape"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-8">
+                        <p class="copyright-text">
+                            <i class="fas fa-copyright me-2"></i>
+                            © 2025 Queen Esthers' Generation. All Rights Reserved.
+                        </p>
+                        <p class="copyright-subtext">
+                            Empowering economic growth through strategic partnerships and education.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="footer-bottom-right">
+                            <p class="developer-text">
+                                <i class="fas fa-laptop-code me-2"></i>
+                                Developed by
+                                <a href="https://codegx.tech" target="_blank" rel="noopener noreferrer">Codegx Technologies</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-divider"></div>
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <div class="footer-bottom-links">
+                            <a href="#privacy-policy" data-bs-toggle="modal" data-bs-target="#privacyModal">
+                                <i class="fas fa-shield-alt me-1"></i>Privacy Policy
+                            </a>
+                            <span class="link-divider">|</span>
+                            <a href="#terms-of-service" data-bs-toggle="modal" data-bs-target="#termsModal">
+                                <i class="fas fa-file-contract me-1"></i>Terms of Service
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back to Top Button -->
+                <div class="back-to-top-container">
+                    <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Footer content ends here -->
+        </div>
+    </footer>
+
+
+
+    <!-- Footer Back to Top Button Styles -->
+    <style>
+        /* Enhanced Footer Back to Top Button Styles */
+        .back-to-top-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 15px 0;
+        }
+
+        .back-to-top-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border: none;
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .back-to-top-btn:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+            opacity: 1;
+            color: #1a1a1a;
+        }
+
+        .back-to-top-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .back-to-top-btn:focus {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .back-to-top-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 15px;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .back-to-top-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 10px;
+                padding: 8px 0;
+            }
+        }
+    </style>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVOLCtIdzNO9W3Cl7L_VmT3bi7JNgb05I",
+      authDomain: "qegbreakfast2025.firebaseapp.com",
+      projectId: "qegbreakfast2025",
+      storageBucket: "qegbreakfast2025.appspot.com",
+      messagingSenderId: "884616922462",
+      appId: "1:884616922462:web:aff2e07bbb6648f9693bcf",
+      measurementId: "G-W9BPZHL3NV"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+    <!-- Firebase Operations -->
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // Display personalized information from localStorage and save to Firebase
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Thank you page loaded, checking for registration data...");
+
+            try {
+                // Try multiple data sources to get registration data
+                let formData = null;
+                let dataSource = '';
+
+                // 1. Try localStorage first (from main registration form)
+                const localStorageData = localStorage.getItem('qegRegistrationData');
+                if (localStorageData) {
+                    try {
+                        formData = JSON.parse(localStorageData);
+                        dataSource = 'localStorage';
+                        console.log("Retrieved data from localStorage:", formData);
+                    } catch (e) {
+                        console.error("Error parsing localStorage data:", e);
+                    }
+                }
+
+                // 2. Fallback to sessionStorage (from registration form steps)
+                if (!formData) {
+                    const sessionData = sessionStorage.getItem('registrationFormData');
+                    if (sessionData) {
+                        try {
+                            formData = JSON.parse(sessionData);
+                            dataSource = 'sessionStorage';
+                            console.log("Retrieved data from sessionStorage:", formData);
+                        } catch (e) {
+                            console.error("Error parsing sessionStorage data:", e);
+                        }
+                    }
+                }
+
+                // 3. Try to get data from URL parameters as last resort
+                if (!formData) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const firstName = urlParams.get('firstName');
+                    const lastName = urlParams.get('lastName');
+                    if (firstName) {
+                        formData = { firstName, lastName };
+                        dataSource = 'URL parameters';
+                        console.log("Retrieved data from URL parameters:", formData);
+                    }
+                }
+
+                // Personalize the page if we have name data
+                if (formData) {
+                    // Handle different field name variations
+                    const firstName = formData.firstName || formData.name || '';
+                    const lastName = formData.lastName || formData.surname || '';
+
+                    console.log("Processing name data:", { firstName, lastName, dataSource });
+
+                    if (firstName && firstName.trim()) {
+                        // Personalize the thank you title and message
+                        const thankYouTitle = document.getElementById('thankYouTitle');
+                        const thankYouMessage = document.getElementById('thankYouMessage');
+
+                        if (thankYouTitle) {
+                            thankYouTitle.textContent = `Thank You, ${firstName}!`;
+                            console.log("Updated title with name:", firstName);
+                        }
+
+                        if (thankYouMessage) {
+                            const fullName = lastName && lastName.trim() ? `${firstName} ${lastName}` : firstName;
+                            thankYouMessage.innerHTML = `Thank you, <strong>${fullName}</strong>, for registering for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting. We're excited to have you join us for this transformative event!`;
+                            console.log("Updated message with full name:", fullName);
+                        }
+
+                        console.log("Successfully personalized thank you page with name:", firstName, lastName);
+                    } else {
+                        console.log("No valid firstName found in data:", formData);
+                    }
+                } else {
+                    console.log("No registration data found in any storage location");
+
+                    // Set a fallback message
+                    const thankYouMessage = document.getElementById('thankYouMessage');
+                    if (thankYouMessage) {
+                        thankYouMessage.innerHTML = `Thank you for registering for the Queen Esthers' Generation 2025 Economic Empowerment Breakfast Meeting. We're excited to have you join us for this transformative event!`;
+                    }
+                }
+
+                    // Add personalized payment method info if available
+                    if (formData && formData.paymentMethod) {
+                        const paymentDetails = document.querySelector('.payment-details');
+                        if (paymentDetails) {
+                            const methodItem = document.createElement('div');
+                            methodItem.className = 'payment-detail-item payment-method-item';
+                            methodItem.innerHTML = `
+                                <div class="detail-icon"><i class="fas fa-credit-card"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Selected Payment Method:</span>
+                                    <span class="detail-value">${formData.paymentMethod.charAt(0).toUpperCase() + formData.paymentMethod.slice(1)}</span>
+                                </div>
+                            `;
+
+                            // Add special class for mobile styling
+                            methodItem.setAttribute('data-payment-method', formData.paymentMethod.toLowerCase());
+
+                            // Insert at the beginning of payment details
+                            paymentDetails.insertBefore(methodItem, paymentDetails.firstChild);
+                            console.log("Added payment method to details:", formData.paymentMethod);
+
+                            // Add special styling for mobile view
+                            const styleElement = document.createElement('style');
+                            styleElement.textContent = `
+                                /* Payment method responsive styling */
+                                @media (max-width: 576px) {
+                                    .payment-method-item {
+                                        background-color: rgba(255, 171, 0, 0.1);
+                                        border-left: 3px solid var(--corporate-accent);
+                                    }
+
+                                    .payment-method-item .detail-content {
+                                        display: flex;
+                                        flex-direction: column;
+                                    }
+
+                                    .payment-method-item .detail-label {
+                                        font-weight: 700;
+                                        color: var(--corporate-text-dark);
+                                        margin-bottom: 5px;
+                                    }
+
+                                    .payment-method-item .detail-value {
+                                        font-size: 1.1rem;
+                                        font-weight: 600;
+                                        color: var(--corporate-accent);
+                                    }
+
+                                    /* Special styling for M-Pesa */
+                                    [data-payment-method="mpesa"] .detail-value {
+                                        color: #4CAF50;
+                                    }
+                                }
+                            `;
+                            document.head.appendChild(styleElement);
+                        }
+                    }
+
+                    // Check if Firebase is available and we have form data
+                    if (formData && window.firebaseDB) {
+                        console.log("Firebase DB object found on thank you page");
+
+                        // Check if registration is already saved to Firebase
+                        if (!formData.registrationId) {
+                            console.log("No registration ID found, attempting to save to Firebase...");
+
+                            // Save registration data to Firebase
+                            window.firebaseDB.saveRegistration(formData)
+                                .then((docRef) => {
+                                    console.log('Registration saved from thank you page with ID: ', docRef.id);
+
+                                    // Store the document ID in localStorage for reference
+                                    formData.registrationId = docRef.id;
+                                    localStorage.setItem('qegRegistrationData', JSON.stringify(formData));
+
+                                    // Add registration ID to the page for reference
+                                    const paymentDetails = document.querySelector('.payment-details');
+                                    if (paymentDetails) {
+                                        const idItem = document.createElement('div');
+                                        idItem.className = 'payment-detail-item';
+                                        idItem.innerHTML = `
+                                            <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                            <div class="detail-content">
+                                                <span class="detail-label">Registration ID:</span>
+                                                <span class="detail-value">${docRef.id}</span>
+                                            </div>
+                                        `;
+                                        paymentDetails.appendChild(idItem);
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error saving registration from thank you page: ', error);
+                                });
+                        } else {
+                            console.log("Registration ID already exists:", formData.registrationId);
+
+                            // Registration already saved, display the ID
+                            const paymentDetails = document.querySelector('.payment-details');
+                            if (paymentDetails) {
+                                const idItem = document.createElement('div');
+                                idItem.className = 'payment-detail-item';
+                                idItem.innerHTML = `
+                                    <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
+                                    <div class="detail-content">
+                                        <span class="detail-label">Registration ID:</span>
+                                        <span class="detail-value">${formData.registrationId}</span>
+                                    </div>
+                                `;
+                                paymentDetails.appendChild(idItem);
+                            }
+                        }
+                    } else {
+                        console.warn("Firebase DB object not found on thank you page");
+                    }
+                } else {
+                    console.warn("No registration data found in localStorage");
+                }
+            } catch (e) {
+                console.error('Error processing registration data:', e);
+            }
+
+            // Initialize countdown timer for thank you page
+            function initializeThankYouCountdown() {
+                console.log('🕒 Initializing thank you page countdown timer...');
+
+                // Set the event date (July 4, 2025 7:00 AM) - Using explicit timezone
+                // Temporarily using a test date to verify countdown works
+                const testDate = new Date();
+                testDate.setDate(testDate.getDate() + 30); // 30 days from now
+                testDate.setHours(7, 0, 0, 0); // Set to 7:00 AM
+                const eventDate = testDate.getTime();
+
+                // For production, use this line instead:
+                // const eventDate = new Date('2025-07-04T07:00:00+03:00').getTime();
+
+                console.log('📅 Thank you page event date set to:', new Date(eventDate));
+                console.log('📅 Current date:', new Date());
+                console.log('⏰ Time difference (ms):', eventDate - new Date().getTime());
+                console.log('📊 Days until event:', Math.floor((eventDate - new Date().getTime()) / (1000 * 60 * 60 * 24)));
+
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = eventDate - now;
+
+                    console.log('🔄 Updating countdown. Distance:', distance);
+
+                    if (distance > 0) {
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        console.log('📊 Countdown values:', { days, hours, minutes, seconds });
+
+                        // Update countdown display
+                        const daysElement = document.getElementById('days');
+                        const hoursElement = document.getElementById('hours');
+                        const minutesElement = document.getElementById('minutes');
+                        const secondsElement = document.getElementById('seconds');
+
+                        console.log('🔍 Found elements:', {
+                            days: !!daysElement,
+                            hours: !!hoursElement,
+                            minutes: !!minutesElement,
+                            seconds: !!secondsElement
+                        });
+
+                        if (daysElement) {
+                            daysElement.textContent = days.toString().padStart(2, '0');
+                            console.log('✅ Updated days:', days);
+                        }
+                        if (hoursElement) {
+                            hoursElement.textContent = hours.toString().padStart(2, '0');
+                            console.log('✅ Updated hours:', hours);
+                        }
+                        if (minutesElement) {
+                            minutesElement.textContent = minutes.toString().padStart(2, '0');
+                            console.log('✅ Updated minutes:', minutes);
+                        }
+                        if (secondsElement) {
+                            secondsElement.textContent = seconds.toString().padStart(2, '0');
+                            console.log('✅ Updated seconds:', seconds);
+                        }
+                    } else {
+                        console.log('⚠️ Event has started or passed');
+
+                        // Event has started or passed
+                        const daysElement = document.getElementById('days');
+                        const hoursElement = document.getElementById('hours');
+                        const minutesElement = document.getElementById('minutes');
+                        const secondsElement = document.getElementById('seconds');
+
+                        if (daysElement) daysElement.textContent = '00';
+                        if (hoursElement) hoursElement.textContent = '00';
+                        if (minutesElement) minutesElement.textContent = '00';
+                        if (secondsElement) secondsElement.textContent = '00';
+
+                        // Update label to show event is live
+                        const countdownLabel = document.querySelector('.countdown-label');
+                        if (countdownLabel) {
+                            countdownLabel.textContent = 'Event is Live!';
+                            countdownLabel.style.color = '#4caf50';
+                        }
+                    }
+                }
+
+                // Update immediately and then every second to show live countdown
+                console.log('🚀 Starting countdown updates...');
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
+
+            // Initialize countdown timer
+            initializeThankYouCountdown();
+
+            // DIRECT SCROLL BUTTON FIX - Simple and guaranteed to work
+            function setupScrollButton() {
+                console.log('🔧 Setting up scroll button with direct approach...');
+
+                // Find button by multiple methods
+                let backToTopBtn = document.getElementById('backToTopBtn');
+
+                if (!backToTopBtn) {
+                    backToTopBtn = document.querySelector('.back-to-top-btn');
+                    console.log('🔍 Found button by class:', !!backToTopBtn);
+                }
+
+                if (!backToTopBtn) {
+                    backToTopBtn = document.querySelector('button[aria-label="Back to top"]');
+                    console.log('🔍 Found button by aria-label:', !!backToTopBtn);
+                }
+
+                if (backToTopBtn) {
+                    console.log('✅ Button found! Setting up click handler...');
+                    console.log('🔍 Button element:', backToTopBtn);
+
+                    // Remove any existing event listeners by cloning the button
+                    const newButton = backToTopBtn.cloneNode(true);
+                    backToTopBtn.parentNode.replaceChild(newButton, backToTopBtn);
+                    backToTopBtn = newButton;
+
+                    // Ensure button has proper ID
+                    if (!backToTopBtn.id) {
+                        backToTopBtn.id = 'backToTopBtn';
+                    }
+
+                    // Add direct onclick handler (most reliable)
+                    backToTopBtn.onclick = function(e) {
+                        e.preventDefault();
+                        console.log('🚀 SCROLL BUTTON CLICKED! (onclick)');
+
+                        // Multiple scroll methods for maximum compatibility
+                        try {
+                            // Method 1: Modern smooth scroll
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            console.log('✅ Smooth scroll attempted');
+                        } catch (e) {
+                            console.log('⚠️ Smooth scroll failed, trying instant scroll');
+                            // Method 2: Instant scroll fallback
+                            window.scrollTo(0, 0);
+                        }
+
+                        // Method 3: Direct DOM scroll (backup)
+                        setTimeout(() => {
+                            document.documentElement.scrollTop = 0;
+                            document.body.scrollTop = 0;
+                            console.log('✅ Direct DOM scroll completed');
+                        }, 100);
+
+                        return false;
+                    };
+
+                    // Add addEventListener as backup
+                    backToTopBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('🚀 SCROLL BUTTON CLICKED! (addEventListener)');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+
+                    // Add mousedown for immediate feedback
+                    backToTopBtn.addEventListener('mousedown', function() {
+                        console.log('🖱️ Button mousedown detected');
+                    });
+
+                    // Add touchstart for mobile
+                    backToTopBtn.addEventListener('touchstart', function() {
+                        console.log('📱 Button touchstart detected');
+                    });
+
+                    // Test button properties
+                    const styles = window.getComputedStyle(backToTopBtn);
+                    console.log('🎨 Button properties:', {
+                        display: styles.display,
+                        visibility: styles.visibility,
+                        opacity: styles.opacity,
+                        pointerEvents: styles.pointerEvents,
+                        cursor: styles.cursor,
+                        zIndex: styles.zIndex,
+                        position: styles.position
+                    });
+
+                    // Test if button is clickable
+                    const rect = backToTopBtn.getBoundingClientRect();
+                    console.log('📏 Button position:', {
+                        top: rect.top,
+                        left: rect.left,
+                        width: rect.width,
+                        height: rect.height,
+                        visible: rect.width > 0 && rect.height > 0
+                    });
+
+                    // Add visual feedback on hover
+                    backToTopBtn.style.cursor = 'pointer';
+
+                    console.log('✅ Scroll button setup complete!');
+
+                } else {
+                    console.error('❌ SCROLL BUTTON NOT FOUND!');
+
+                    // List all buttons on the page
+                    const allButtons = document.querySelectorAll('button');
+                    console.log('🔍 All buttons on page:', allButtons.length);
+                    allButtons.forEach((btn, index) => {
+                        console.log(`Button ${index}:`, {
+                            id: btn.id,
+                            className: btn.className,
+                            textContent: btn.textContent.trim(),
+                            ariaLabel: btn.getAttribute('aria-label')
+                        });
+                    });
+                }
+            }
+
+            // Call the setup function
+            setupScrollButton();
+
+            // Also try again after a short delay in case of timing issues
+            setTimeout(setupScrollButton, 500);
+
+            // Test function for debugging name personalization
+            window.testNamePersonalization = function(firstName, lastName) {
+                console.log('Testing name personalization with:', firstName, lastName);
+
+                // Create test data
+                const testData = {
+                    firstName: firstName || 'John',
+                    lastName: lastName || 'Doe',
+                    email: 'test@example.com',
+                    phone: '+254700000000',
+                    organization: 'Test Company',
+                    position: 'Test Position',
+                    industry: 'Technology',
+                    paymentMethod: 'mpesa',
+                    termsAccepted: true,
+                    registrationDate: new Date().toISOString()
+                };
+
+                // Save to localStorage
+                localStorage.setItem('qegRegistrationData', JSON.stringify(testData));
+                console.log('Test data saved to localStorage:', testData);
+
+                // Reload the page to see the effect
+                window.location.reload();
+            };
+
+            // Test function for countdown timer
+            window.testCountdownTimer = function() {
+                console.log('🧪 Testing countdown timer with a date 30 days from now...');
+
+                // Override the countdown with a test date
+                const testDate = new Date();
+                testDate.setDate(testDate.getDate() + 30); // 30 days from now
+                testDate.setHours(11, 0, 0, 0); // Set to 11:00 AM
+
+                const eventDate = testDate.getTime();
+                console.log('🧪 Test event date set to:', new Date(eventDate));
+
+                function updateTestCountdown() {
+                    const now = new Date().getTime();
+                    const distance = eventDate - now;
+
+                    if (distance > 0) {
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        console.log('🧪 Test countdown values:', { days, hours, minutes, seconds });
+
+                        const daysElement = document.getElementById('days');
+                        const hoursElement = document.getElementById('hours');
+                        const minutesElement = document.getElementById('minutes');
+                        const secondsElement = document.getElementById('seconds');
+
+                        if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+                        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+                        if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+                        if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                    }
+                }
+
+                // Clear existing interval and start test countdown
+                updateTestCountdown();
+                setInterval(updateTestCountdown, 1000);
+
+                console.log('🧪 Test countdown started! You should see ~30 days counting down.');
+            };
+
+            // Enhanced test function for scroll to top
+            window.testScrollToTop = function() {
+                console.log('🧪 Testing scroll to top functionality...');
+
+                // First scroll down to make sure we're not at the top
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+                setTimeout(() => {
+                    console.log('📍 Current scroll position:', window.scrollY);
+                    console.log('📏 Document height:', document.body.scrollHeight);
+
+                    // Try to find and click the button
+                    const btn = document.getElementById('backToTopBtn');
+                    console.log('🔍 Button element:', btn);
+
+                    if (btn) {
+                        console.log('✅ Found button, checking properties...');
+                        console.log('🎨 Button computed styles:', {
+                            display: window.getComputedStyle(btn).display,
+                            visibility: window.getComputedStyle(btn).visibility,
+                            opacity: window.getComputedStyle(btn).opacity,
+                            pointerEvents: window.getComputedStyle(btn).pointerEvents,
+                            position: window.getComputedStyle(btn).position
+                        });
+
+                        console.log('📍 Button position:', {
+                            offsetTop: btn.offsetTop,
+                            offsetLeft: btn.offsetLeft,
+                            clientWidth: btn.clientWidth,
+                            clientHeight: btn.clientHeight
+                        });
+
+                        console.log('🖱️ Triggering click event...');
+                        btn.click();
+
+                        // Also try manual scroll as backup
+                        setTimeout(() => {
+                            if (window.scrollY > 100) {
+                                console.log('⚠️ Button click may not have worked, trying manual scroll...');
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            } else {
+                                console.log('✅ Scroll to top successful!');
+                            }
+                        }, 1000);
+                    } else {
+                        console.error('❌ Button not found, trying manual scroll...');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 1000);
+            };
+
+            // Force scroll button functionality test
+            window.forceTestScrollButton = function() {
+                console.log('🔧 Force testing scroll button...');
+                setupScrollButton(); // Re-run the setup
+                console.log('✅ Scroll button re-setup completed. Try clicking now.');
+            };
+
+            // Manual scroll function (always works)
+            window.manualScrollToTop = function() {
+                console.log('🚀 Manual scroll to top triggered!');
+
+                // Try multiple scroll methods
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                }, 100);
+
+                console.log('✅ Manual scroll completed');
+            };
+
+            // Test if button is clickable
+            window.testButtonClickable = function() {
+                const btn = document.getElementById('backToTopBtn') || document.querySelector('.back-to-top-btn');
+                if (btn) {
+                    console.log('🔍 Testing button clickability...');
+
+                    // Simulate click programmatically
+                    const event = new MouseEvent('click', {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true
+                    });
+
+                    console.log('🖱️ Dispatching click event...');
+                    btn.dispatchEvent(event);
+
+                    // Also try direct onclick if it exists
+                    if (btn.onclick) {
+                        console.log('🔧 Calling onclick directly...');
+                        btn.onclick();
+                    }
+                } else {
+                    console.error('❌ Button not found for testing!');
+                }
+            };
+
+            // Add console messages for testing
+            console.log('🧪 SCROLL BUTTON TESTING FUNCTIONS:');
+            console.log('⬆️ Test scroll button: testScrollToTop()');
+            console.log('🔧 Force button setup: forceTestScrollButton()');
+            console.log('🚀 Manual scroll (always works): manualScrollToTop()');
+            console.log('🖱️ Test button clickable: testButtonClickable()');
+            console.log('');
+            console.log('🧪 OTHER TESTING FUNCTIONS:');
+            console.log('👤 Name personalization: testNamePersonalization("YourName", "YourLastName")');
+            console.log('⏰ Countdown timer: testCountdownTimer()');
+            console.log('');
+            console.log('💡 TIP: If scroll button not working, try: manualScrollToTop()');
+        });
+    </script>
+</body>
+</html>
