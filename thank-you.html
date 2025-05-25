@@ -1389,6 +1389,78 @@
 
 
 
+    <!-- Footer Back to Top Button Styles -->
+    <style>
+        /* Enhanced Footer Back to Top Button Styles */
+        .back-to-top-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 15px 0;
+        }
+
+        .back-to-top-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border: none;
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .back-to-top-btn:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+            opacity: 1;
+            color: #1a1a1a;
+        }
+
+        .back-to-top-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .back-to-top-btn:focus {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .back-to-top-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 15px;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .back-to-top-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 10px;
+                padding: 8px 0;
+            }
+        }
+    </style>
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
@@ -1721,17 +1793,132 @@
             // Initialize countdown timer
             initializeThankYouCountdown();
 
-            // Footer back-to-top button functionality
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
+            // DIRECT SCROLL BUTTON FIX - Simple and guaranteed to work
+            function setupScrollButton() {
+                console.log('🔧 Setting up scroll button with direct approach...');
+
+                // Find button by multiple methods
+                let backToTopBtn = document.getElementById('backToTopBtn');
+
+                if (!backToTopBtn) {
+                    backToTopBtn = document.querySelector('.back-to-top-btn');
+                    console.log('🔍 Found button by class:', !!backToTopBtn);
+                }
+
+                if (!backToTopBtn) {
+                    backToTopBtn = document.querySelector('button[aria-label="Back to top"]');
+                    console.log('🔍 Found button by aria-label:', !!backToTopBtn);
+                }
+
+                if (backToTopBtn) {
+                    console.log('✅ Button found! Setting up click handler...');
+                    console.log('🔍 Button element:', backToTopBtn);
+
+                    // Remove any existing event listeners by cloning the button
+                    const newButton = backToTopBtn.cloneNode(true);
+                    backToTopBtn.parentNode.replaceChild(newButton, backToTopBtn);
+                    backToTopBtn = newButton;
+
+                    // Ensure button has proper ID
+                    if (!backToTopBtn.id) {
+                        backToTopBtn.id = 'backToTopBtn';
+                    }
+
+                    // Add direct onclick handler (most reliable)
+                    backToTopBtn.onclick = function(e) {
+                        e.preventDefault();
+                        console.log('🚀 SCROLL BUTTON CLICKED! (onclick)');
+
+                        // Multiple scroll methods for maximum compatibility
+                        try {
+                            // Method 1: Modern smooth scroll
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            console.log('✅ Smooth scroll attempted');
+                        } catch (e) {
+                            console.log('⚠️ Smooth scroll failed, trying instant scroll');
+                            // Method 2: Instant scroll fallback
+                            window.scrollTo(0, 0);
+                        }
+
+                        // Method 3: Direct DOM scroll (backup)
+                        setTimeout(() => {
+                            document.documentElement.scrollTop = 0;
+                            document.body.scrollTop = 0;
+                            console.log('✅ Direct DOM scroll completed');
+                        }, 100);
+
+                        return false;
+                    };
+
+                    // Add addEventListener as backup
+                    backToTopBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('🚀 SCROLL BUTTON CLICKED! (addEventListener)');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     });
-                });
+
+                    // Add mousedown for immediate feedback
+                    backToTopBtn.addEventListener('mousedown', function() {
+                        console.log('🖱️ Button mousedown detected');
+                    });
+
+                    // Add touchstart for mobile
+                    backToTopBtn.addEventListener('touchstart', function() {
+                        console.log('📱 Button touchstart detected');
+                    });
+
+                    // Test button properties
+                    const styles = window.getComputedStyle(backToTopBtn);
+                    console.log('🎨 Button properties:', {
+                        display: styles.display,
+                        visibility: styles.visibility,
+                        opacity: styles.opacity,
+                        pointerEvents: styles.pointerEvents,
+                        cursor: styles.cursor,
+                        zIndex: styles.zIndex,
+                        position: styles.position
+                    });
+
+                    // Test if button is clickable
+                    const rect = backToTopBtn.getBoundingClientRect();
+                    console.log('📏 Button position:', {
+                        top: rect.top,
+                        left: rect.left,
+                        width: rect.width,
+                        height: rect.height,
+                        visible: rect.width > 0 && rect.height > 0
+                    });
+
+                    // Add visual feedback on hover
+                    backToTopBtn.style.cursor = 'pointer';
+
+                    console.log('✅ Scroll button setup complete!');
+
+                } else {
+                    console.error('❌ SCROLL BUTTON NOT FOUND!');
+
+                    // List all buttons on the page
+                    const allButtons = document.querySelectorAll('button');
+                    console.log('🔍 All buttons on page:', allButtons.length);
+                    allButtons.forEach((btn, index) => {
+                        console.log(`Button ${index}:`, {
+                            id: btn.id,
+                            className: btn.className,
+                            textContent: btn.textContent.trim(),
+                            ariaLabel: btn.getAttribute('aria-label')
+                        });
+                    });
+                }
             }
+
+            // Call the setup function
+            setupScrollButton();
+
+            // Also try again after a short delay in case of timing issues
+            setTimeout(setupScrollButton, 500);
 
             // Test function for debugging name personalization
             window.testNamePersonalization = function(firstName, lastName) {
@@ -1802,10 +1989,117 @@
                 console.log('🧪 Test countdown started! You should see ~30 days counting down.');
             };
 
+            // Enhanced test function for scroll to top
+            window.testScrollToTop = function() {
+                console.log('🧪 Testing scroll to top functionality...');
+
+                // First scroll down to make sure we're not at the top
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+                setTimeout(() => {
+                    console.log('📍 Current scroll position:', window.scrollY);
+                    console.log('📏 Document height:', document.body.scrollHeight);
+
+                    // Try to find and click the button
+                    const btn = document.getElementById('backToTopBtn');
+                    console.log('🔍 Button element:', btn);
+
+                    if (btn) {
+                        console.log('✅ Found button, checking properties...');
+                        console.log('🎨 Button computed styles:', {
+                            display: window.getComputedStyle(btn).display,
+                            visibility: window.getComputedStyle(btn).visibility,
+                            opacity: window.getComputedStyle(btn).opacity,
+                            pointerEvents: window.getComputedStyle(btn).pointerEvents,
+                            position: window.getComputedStyle(btn).position
+                        });
+
+                        console.log('📍 Button position:', {
+                            offsetTop: btn.offsetTop,
+                            offsetLeft: btn.offsetLeft,
+                            clientWidth: btn.clientWidth,
+                            clientHeight: btn.clientHeight
+                        });
+
+                        console.log('🖱️ Triggering click event...');
+                        btn.click();
+
+                        // Also try manual scroll as backup
+                        setTimeout(() => {
+                            if (window.scrollY > 100) {
+                                console.log('⚠️ Button click may not have worked, trying manual scroll...');
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            } else {
+                                console.log('✅ Scroll to top successful!');
+                            }
+                        }, 1000);
+                    } else {
+                        console.error('❌ Button not found, trying manual scroll...');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 1000);
+            };
+
+            // Force scroll button functionality test
+            window.forceTestScrollButton = function() {
+                console.log('🔧 Force testing scroll button...');
+                setupScrollButton(); // Re-run the setup
+                console.log('✅ Scroll button re-setup completed. Try clicking now.');
+            };
+
+            // Manual scroll function (always works)
+            window.manualScrollToTop = function() {
+                console.log('🚀 Manual scroll to top triggered!');
+
+                // Try multiple scroll methods
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                }, 100);
+
+                console.log('✅ Manual scroll completed');
+            };
+
+            // Test if button is clickable
+            window.testButtonClickable = function() {
+                const btn = document.getElementById('backToTopBtn') || document.querySelector('.back-to-top-btn');
+                if (btn) {
+                    console.log('🔍 Testing button clickability...');
+
+                    // Simulate click programmatically
+                    const event = new MouseEvent('click', {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true
+                    });
+
+                    console.log('🖱️ Dispatching click event...');
+                    btn.dispatchEvent(event);
+
+                    // Also try direct onclick if it exists
+                    if (btn.onclick) {
+                        console.log('🔧 Calling onclick directly...');
+                        btn.onclick();
+                    }
+                } else {
+                    console.error('❌ Button not found for testing!');
+                }
+            };
+
             // Add console messages for testing
-            console.log('🧪 To test name personalization, run: testNamePersonalization("YourName", "YourLastName")');
-            console.log('📝 Example: testNamePersonalization("Sarah", "Johnson")');
-            console.log('⏰ To test countdown timer, run: testCountdownTimer()');
+            console.log('🧪 SCROLL BUTTON TESTING FUNCTIONS:');
+            console.log('⬆️ Test scroll button: testScrollToTop()');
+            console.log('🔧 Force button setup: forceTestScrollButton()');
+            console.log('🚀 Manual scroll (always works): manualScrollToTop()');
+            console.log('🖱️ Test button clickable: testButtonClickable()');
+            console.log('');
+            console.log('🧪 OTHER TESTING FUNCTIONS:');
+            console.log('👤 Name personalization: testNamePersonalization("YourName", "YourLastName")');
+            console.log('⏰ Countdown timer: testCountdownTimer()');
+            console.log('');
+            console.log('💡 TIP: If scroll button not working, try: manualScrollToTop()');
         });
     </script>
 </body>

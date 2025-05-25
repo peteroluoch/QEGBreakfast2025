@@ -1104,9 +1104,63 @@
     <!-- Simple Form Navigation JS -->
     <script src="js/simple-form-nav.js"></script>
 
-    <!-- Additional Mobile Styles for Speaker Photos -->
+    <!-- Additional Mobile Styles for Speaker Photos and Footer Back to Top Button -->
     <style>
+        /* Enhanced Footer Back to Top Button Styles */
+        .back-to-top-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 15px 0;
+        }
+
+        .back-to-top-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border: none;
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .back-to-top-btn:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+            opacity: 1;
+            color: #1a1a1a;
+        }
+
+        .back-to-top-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .back-to-top-btn:focus {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
+            .back-to-top-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 15px;
+                padding: 10px 0;
+            }
+
             .speaker-photo {
                 width: 90px !important;
                 height: 90px !important;
@@ -1117,6 +1171,17 @@
         }
 
         @media (max-width: 576px) {
+            .back-to-top-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .back-to-top-container {
+                margin-top: 10px;
+                padding: 8px 0;
+            }
+
             .speaker-photo {
                 width: 85px !important;
                 height: 85px !important;
@@ -1237,13 +1302,34 @@
 
             // Footer back-to-top button functionality
             const backToTopBtn = document.getElementById('backToTopBtn');
+            console.log('🔍 Back to top button found:', !!backToTopBtn);
+
             if (backToTopBtn) {
+                console.log('✅ Adding click event to back to top button');
                 backToTopBtn.addEventListener('click', function(e) {
                     e.preventDefault();
+                    console.log('🚀 Back to top button clicked!');
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
                     });
+                });
+
+                // Test the button visibility and styling
+                console.log('🎨 Button styles:', {
+                    display: window.getComputedStyle(backToTopBtn).display,
+                    visibility: window.getComputedStyle(backToTopBtn).visibility,
+                    opacity: window.getComputedStyle(backToTopBtn).opacity,
+                    pointerEvents: window.getComputedStyle(backToTopBtn).pointerEvents
+                });
+            } else {
+                console.error('❌ Back to top button not found! Looking for element with id="backToTopBtn"');
+
+                // Check if there are any buttons in the footer
+                const footerButtons = document.querySelectorAll('footer button, footer .btn');
+                console.log('🔍 Found buttons in footer:', footerButtons.length);
+                footerButtons.forEach((btn, index) => {
+                    console.log(`Button ${index}:`, btn.id, btn.className, btn.textContent);
                 });
             }
 
